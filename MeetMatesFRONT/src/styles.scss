@@ -1,0 +1,174 @@
+/**
+ * Styles globaux de l’application.
+ *
+ * Ce fichier définit :
+ * - l’identité visuelle globale (typographie, couleurs, backgrounds)
+ * - les styles communs des composants (header, footer, boutons, cards)
+ * - la surcharge des composants Angular Material
+ * - les effets d’interaction (hover, active, feedback utilisateur)
+ *
+ * Objectif : garantir une cohérence visuelle sur toute l’application.
+ */
+
+html,
+body {
+  font-family: 'Poiret One', cursive;
+  font-weight: 700;
+  color: #000000;
+  background-color: #f0f8ff;
+}
+
+.header {
+  background-color: #acdbff !important;
+  border-bottom: 1px solid #000000;
+}
+
+.footer {
+  background-color: #b8e0ff !important;
+  border-top: 1px solid #000000;
+}
+
+.primary-button {
+  font-weight: 700;
+  border-radius: 9px !important;
+  box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.6);
+  border-bottom: black solid 1px !important;
+}
+
+app-button.secondary-button button {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+p {
+  font-weight: 700;
+  color: #000000;
+}
+
+h3 {
+  font-weight: 700 !important;
+  color: #000000;
+  border-bottom: 1px solid black !important;
+}
+
+.text {
+  border-bottom: 1px solid black !important;
+}
+
+.image {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+.icone-card {
+  background-color: #e6f1fd !important;
+  border-radius: 5px !important;
+  border-bottom: black solid 1px !important;
+  box-shadow: 0 6px 10px -6px rgba(0, 0, 0, 0.6) !important;
+  cursor: pointer;
+}
+
+.user-card {
+  background-color: #ddedff !important;
+  box-shadow: 0 6px 10px -6px rgba(0, 0, 0, 0.6) !important;
+  border: 1px solid #6d829b !important;
+  margin-bottom: 3rem !important;
+  padding-bottom: 1rem;
+
+}
+
+// Organization and Participant TABS (profil)
+mat-expansion-panel {
+  box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.8) !important;
+  border-bottom: 1px solid black !important;
+  border-left: 1px solid black !important;
+  border-right: 1px solid black !important;
+  background-color: #f5f8fd !important;
+  border-radius: 0 !important;
+}
+
+.mat-accordion .mat-expansion-panel:not(.mat-expanded),
+.mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
+  border-radius: 3px !important;
+}
+
+// Snack-bar
+.mat-mdc-snack-bar-container {
+  --mdc-snackbar-container-color: #000000;
+  --mdc-snackbar-supporting-text-color: #ffffff;
+  --mdc-snackbar-label-text-color: #000000;
+  font-weight: 500 !important;
+  font-family: 'Poiret One', cursive;
+}
+
+// Selectors
+.mat-mdc-select-panel {
+  border-bottom: 2px solid #000000 !important;
+  background-color: #ffffff !important;
+  border-radius: 0 !important;
+}
+
+// Selector Date
+.mat-datepicker-content {
+  border-bottom: 2px solid #000000 !important;
+  border-top: 2px solid #000000 !important;
+  background-color: #f3f4f6 !important;
+  width: 20rem !important;
+}
+
+.mat-calendar-body-cell {
+  background-color: #f3f4f6 !important;
+}
+
+// Selector Address
+.mat-mdc-autocomplete-panel {
+  background-color: #f3f4f6 !important;
+  border-bottom: 2px solid #000000 !important;
+  border-top: 2px solid #000000 !important;
+}
+
+// Profile Menu
+.mat-mdc-menu-panel {
+  background-color: white !important;
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+}
+
+// dial popup
+.mat-mdc-dialog-surface {
+  --mdc-dialog-container-color: rgb(243, 236, 236);
+}
+
+mat-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: #1976d2;
+}
+
+mat-error {
+  color: #ff0000 !important;
+  font-weight: 700;
+}
+
+// Clic effects
+.primary-button {
+  cursor: pointer;
+  transition: transform 0.05s cubic-bezier(0.25, 0.1, 0.25, 1),
+}
+
+.primary-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 1.5px 0 #000000;
+}
+
+.icon-card {
+  cursor: pointer;
+  transition: transform 0.05s cubic-bezier(0.25, 0.1, 0.25, 1),
+}
+
+.icon-card:active {
+  transform: translateY(4px);
+  box-shadow: 0 0.5px 0 #000000;
+  border-radius: 5px;
+}

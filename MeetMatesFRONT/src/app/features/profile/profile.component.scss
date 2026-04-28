@@ -1,0 +1,17 @@
+.layout-container {
+    @media (min-width: 1000px) and (max-width: 2900px) {
+    position: relative;
+    width: 40vw;
+    margin: 0 auto;
+    padding-inline: 4rem;
+    padding-top: 6rem;
+  }
+
+  @media (min-width: 600px) and (max-width: 999px) {
+    position: relative;
+    width: 70vw;
+    margin: 0 auto;
+    padding-inline: 4rem;
+    padding-top: 9rem;
+  }
+}

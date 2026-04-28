@@ -1,0 +1,30 @@
+<div class="flex flex-col items-center justify-center min-h-screen px-6 py-20">
+
+  <app-state-handler
+    [loading]="loading"
+    [error]="error">
+  </app-state-handler>
+
+
+  <div class="container flex flex-col gap-6">
+
+    <app-button
+      label="UTILISATEURS"
+      class="primary-button w-80"
+      (clicked)="goTo('/admin/users')">
+    </app-button>
+
+    <app-button
+      label="ÉVÉNEMENTS"
+      class="primary-button w-80"
+      (clicked)="goTo('/admin/events')">
+    </app-button>
+
+  </div>
+
+  <div class="mt-12 text-center text-gray-500">
+    <p>{{ users()?.length ?? 0 }} utilisateurs</p>
+    <p>{{ events()?.length ?? 0 }} événements</p>
+  </div>
+
+</div>

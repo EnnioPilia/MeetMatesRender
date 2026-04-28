@@ -1,0 +1,40 @@
+<div class="container flex flex-col items-center justify-start min-h-screen px-10 py-12">
+ 
+  <app-state-handler 
+    [loading]="loading"
+    [error]="error">
+  </app-state-handler>
+
+  @if (events().length > 0) {
+    <div class="flex flex-col items-center">
+      @for (event of events(); track event.id) {
+        <div #eventCard [attr.data-id]="event.id" class="flex flex-col items-center p-6">
+
+          <app-event-header
+            class="title m-3"
+            [title]="event.title"
+            [description]="event.description">
+          </app-event-header>
+
+          <app-event-info
+            class="mb-3"
+            [event]="event"
+            [showStatus]="true">
+          </app-event-info>
+
+          <app-button
+            class="primary-button mt-2 mb-3 w-80 "
+            label="P A R T I C I P E R"
+            (clicked)="joinEvent(event.id)">
+          </app-button>
+
+        </div>
+      }
+    </div>
+  }
+  @else {
+    <div class="empty flex flex-col items-center justify-center h-[60vh] text-center mt-10">
+      <p> AUCUNE ACTIVITÉ DISPONIBLE<br><br>Soyez le premier à proposer un événement pour cette activité.</p>
+    </div>
+  }
+</div>

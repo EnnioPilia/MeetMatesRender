@@ -1,0 +1,24 @@
+<div class="container flex flex-col items-center justify-center min-h-screen px-10 py-6">
+  
+  <app-state-handler 
+    [loading]="loading"
+    [error]="error">
+  </app-state-handler>
+
+  @if (user()) {
+    <div class="flex flex-col items-center justify-center gap-8">
+      
+      <app-edit-profile-picture 
+        [user]="user()!" 
+        (photoSelected)="onPhotoSelected($event)"
+        (photoDeleted)="onPhotoDeleted()">
+      </app-edit-profile-picture>
+
+      <app-edit-profile-form 
+        [user]="user()!" 
+        (save)="onSave($event)">
+      </app-edit-profile-form>
+
+    </div>
+  }
+</div>

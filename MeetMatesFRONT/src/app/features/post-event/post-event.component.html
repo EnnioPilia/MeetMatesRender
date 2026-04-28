@@ -1,0 +1,19 @@
+<div class="container flex flex-col items-center justify-start min-h-screen px-6 py-10 mt-8">
+
+    <app-state-handler
+      [loading]="loading"
+      [error]="error">
+    </app-state-handler>
+
+    <app-event-form
+      class="mb-8"
+      mode="create"
+      [activities]="activities()"
+      [addressSuggestions]="addressSuggestions()"
+      (addressInput)="searchAddress($event)"
+      (addressSelected)="selectAddress($event)"
+      (submitForm)="create($event)">
+    </app-event-form>
+
+
+</div>

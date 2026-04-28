@@ -1,0 +1,44 @@
+<div class="container flex flex-col items-center justify-start min-h-screen px-8 pt-16 pb-10">
+  @if (error()) {
+    <p class="text-red-600 mt-10">{{ error() }}</p>
+  } 
+  @else {
+    <div class="flex flex-col items-center">
+
+      <app-input
+        class="mt-8 mb-3"
+        label="Rechercher un événements"
+        [control]="form.controls['query']">
+      </app-input>
+
+      @if (loadingSearch()) {
+        <app-loading-spinner 
+          message="Chargement des événements..."
+          [diameter]="30">
+        </app-loading-spinner>
+      }
+
+      @if (!loadingSearch() && results().length > 0) {
+        <mat-accordion multi class="w-80 flex flex-col p-1 pb-10 gap-5">
+          @for (event of results(); track event?.id) {
+            @if (event) {
+
+            <app-event-card
+              [event]="event"
+              (viewDetails)="goToEventDetails($event)">
+            </app-event-card>
+            
+            }
+          }
+        </mat-accordion>
+      }
+
+      @if (!loadingSearch() && results().length === 0 && form.controls['query'].value?.length > 0) {
+        <div class="text-gray-500">
+          Aucun événement trouvé pour
+          <span class="text-gray-800">"{{ form.controls['query'].value }}"</span>
+        </div>
+      }
+    </div>
+  }
+</div>

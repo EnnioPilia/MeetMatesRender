@@ -1,0 +1,20 @@
+<div class="p-2 flex flex-col items-start gap-1">
+
+  @if (showActivity) {
+    <p><strong>Activité :</strong> {{ event.activityName }}</p>
+  }
+
+  @if (showStatus && hasStatus) {
+    <p>
+      <strong>Status de l'activité :</strong>
+      <span [ngClass]="statusLabel | statusColor">
+        {{ statusLabel }}
+      </span>
+    </p>
+  }
+
+  @if (showAddress) {
+    <p>{{ event.addressLabel }}</p>
+  }
+
+</div>

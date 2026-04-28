@@ -1,0 +1,155 @@
+import { Routes } from '@angular/router';
+
+/**
+ * Définition des routes principales de l’application.
+ *
+ * Ce fichier centralise :
+ * - la navigation entre les fonctionnalités (features)
+ * - le lazy loading des composants standalone
+ * - les métadonnées de route (titre de page)
+ * - les redirections par défaut et de secours
+ *
+ * Chaque route charge son composant à la demande
+ * afin d’optimiser les performances et le bundle initial.
+ */
+export const routes: Routes = [
+  
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: 'home',
+    loadComponent: () =>
+      import('./features/home/home.component')
+        .then(m => m.HomeComponent),
+    data: { title: 'ACCUEIL' }
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./features/auth/login/login.component')
+      .then(m => m.LoginComponent),
+    data: { title: 'CONNEXION' }
+  },
+  {
+    path: 'register',
+    loadComponent: () => import('./features/auth/register/register.component')
+      .then(m => m.RegisterComponent),
+    data: { title: 'INSCRIPTION' }
+  },
+  {
+    path: 'verify',
+    loadComponent: () => import('./features/auth/verify/verify.component')
+      .then(m => m.VerifyComponent),
+    data: { title: 'VALIDATION DU COMPTE' }
+  },
+  {
+    path: 'reset-password',
+    loadComponent: () => import('./features/auth/reset-password/reset-password.component')
+      .then(m => m.ResetPasswordComponent),
+    data: { title: 'RÉINITIALISER LE MOT DE PASSE' }
+  },
+  {
+    path: 'forgot-password',
+    loadComponent: () => import('./features/auth/forgot-password/forgot-password.component')
+      .then(m => m.ForgotPasswordComponent),
+    data: { title: 'MOT DE PASSE OUBLIÉ' }
+  },
+  {
+    path: 'profile',
+    loadComponent: () => import('./features/profile/profile.component')
+      .then(m => m.ProfileComponent),
+    data: { title: 'MON PROFIL' }
+  },
+  {
+    path: 'edit-profile',
+    loadComponent: () => import('./features/edit-profile/edit-profile.component')
+      .then(m => m.EditProfileComponent),
+    data: { title: 'MODIFIER MON PROFIL' }
+  },
+  {
+    path: 'edit-event/:id',
+    loadComponent: () =>
+      import('./features/edit-event/edit-event.component')
+        .then(m => m.EditEventPage),
+    data: { title: 'MODIFIER L’ÉVÉNEMENT' }
+  },
+  {
+    path: 'category',
+    loadComponent: () => import('./features/category-activity/category/category.component')
+      .then(m => m.CategoryComponent),
+    data: { title: 'CATÉGORIES' }
+  },
+  {
+    path: 'activity',
+    loadComponent: () => import('./features/category-activity/activity/activity.component')
+      .then(m => m.ActivityComponent),
+    data: { title: 'ACTIVITÉS' }
+  },
+  {
+    path: 'activity/:categoryId',
+    loadComponent: () => import('./features/category-activity/activity/activity.component')
+      .then(m => m.ActivityComponent),
+    data: { title: 'ACTIVITÉS' }
+  },
+  {
+    path: 'post-event',
+    loadComponent: () =>
+      import('./features/post-event/post-event.component')
+        .then(m => m.PostEventPage),
+    data: { title: 'CRÉER UNE ACTIVITÉ' }
+  },
+  {
+    path: 'events/:activityId',
+    loadComponent: () => import('./features/event-list/event-list.component')
+      .then(m => m.EventListComponent)
+  },
+  {
+    path: 'event-participant/:eventId',
+    loadComponent: () => import('./features/event-participant/event-participant.component')
+      .then(m => m.EventParticipantComponent),
+    data: { title: 'DÉTAILS DE L’ÉVÉNEMENT' }
+  },
+  {
+    path: 'event-organizer/:eventId',
+    loadComponent: () => import('./features/event-organizer/event-organizer.component')
+      .then(m => m.EventOrganizerComponent),
+    data: { title: 'ÉVÉNEMENT ORGANISATEUR' }
+  },
+  {
+    path: 'search-events',
+    loadComponent: () => import('./features/search-event/search-events.component')
+      .then(m => m.SearchEventsComponent),
+    data: { title: 'RECHERCHE' }
+  },
+  {
+    path: 'admin',
+    children: [
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./features/admin/admin-dashboard/admin-dashboard.component')
+            .then(m => m.AdminDashboardComponent),
+        data: { title: 'ADMIN – DASHBOARD' }
+      },
+      {
+        path: 'users',
+        loadComponent: () =>
+          import('./features/admin/admin-users/admin-users.component')
+            .then(m => m.AdminUsersComponent),
+        data: { title: 'ADMIN – UTILISATEURS' }
+      },
+      {
+        path: 'events',
+        loadComponent: () =>
+          import('./features/admin/admin-events/admin-events.component')
+            .then(m => m.AdminEventsComponent),
+        data: { title: 'ADMIN – ÉVÉNEMENTS' }
+      }
+    ]
+  },
+  { path: '**', redirectTo: 'home' }
+
+];

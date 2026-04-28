@@ -1,0 +1,61 @@
+<div class="flex flex-col items-center justify-center min-h-screen px-8">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col items-center">
+
+    <app-input 
+      label="Nom" 
+      [control]="form.controls.lastName" 
+      type="text" 
+      [required]="true">
+    </app-input>
+
+    <app-input 
+      label="Prénom" 
+      [control]="form.controls.firstName" 
+      type="text" 
+      [required]="true">
+    </app-input>
+
+    <app-input 
+      label="Email" 
+      [control]="form.controls.email" 
+      type="email" 
+      [required]="true">
+    </app-input>
+
+    <app-input 
+      label="Mot de passe" 
+      [control]="form.controls.password" 
+      type="password" 
+      [required]="true">
+    </app-input>
+
+    <app-input 
+      label="Confirmez le mot de passe" 
+      [control]="form.controls.confirmPassword" 
+      type="password"
+      [required]="true">
+    </app-input>
+
+    <mat-checkbox
+      formControlName="acceptCgu"
+      class="text-sm">J’accepte les
+      <a href="#"(click)="openCguDialog($event)"
+      class="underline hover:opacity-60">
+      Conditions Générales d’Utilisation</a>
+    </mat-checkbox>
+      @if (form.controls.acceptCgu.hasError('required') 
+        && form.controls.acceptCgu.touched) {
+          <span class="ml-3 text-[#ff0000] text-[15px] ">
+            Vous devez accepter les Conditions Générales.
+          </span>
+      }
+
+    <app-button 
+      label="S’inscrire"
+      class="w-80 primary-button mt-2"
+      type="submit" 
+      [disabled]="isSubmitting">
+    </app-button>
+   
+  </form>
+</div>

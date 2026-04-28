@@ -1,0 +1,39 @@
+<div class="layout-container flex flex-col items-center justify-start min-h-screen px-8 pt-16 pb-10 overflow-y-auto">
+  
+  <app-state-handler 
+    [loading]="loading"
+    [error]="error">
+  </app-state-handler>
+
+  @if (user()) {
+    <div class="w-full flex flex-col">
+
+      <app-settings-menu
+        (logout)="onLogout()"
+        (deleteAccount)="onDeleteAccount()"
+        (showCgu)="openCguDialog()"
+        (showMentions)="openMentionsDialog()"
+        (editProfile)="onEditProfile()">
+      </app-settings-menu>
+
+      <app-profile-card 
+        [user]="user()">
+      </app-profile-card>
+
+    <mat-tab-group class="w-full mt-4" mat-align-tabs="start" animationDuration="300ms">
+      <mat-tab label="Je participe">
+        <app-participation-tab 
+          [events]="eventsParticipating()">
+        </app-participation-tab>
+      </mat-tab>
+      
+      <mat-tab label="J’organise">
+        <app-organization-tab 
+          [events]="eventsOrganized">
+        </app-organization-tab>
+      </mat-tab>
+    </mat-tab-group>
+
+  </div>
+  }
+</div>

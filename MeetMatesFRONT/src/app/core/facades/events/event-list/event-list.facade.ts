@@ -1,0 +1,148 @@
+// Angular
+import { Injectable, inject, signal, DestroyRef } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { tap, EMPTY, finalize } from 'rxjs';
+
+// Core (facades, services, models)
+import { BaseFacade } from '../../base/base.facade';
+import { EventService } from '../../../services/event/event.service';
+import { ActivityService } from '../../../services/activity/activity.service';
+import { EventUserService } from '../../../services/event-user/event-user.service';
+import { UserService } from '../../../services/user/user.service';
+import { SignalsService } from '../../../services/signals/signals.service';
+import { SuccessHandlerService } from '../../../services/success-handler/success-handler.service';
+import { NotificationService } from '../../../services/notification/notification.service';
+import { EventResponse } from '../../../models/event-response.model';
+import { User } from '../../../models/user.model';
+
+/**
+ * Facade responsable de la gestion de la liste d’événements.
+ *
+ * Responsabilités :
+ * - orchestration des cas d’usage liés à l’affichage des événements
+ * - chargement de l’utilisateur courant et des listes d’événements
+ * - filtrage des événements par activité
+ * - délégation des actions de participation aux services dédiés
+ * - synchronisation de l’état global de l’UI (titre de page, utilisateur)
+ * - exposition d’états réactifs (signals) destinés à l’interface utilisateur
+ * - centralisation et exposition des effets transverses
+ *   (loading, erreurs, succès) via BaseFacade
+ */
+@Injectable({ providedIn: 'root' })
+export class EventListFacade extends BaseFacade {
+  private eventService = inject(EventService);
+  private eventUserService = inject(EventUserService);
+  private activityService = inject(ActivityService);
+  private userService = inject(UserService);
+  private signals = inject(SignalsService);
+  private successHandler = inject(SuccessHandlerService);
+  private notification = inject(NotificationService);
+  private destroyRef = inject(DestroyRef);
+
+  /** Liste des événements chargés */
+  readonly events = signal<EventResponse[]>([]);
+
+  /** Utilisateur actuellement connecté */
+  readonly currentUser = signal<User | null>(null);
+
+  /** Charge l'utilisateur courant. */
+  loadCurrentUser() {
+    return this.userService.getCurrentUser().pipe(
+      takeUntilDestroyed(this.destroyRef),
+      this.handleError("Impossible de charger l'utilisateur."),
+      tap(res => {
+        const user = res?.data ?? null;
+        this.currentUser.set(user);
+        if (user) this.signals.updateCurrentUser(user);
+      })
+    );
+  }
+
+  /** Charge tous les événements et met à jour le signal `events` */
+  loadAllEvents() {
+    this.startLoading();
+
+    return this.eventService.fetchAllEvents().pipe(
+      takeUntilDestroyed(this.destroyRef),
+      this.handleError("Impossible de charger les événements."),
+      tap(events => {
+        if (!events) return;
+        this.events.set(events);
+      }),
+      finalize(() => this.stopLoading())
+    );
+  }
+
+  /**
+  * Charge les événements filtrés par activité.
+  * 
+  * @param activityId ID de l'activité
+  */
+  loadEventsByActivity(activityId: string) {
+    this.startLoading();
+
+    return this.eventService.fetchEventsByActivity(activityId).pipe(
+      takeUntilDestroyed(this.destroyRef),
+      this.handleError("Impossible de charger les événements."),
+      tap(events => {
+        if (!events) return;
+        this.events.set(events);
+      }),
+      finalize(() => this.stopLoading())
+    );
+  }
+
+  /**
+  * Charge le nom de l'activité et met à jour le titre de la page.
+  * 
+  * @param activityId ID de l'activité
+  */
+  loadActivityName(activityId: string) {
+    return this.activityService.fetchActivityById(activityId).pipe(
+      takeUntilDestroyed(this.destroyRef),
+      this.handleError(),
+      tap(activity => {
+        if (!activity) {
+          this.signals.setPageTitle("Activité inconnue");
+          return;
+        }
+        this.signals.setPageTitle(activity.name);
+      })
+    );
+  }
+
+  /**
+  * Tente de rejoindre un événement avec conditions :
+  * - L'utilisateur doit être connecté
+  * - L'utilisateur ne doit pas être l'organisateur
+  * - L'événement ne doit pas être fermé, complet ou terminé
+  * 
+  * @param eventId ID de l'événement
+  */
+  joinEvent(eventId: string) {
+    const user = this.signals.currentUser();
+
+    if (!user) {
+      this.notification.showError('Vous devez être connecté pour participer à un événement.');
+      return EMPTY;
+    }
+
+    const eventFound = this.events().find(e => e.id === eventId);
+    if (!eventFound) return EMPTY;
+
+    if (eventFound.organizerId === user.id) {
+      this.notification.showWarning('Vous êtes l’organisateur de cet événement.');
+      return EMPTY;
+    }
+
+    if (['CANCELLED', 'FULL', 'FINISHED'].includes(eventFound.status?.toUpperCase() || '')) {
+      this.notification.showError('Cet événement n’est plus disponible.');
+      return EMPTY;
+    }
+
+    return this.eventUserService.joinEvent(eventId).pipe(
+      tap(res => this.successHandler.handle(res)),
+      this.handleError()
+    );
+  }
+}
