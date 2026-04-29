@@ -25,12 +25,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Component
 /**
- * Filtre de sécurité JWT exécuté une seule fois par requête.
- * Gère l'extraction des cookies, la validation du JWT access,
- * la rotation automatique du refresh token, et l'authentification dans le SecurityContext.
+ * Filtre de sécurité JWT exécuté une seule fois par requête. Gère l'extraction
+ * des cookies, la validation du JWT access, la rotation automatique du refresh
+ * token, et l'authentification dans le SecurityContext.
  *
- * Si l'access token n'est pas valide mais qu'un refresh token valide
- * est présent, un nouveau couple access/refresh est automatiquement généré.
+ * Si l'access token n'est pas valide mais qu'un refresh token valide est
+ * présent, un nouveau couple access/refresh est automatiquement généré.
  */
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
@@ -40,14 +40,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final CookieService cookieService;
 
     /**
-     * Constructeur injectant les services nécessaires :
-     * génération/lecture des JWT, gestion des refresh tokens,
-     * chargement utilisateur et manipulation des cookies HTTP.
+     * Constructeur injectant les services nécessaires : génération/lecture des
+     * JWT, gestion des refresh tokens, chargement utilisateur et manipulation
+     * des cookies HTTP.
      *
-         * @param jwtUtils outils pour manipuler les JWT
-         * @param userService service utilisateur (Lazy pour éviter les cycles)
-         * @param refreshTokenService gestionnaire des refresh tokens
-         * @param cookieService service de gestion des cookies sécurisés
+     * @param jwtUtils outils pour manipuler les JWT
+     * @param userService service utilisateur (Lazy pour éviter les cycles)
+     * @param refreshTokenService gestionnaire des refresh tokens
+     * @param cookieService service de gestion des cookies sécurisés
      */
     public JwtAuthenticationFilter(
             JWTUtils jwtUtils,
@@ -61,15 +61,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     /**
-     * Détermine si le filtre doit être ignoré pour certaines routes.
-     * Les endpoints liés à l'authentification (login, register, verify...)
-     * ne passent pas par la validation du JWT.
+     * Détermine si le filtre doit être ignoré pour certaines routes. Les
+     * endpoints liés à l'authentification (login, register, verify...) ne
+     * passent pas par la validation du JWT.
      *
      * @param request requête HTTP
      * @return true si le filtre doit être ignoré pour cette route
      */
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
+        if (request.getMethod().equals("OPTIONS")) {
+            return true;
+        }
         String path = request.getServletPath();
         return path.equals("/auth/login")
                 || path.equals("/auth/register")
@@ -81,12 +84,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     /**
-     * Cœur du filtre :
-     * - Récupère accessToken et refreshToken depuis les cookies
-     * - Authentifie si l'access token est valide
-     * - Sinon, tente une rotation du refresh token
-     * - Met à jour les cookies en conséquence
-     * - Définit l’utilisateur dans le SecurityContext
+     * Cœur du filtre : - Récupère accessToken et refreshToken depuis les
+     * cookies - Authentifie si l'access token est valide - Sinon, tente une
+     * rotation du refresh token - Met à jour les cookies en conséquence -
+     * Définit l’utilisateur dans le SecurityContext
      *
      * @param request requête entrante
      * @param response réponse HTTP
@@ -105,8 +106,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             // --- ACCESS TOKEN ---
             if (access != null && jwtUtils.isValidAccessToken(access)) {
                 authenticate(access, request);
-            }
-            // --- REFRESH TOKEN ---
+            } // --- REFRESH TOKEN ---
             else if (refresh != null) {
                 try {
                     Token ref = refreshTokenService.getValidRefreshToken(refresh);
@@ -145,8 +145,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     }
 
     /**
-     * Authentifie l’utilisateur à partir d’un access token valide.
-     * Récupère l'email, charge l'utilisateur, et remplit le SecurityContext.
+     * Authentifie l’utilisateur à partir d’un access token valide. Récupère
+     * l'email, charge l'utilisateur, et remplit le SecurityContext.
      *
      * @param token access token JWT valide
      * @param request requête HTTP
