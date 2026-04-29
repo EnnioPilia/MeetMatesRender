@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://meetmates-y0vl.onrender.com'
+   apiUrl: 'https://meetmates-1.onrender.com'
+
 };
