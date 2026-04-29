@@ -103,12 +103,24 @@ public class AuthService {
                 throw new ApiException(ErrorCode.USER_BANNED);
             }
 
+            // ✅ NOUVEAU CAS : user existe mais PAS activé
+            if (!user.isEnabled()) {
+                log.info("Utilisateur non activé → renvoi du mail {}", email);
+
+                String token = verificationService.createVerificationToken(user);
+                emailService.sendVerificationEmail(user.getEmail(), token);
+
+                return "AUTH_REGISTER_RESEND";
+            }
+
+            // ❌ user déjà actif → erreur
             if (user.getDeletedAt() == null) {
                 log.warn("Inscription refusée : email déjà utilisé {}", email);
                 throw new ApiException(ErrorCode.USER_EMAIL_USED);
             }
 
-            log.info("Création d'un nouvel utilisateur {}", email);
+            // ♻️ user supprimé → recréation
+            log.info("Restauration d'un utilisateur {}", email);
 
             user.setFirstName(request.getFirstName());
             user.setLastName(request.getLastName());
@@ -230,7 +242,7 @@ public class AuthService {
     public String logout(HttpServletResponse response) {
         log.info("Déconnexion utilisateur");
         cookieService.clearAuthCookies(response);
-        
+
         return "AUTH_LOGOUT_SUCCESS";
     }
 }
