@@ -9,23 +9,23 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.meetmates.activity.repository.ActivityRepository;
+import com.example.meetmates.address.mapper.AddressMapper;
+import com.example.meetmates.address.model.Address;
+import com.example.meetmates.common.exception.ApiException;
+import com.example.meetmates.common.exception.ErrorCode;
 import com.example.meetmates.event.dto.EventDetailsDto;
 import com.example.meetmates.event.dto.EventRequestDto;
 import com.example.meetmates.event.dto.EventResponseDto;
 import com.example.meetmates.event.dto.EventUserDto;
-import com.example.meetmates.common.exception.ApiException;
-import com.example.meetmates.common.exception.ErrorCode;
-import com.example.meetmates.address.mapper.AddressMapper;
 import com.example.meetmates.event.mapper.EventMapper;
-import com.example.meetmates.address.model.Address;
 import com.example.meetmates.event.model.Event;
 import com.example.meetmates.event.model.EventUser;
 import com.example.meetmates.event.model.EventUser.ParticipantRole;
 import com.example.meetmates.event.model.EventUser.ParticipationStatus;
-import com.example.meetmates.user.model.User;
-import com.example.meetmates.activity.repository.ActivityRepository;
 import com.example.meetmates.event.repository.EventRepository;
 import com.example.meetmates.event.repository.EventUserRepository;
+import com.example.meetmates.user.model.User;
 import com.example.meetmates.user.repository.UserRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -113,10 +113,10 @@ public class EventService {
      */
     @Transactional(readOnly = true)
     public List<EventResponseDto> findAllResponses() {
-        return eventRepository.findAllActiveWithDetails()
-                .stream()
-                .map(eventMapper::toResponse)
-                .toList();
+return eventRepository.findByDeletedAtIsNull()
+        .stream()
+        .map(eventMapper::toResponse)
+        .toList();
     }
 
     /**
@@ -132,38 +132,39 @@ public class EventService {
      */
     @Transactional(readOnly = true)
     public EventDetailsDto findEventDetailsById(UUID eventId) {
-        Event event = eventRepository.findByIdWithAllRelations(eventId)
-                .filter(e -> e.getDeletedAt() == null)
-                .orElseThrow(() -> new ApiException(ErrorCode.EVENT_NOT_FOUND));
+Event event = eventRepository.findByIdWithBasicDetails(eventId)
+        .orElseThrow(() -> new ApiException(ErrorCode.EVENT_NOT_FOUND));
 
-        User user = getAuthenticatedUserOrNull();
+List<EventUser> participants = eventUserRepository.findAllByEventIdWithUser(eventId);
 
-        String participationStatus = event.getParticipants().stream()
-                .filter(p -> user != null && p.getUser().getId().equals(user.getId()))
-                .map(p -> p.getParticipationStatus().name())
-                .findFirst()
-                .orElse("NOT_PARTICIPATING");
+User user = getAuthenticatedUserOrNull();
 
-        String organizerName = event.getParticipants().stream()
-                .filter(p -> p.getRole() == ParticipantRole.ORGANIZER)
-                .map(p -> p.getUser().getFirstName() + " " + p.getUser().getLastName())
-                .findFirst()
-                .orElse("Inconnu");
+String participationStatus = participants.stream()
+        .filter(p -> user != null && p.getUser().getId().equals(user.getId()))
+        .map(p -> p.getParticipationStatus().name())
+        .findFirst()
+        .orElse("NOT_PARTICIPATING");
 
-        List<EventUserDto> accepted = event.getParticipants().stream()
-                .filter(p -> p.getParticipationStatus() == ParticipationStatus.ACCEPTED)
-                .map(eventMapper::EventUserDto)
-                .toList();
+String organizerName = participants.stream()
+        .filter(p -> p.getRole() == ParticipantRole.ORGANIZER)
+        .map(p -> p.getUser().getFirstName() + " " + p.getUser().getLastName())
+        .findFirst()
+        .orElse("Inconnu");
 
-        List<EventUserDto> pending = event.getParticipants().stream()
-                .filter(p -> p.getParticipationStatus() == ParticipationStatus.PENDING)
-                .map(eventMapper::EventUserDto)
-                .toList();
+List<EventUserDto> accepted = participants.stream()
+        .filter(p -> p.getParticipationStatus() == ParticipationStatus.ACCEPTED)
+        .map(eventMapper::EventUserDto)
+        .toList();
 
-        List<EventUserDto> rejected = event.getParticipants().stream()
-                .filter(p -> p.getParticipationStatus() == ParticipationStatus.REJECTED)
-                .map(eventMapper::EventUserDto)
-                .toList();
+List<EventUserDto> pending = participants.stream()
+        .filter(p -> p.getParticipationStatus() == ParticipationStatus.PENDING)
+        .map(eventMapper::EventUserDto)
+        .toList();
+
+List<EventUserDto> rejected = participants.stream()
+        .filter(p -> p.getParticipationStatus() == ParticipationStatus.REJECTED)
+        .map(eventMapper::EventUserDto)
+        .toList();
 
         return new EventDetailsDto(
                 event.getId(),
@@ -223,12 +224,13 @@ public class EventService {
 
         User currentUser = getAuthenticatedUser();
 
-        boolean isOrganizer = event.getParticipants().stream()
-                .anyMatch(p
-                        -> p.getRole() == ParticipantRole.ORGANIZER
-                && p.getUser().getId().equals(currentUser.getId())
-                );
+List<EventUser> participants = eventUserRepository.findAllByEventId(eventId);
 
+boolean isOrganizer = participants.stream()
+        .anyMatch(p ->
+                p.getRole() == ParticipantRole.ORGANIZER &&
+                p.getUser().getId().equals(currentUser.getId())
+        );
         if (!isOrganizer) {
             throw new ApiException(ErrorCode.EVENT_FORBIDDEN);
         }
