@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
 import com.example.meetmates.common.exception.ApiException;
-import com.example.meetmates.common.exception.ErrorCode;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -68,6 +68,7 @@ public class EmailService {
      * @param toEmail adresse email du destinataire
      * @param token token de vérification du compte
      */
+    @Async
     public void sendVerificationEmail(String toEmail, String token) {
         String url = frontendUrl + "/verify?token=" + token;
 
@@ -106,8 +107,7 @@ public class EmailService {
             log.info("Email HTML envoyé à {}", toEmail);
 
         } catch (MessagingException | MailException e) {
-            log.error("Erreur lors de l'envoi de l'e-mail HTML à {} : {}", toEmail, e.getMessage());
-            throw new ApiException(ErrorCode.EMAIL_SEND_FAILED);
+       log.error("Erreur email mais on continue", e);
         }
     }
 
