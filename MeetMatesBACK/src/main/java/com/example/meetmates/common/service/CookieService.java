@@ -15,7 +15,7 @@ public class CookieService {
 
     private static final String AUTH_COOKIE_NAME = "authToken";
     private static final String REFRESH_COOKIE_NAME = "refreshToken";
-    
+
 @Value("${app.cookie.secure}")
 private boolean secure;
 
@@ -72,10 +72,6 @@ public void setCookie(HttpServletResponse response, String name, String value, l
             .sameSite(sameSite)
             .path("/")
             .maxAge(maxAgeSeconds);
-
-    if (domain != null && !domain.isBlank()) {
-        builder.domain(domain);
-    }
 
     ResponseCookie cookie = builder.build();
     response.addHeader("Set-Cookie", cookie.toString());
