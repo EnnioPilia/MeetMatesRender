@@ -95,68 +95,66 @@ public class AuthService {
         Optional<User> existingUserOpt = userRepository.findByEmail(email);
         log.info("Tentative d'inscription pour l'email {}", email);
 
-if (existingUserOpt.isPresent()) {
-    User user = existingUserOpt.get();
+        if (existingUserOpt.isPresent()) {
+            User user = existingUserOpt.get();
 
-    if (user.getStatus() == UserStatus.BANNED) {
-        throw new ApiException(ErrorCode.USER_BANNED);
-    }
+            if (user.getStatus() == UserStatus.BANNED) {
+                throw new ApiException(ErrorCode.USER_BANNED);
+            }
 
-    // 🔥 1. user supprimé → restauration
-    if (user.getDeletedAt() != null) {
-        log.info("Restauration d'un utilisateur {}", email);
+            // 🔥 1. user supprimé → restauration
+            if (user.getDeletedAt() != null) {
+                log.info("Restauration d'un utilisateur {}", email);
 
-        user.setFirstName(request.getFirstName());
-        user.setLastName(request.getLastName());
-        user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.setAge(request.getAge());
-        user.setRole(UserRole.USER);
-        user.setEnabled(true);
-        user.setStatus(UserStatus.ACTIVE);
-        user.setAcceptedCguAt(request.getDateAcceptationCGU());
-        user.setDeletedAt(null);
-        user.setTokens(null);
+                user.setFirstName(request.getFirstName());
+                user.setLastName(request.getLastName());
+                user.setPassword(passwordEncoder.encode(request.getPassword()));
+                user.setAge(request.getAge());
+                user.setRole(UserRole.USER);
+                user.setEnabled(true);
+                user.setStatus(UserStatus.ACTIVE);
+                user.setAcceptedCguAt(request.getDateAcceptationCGU());
+                user.setDeletedAt(null);
+                user.getTokens().clear();
 
-        userRepository.save(user);
+                userRepository.save(user);
 
-        String token = verificationService.createVerificationToken(user);
-        emailService.sendVerificationEmail(user.getEmail(), token);
+                return "AUTH_REGISTER_SUCCESS";
+            }
+
+            // 🔥 2. user non activé
+            if (!user.isEnabled()) {
+                log.info("Utilisateur non activé → renvoi du mail {}", email);
+
+                String token = verificationService.createVerificationToken(user);
+                emailService.sendVerificationEmail(user.getEmail(), token);
+
+                return "AUTH_REGISTER_RESEND";
+            }
+
+            // 🔥 3. user déjà actif
+            throw new ApiException(ErrorCode.USER_EMAIL_USED);
+        }
+
+// 🔥 4. user n'existe pas → création
+        User newUser = new User();
+        newUser.setFirstName(request.getFirstName());
+        newUser.setLastName(request.getLastName());
+        newUser.setEmail(email);
+        newUser.setPassword(passwordEncoder.encode(request.getPassword()));
+        newUser.setAge(request.getAge());
+        newUser.setRole(UserRole.USER);
+        newUser.setEnabled(true);
+        newUser.setAcceptedCguAt(request.getDateAcceptationCGU());
+
+        userRepository.save(newUser);
+
+        String token = verificationService.createVerificationToken(newUser);
+        emailService.sendVerificationEmail(newUser.getEmail(), token);
 
         return "AUTH_REGISTER_SUCCESS";
     }
 
-    // 🔥 2. user non activé
-    if (!user.isEnabled()) {
-        log.info("Utilisateur non activé → renvoi du mail {}", email);
-
-        String token = verificationService.createVerificationToken(user);
-        emailService.sendVerificationEmail(user.getEmail(), token);
-
-        return "AUTH_REGISTER_RESEND";
-    }
-
-    // 🔥 3. user déjà actif
-    throw new ApiException(ErrorCode.USER_EMAIL_USED);
-}
-
-// 🔥 4. user n'existe pas → création
-User newUser = new User();
-newUser.setFirstName(request.getFirstName());
-newUser.setLastName(request.getLastName());
-newUser.setEmail(email);
-newUser.setPassword(passwordEncoder.encode(request.getPassword()));
-newUser.setAge(request.getAge());
-newUser.setRole(UserRole.USER);
-newUser.setEnabled(true);
-newUser.setAcceptedCguAt(request.getDateAcceptationCGU());
-
-userRepository.save(newUser);
-
-String token = verificationService.createVerificationToken(newUser);
-emailService.sendVerificationEmail(newUser.getEmail(), token);
-
-return "AUTH_REGISTER_SUCCESS";
-}
     /**
      * Authentifie un utilisateur et positionne les cookies d'accès et refresh
      * token.
