@@ -138,10 +138,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
 
         } catch (Exception ex) {
-            log.error("Erreur inattendue côté sécurité: {}", ex.getMessage(), ex);
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.getWriter().write("{\"message\":\"Erreur inattendue côté sécurité.\"}");
-        }
+    ex.printStackTrace(); // 🔥 AJOUTE ÇA
+    throw ex;             // 🔥 ET ÇA
+}
     }
 
     /**
