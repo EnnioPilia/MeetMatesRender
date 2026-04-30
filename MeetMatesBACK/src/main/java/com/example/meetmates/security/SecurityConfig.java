@@ -30,11 +30,8 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * Configuration centrale de la sécurité de l'application.
  *
- * Cette classe configure :
- * - Les filtres JWT
- * - Les règles d'accès (routes publiques / protégées)
- * - Le CORS
- * - Les gestionnaires d’exception (401 / 403)
+ * Cette classe configure : - Les filtres JWT - Les règles d'accès (routes
+ * publiques / protégées) - Le CORS - Les gestionnaires d’exception (401 / 403)
  * - Le mode Stateless pour une API REST
  */
 @Slf4j
@@ -46,8 +43,8 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     /**
-     * Constructeur injectant le filtre JWT chargé d'extraire et valider
-     * les tokens présents dans les en-têtes HTTP.
+     * Constructeur injectant le filtre JWT chargé d'extraire et valider les
+     * tokens présents dans les en-têtes HTTP.
      *
      * @param jwtAuthenticationFilter filtre d'authentification JWT
      */
@@ -77,14 +74,15 @@ public class SecurityConfig {
     private static final String ROLE_ADMIN = "ADMIN";
 
     /**
-     * URL du frontend autorisée pour le CORS.
-     * La valeur est injectée depuis les fichiers de configuration (application.properties).
-     */    
+     * URL du frontend autorisée pour le CORS. La valeur est injectée depuis les
+     * fichiers de configuration (application.properties).
+     */
     @Value("${app.frontend.url}")
     private String frontendUrl;
 
     /**
-     * Configuration CORS de l'application. Définit les origines, méthodes et headers autorisés.
+     * Configuration CORS de l'application. Définit les origines, méthodes et
+     * headers autorisés.
      *
      * @return configuration CORS pour Spring Security
      */
@@ -95,7 +93,7 @@ public class SecurityConfig {
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
-config.setExposedHeaders(List.of("Set-Cookie"));
+        config.setExposedHeaders(List.of("Set-Cookie"));
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
@@ -105,7 +103,8 @@ config.setExposedHeaders(List.of("Set-Cookie"));
     /**
      * Chaîne de filtres principale de Spring Security. Configure : -
      * Désactivation de CSRF - Activation du CORS - Gestion des routes publiques
-     * et protégées - Gestion des erreurs 401 et 403 - Ajout du filtre JWT - Mode stateless (pas de session)
+     * et protégées - Gestion des erreurs 401 et 403 - Ajout du filtre JWT -
+     * Mode stateless (pas de session)
      *
      * @param http configuration HTTP
      * @param userService service utilisateur pour l’authentification
@@ -115,7 +114,7 @@ config.setExposedHeaders(List.of("Set-Cookie"));
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, UserService userService) throws Exception {
         log.info("SecurityFilterChain initialisée, routes publiques : {}", PUBLIC_URLS);
-            http
+        http
                 .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
@@ -155,9 +154,8 @@ config.setExposedHeaders(List.of("Set-Cookie"));
     }
 
     /**
-     * Provider d’authentification basé sur : 
-     * - UserService (chargement utilisateur) 
-     * - BCrypt pour encoder les mots de passe
+     * Provider d’authentification basé sur : - UserService (chargement
+     * utilisateur) - BCrypt pour encoder les mots de passe
      *
      * @param userService service de gestion des utilisateurs
      * @return un AuthenticationProvider configuré
