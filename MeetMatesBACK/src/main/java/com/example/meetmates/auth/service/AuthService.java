@@ -127,7 +127,7 @@ public class AuthService {
             user.setPassword(passwordEncoder.encode(request.getPassword()));
             user.setAge(request.getAge());
             user.setRole(UserRole.USER);
-            user.setEnabled(false);
+            user.setEnabled(true);
             user.setStatus(UserStatus.ACTIVE);
             user.setAcceptedCguAt(request.getDateAcceptationCGU());
             user.setDeletedAt(null);
@@ -148,7 +148,7 @@ public class AuthService {
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setAge(request.getAge());
         user.setRole(UserRole.USER);
-        user.setEnabled(false);
+        user.setEnabled(true);
         user.setAcceptedCguAt(request.getDateAcceptationCGU());
 
         userRepository.save(user);
