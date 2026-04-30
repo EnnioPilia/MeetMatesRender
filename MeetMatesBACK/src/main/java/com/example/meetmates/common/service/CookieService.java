@@ -71,10 +71,6 @@ private String domain;
                 .path("/")
                 .maxAge(maxAgeSeconds);
 
-        if (domain != null && !domain.isEmpty()) {
-            builder.domain(domain);
-        }
-
         ResponseCookie cookie = builder.build();
         response.addHeader("Set-Cookie", cookie.toString());
     }
