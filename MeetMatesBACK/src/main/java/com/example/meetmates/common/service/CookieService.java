@@ -55,6 +55,7 @@ public class CookieService {
                 .httpOnly(true)
                 .secure(true) 
                 .sameSite("None") 
+                 .domain(".onrender.com")
                 .path("/")
                 .maxAge(maxAgeSeconds)
                 .build();
