@@ -214,6 +214,6 @@ de nouvelles fonctionnalités et déployée dans un environnement professionnel
 ## Auteur
 
 PILIA Ennio
-Formation Concepteur Développeur d’Applications à Simplon Grenoble 
-GitHub : https://github.com/EnnioPilia/MeetMates
+ Développeur Fullstack 
+
 
