@@ -205,7 +205,9 @@ public class AuthService {
 
         String role = user.getRole().name().toLowerCase();
         String jwt = jwtUtils.generateAccessToken(user.getEmail(), role);
+        log.info("STEP 1 OK");
         Token refreshToken = refreshTokenService.createRefreshToken(user);
+        log.info("STEP 2 OK");
 try {
         cookieService.setAuthCookies(
                 response,
@@ -217,7 +219,7 @@ try {
     e.printStackTrace();
     throw e;
 }
-
+log.info("STEP 3 OK");
         return new LoginResponseDto("AUTH_LOGIN_SUCCESS");
     }
 
