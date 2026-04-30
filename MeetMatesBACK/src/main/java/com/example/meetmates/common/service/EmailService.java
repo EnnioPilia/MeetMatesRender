@@ -27,66 +27,7 @@ public class EmailService {
           "from": "onboarding@resend.dev",
           "to": "%s",
           "subject": "Activation de votre compte",
-          "html": "<body>
-
-    <div class="email-wrapper">
-        <div class="email-container">
-            <h2 th:text="${title}">Vérification de votre compte</h2>
-            <p th:text="${content}">
-                Merci de cliquer sur le bouton ci-dessous pour activer votre compte.
-            </p>
-            <a th:href="${actionUrl}" class="button">
-                <span th:text="${buttonText}">Activer mon compte</span>
-            </a>
-        </div>
-    </div>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f3f4f6;
-            font-family: 'Poiret One', cursive;
-        }
-
-        .email-wrapper {
-            width: 100%;
-            padding: 20px;
-            background-color: #f3f4f6;
-        }
-
-        .email-container {
-            width: 400px;
-            margin: 0 auto;
-            background: linear-gradient(to bottom, #3b82f6, #4f46e5);
-            border-radius: 10px;
-            text-align: center;
-            padding: 30px 20px;
-            color: white;
-        }
-
-        .email-container h2 {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .email-container p {
-            font-size: 16px;
-            margin-bottom: 25px;
-        }
-
-        .email-container a.button {
-            display: inline-block;
-            background-color: #ffffff;
-            color: #4f46e5;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-    </style>
-</body>"
+          "html": "<p>Clique ici : <a href='%s'>Activer</a></p>"
         }
         """.formatted(toEmail, url);
 
@@ -101,66 +42,7 @@ public class EmailService {
           "from": "onboarding@resend.dev",
           "to": "%s",
           "subject": "Reset password",
-          "html": "<body>
-
-    <div class="email-wrapper">
-        <div class="email-container">
-            <h2 th:text="${title}">Vérification de votre compte</h2>
-            <p th:text="${content}">
-                Merci de cliquer sur le bouton ci-dessous pour activer votre compte.
-            </p>
-            <a th:href="${actionUrl}" class="button">
-                <span th:text="${buttonText}">Activer mon compte</span>
-            </a>
-        </div>
-    </div>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #f3f4f6;
-            font-family: 'Poiret One', cursive;
-        }
-
-        .email-wrapper {
-            width: 100%;
-            padding: 20px;
-            background-color: #f3f4f6;
-        }
-
-        .email-container {
-            width: 400px;
-            margin: 0 auto;
-            background: linear-gradient(to bottom, #3b82f6, #4f46e5);
-            border-radius: 10px;
-            text-align: center;
-            padding: 30px 20px;
-            color: white;
-        }
-
-        .email-container h2 {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .email-container p {
-            font-size: 16px;
-            margin-bottom: 25px;
-        }
-
-        .email-container a.button {
-            display: inline-block;
-            background-color: #ffffff;
-            color: #4f46e5;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-    </style>
-</body>"
+          "html": "<p>Clique ici : <a href='%s'>Reset</a></p>"
         }
         """.formatted(toEmail, url);
 
