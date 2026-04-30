@@ -15,7 +15,7 @@ public class CookieService {
 
     private static final String AUTH_COOKIE_NAME = "authToken";
     private static final String REFRESH_COOKIE_NAME = "refreshToken";
-
+    
 @Value("${app.cookie.secure}")
 private boolean secure;
 
@@ -59,21 +59,27 @@ private String domain;
      * @param value valeur du cookie
      * @param maxAgeSeconds durée de vie du cookie en secondes
      */
-    public void setCookie(HttpServletResponse response, String name, String value, long maxAgeSeconds) {
-               System.out.println("🔥 SET COOKIE CALLED");
-        System.out.println("secure=" + secure);
-        System.out.println("sameSite=" + sameSite);
-        System.out.println("domain=" + domain);
-        ResponseCookie.ResponseCookieBuilder builder = ResponseCookie.from(name, value)
-                .httpOnly(true)
-                .secure(true)
-                .sameSite("None")
-                .path("/")
-                .maxAge(maxAgeSeconds);
+public void setCookie(HttpServletResponse response, String name, String value, long maxAgeSeconds) {
 
-        ResponseCookie cookie = builder.build();
-        response.addHeader("Set-Cookie", cookie.toString());
+    System.out.println("🔥 SET COOKIE CALLED");
+    System.out.println("secure=" + secure);
+    System.out.println("sameSite=" + sameSite);
+    System.out.println("domain=" + domain);
+
+    ResponseCookie.ResponseCookieBuilder builder = ResponseCookie.from(name, value)
+            .httpOnly(true)
+            .secure(secure)
+            .sameSite(sameSite)
+            .path("/")
+            .maxAge(maxAgeSeconds);
+
+    if (domain != null && !domain.isBlank()) {
+        builder.domain(domain);
     }
+
+    ResponseCookie cookie = builder.build();
+    response.addHeader("Set-Cookie", cookie.toString());
+}
 
     // LOCAL cookie
     // public void setCookie(HttpServletResponse response, String name, String value, long maxAgeSeconds) {

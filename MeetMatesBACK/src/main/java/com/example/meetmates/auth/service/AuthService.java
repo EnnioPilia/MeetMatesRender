@@ -206,14 +206,17 @@ public class AuthService {
         String role = user.getRole().name().toLowerCase();
         String jwt = jwtUtils.generateAccessToken(user.getEmail(), role);
         Token refreshToken = refreshTokenService.createRefreshToken(user);
-
+try {
         cookieService.setAuthCookies(
                 response,
                 jwt,
                 refreshToken.getToken(),
                 jwtUtils.getJwtExpirationMs() / 1000,
                 7 * 24 * 60 * 60
-        );
+        );} catch (Exception e) {
+    e.printStackTrace();
+    throw e;
+}
 
         return new LoginResponseDto("AUTH_LOGIN_SUCCESS");
     }
