@@ -44,7 +44,6 @@ public class JWTUtils {
                     @Value("${app.jwtExpirationMs}") int jwtExpirationMs) {
         this.key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
         this.jwtExpirationMs = jwtExpirationMs;
-        log.error("JWT SECRET VALUE = [{}]", jwtSecret);
     }
 
     /**
