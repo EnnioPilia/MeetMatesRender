@@ -102,7 +102,6 @@ public class AuthService {
                 throw new ApiException(ErrorCode.USER_BANNED);
             }
 
-            // 🔥 1. user supprimé → restauration
             if (user.getDeletedAt() != null) {
                 log.info("Restauration d'un utilisateur {}", email);
 
@@ -119,10 +118,9 @@ public class AuthService {
 
                 userRepository.save(user);
 
-                return "AUTH_REGISTER_SUCCESS";
+                return "AUTH_REGISTER_RESTORED";
             }
 
-            // 🔥 2. user non activé
             if (!user.isEnabled()) {
                 log.info("Utilisateur non activé → renvoi du mail {}", email);
 
@@ -132,11 +130,9 @@ public class AuthService {
                 return "AUTH_REGISTER_RESEND";
             }
 
-            // 🔥 3. user déjà actif
             throw new ApiException(ErrorCode.USER_EMAIL_USED);
         }
 
-// 🔥 4. user n'existe pas → création
         User newUser = new User();
         newUser.setFirstName(request.getFirstName());
         newUser.setLastName(request.getLastName());
