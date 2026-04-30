@@ -204,13 +204,9 @@ Ce projet met l’accent sur :
 - l’utilisation de **technologies modernes full-stack** (Angular, Spring Boot)
 - une **expérience utilisateur fluide et accessible**, pensée dès la conception
 
-Le front-end a été développé selon une approche **mobile-first**,
-en combinant **Angular Material** pour garantir
+Le front-end a été développé en combinant **Angular Material** pour garantir
 une cohérence visuelle, une bonne accessibilité et des composants UI robustes,
 avec **Tailwind CSS** pour la mise en page et le responsive.
-L’interface est ensuite adaptée aux écrans tablette et desktop
-grâce aux breakpoints Tailwind, complétés ponctuellement
-par des **media queries personnalisées** lorsque nécessaire.
 
 Meet Mates a été conçu comme une application évolutive, pouvant être enrichie
 de nouvelles fonctionnalités et déployée dans un environnement professionnel
