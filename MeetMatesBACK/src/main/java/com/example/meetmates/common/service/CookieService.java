@@ -16,14 +16,13 @@ public class CookieService {
     private static final String AUTH_COOKIE_NAME = "authToken";
     private static final String REFRESH_COOKIE_NAME = "refreshToken";
 
-@Value("${app.cookie.secure}")
-private boolean secure;
+    @Value("${app.cookie.secure}")
+    private boolean secure;
 
-@Value("${app.cookie.same-site}")
-private String sameSite;
+    @Value("${app.cookie.same-site}")
+    private String sameSite;
 
-@Value("${app.cookie.domain:}")
-private String domain;
+
     /**
      * Configure et ajoute les cookies d'authentification et de refresh dans la
      * réponse HTTP.
@@ -59,45 +58,18 @@ private String domain;
      * @param value valeur du cookie
      * @param maxAgeSeconds durée de vie du cookie en secondes
      */
-public void setCookie(HttpServletResponse response, String name, String value, long maxAgeSeconds) {
+    public void setCookie(HttpServletResponse response, String name, String value, long maxAgeSeconds) {
 
-    System.out.println("🔥 SET COOKIE CALLED");
-    System.out.println("secure=" + secure);
-    System.out.println("sameSite=" + sameSite);
-    System.out.println("domain=" + domain);
+        ResponseCookie.ResponseCookieBuilder builder = ResponseCookie.from(name, value)
+                .httpOnly(true)
+                .secure(secure)
+                .sameSite(sameSite)
+                .path("/")
+                .maxAge(maxAgeSeconds);
 
-    ResponseCookie.ResponseCookieBuilder builder = ResponseCookie.from(name, value)
-            .httpOnly(true)
-            .secure(secure)
-            .sameSite(sameSite)
-            .path("/")
-            .maxAge(maxAgeSeconds);
+        ResponseCookie cookie = builder.build();
+        response.addHeader("Set-Cookie", cookie.toString());
+    }
 
-    ResponseCookie cookie = builder.build();
-    response.addHeader("Set-Cookie", cookie.toString());
-}
 
-    // LOCAL cookie
-    // public void setCookie(HttpServletResponse response, String name, String value, long maxAgeSeconds) {
-    //     ResponseCookie cookie = ResponseCookie.from(name, value)
-    //             .httpOnly(true)
-    //             .secure(false)
-    //             .sameSite("Lax") 
-    //             .path("/")
-    //             .maxAge(maxAgeSeconds)
-    //             .build();
-    //     response.addHeader("Set-Cookie", cookie.toString());
-    // }
-    // PROD cookie
-    // public void setCookie(HttpServletResponse response, String name, String value, long maxAgeSeconds) {
-    //     ResponseCookie cookie = ResponseCookie.from(name, value)
-    //             .httpOnly(true)
-    //             .secure(true) 
-    //             .sameSite("None") 
-    //              .domain(".onrender.com")
-    //             .path("/")
-    //             .maxAge(maxAgeSeconds)
-    //             .build();
-    //     response.addHeader("Set-Cookie", cookie.toString());
-    // }
 }

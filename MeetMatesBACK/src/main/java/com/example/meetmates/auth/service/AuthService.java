@@ -173,7 +173,6 @@ public class AuthService {
     public LoginResponseDto login(LoginRequestDto request, HttpServletResponse response) {
         String email = request.getEmail().toLowerCase();
         log.info("Tentative de connexion pour {}", email);
-        log.info("🚨 VERSION DEBUG V2 🚨");
 
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> {
@@ -206,9 +205,7 @@ public class AuthService {
 
         String role = user.getRole().name().toLowerCase();
         String jwt = jwtUtils.generateAccessToken(user.getEmail(), role);
-        log.info("STEP 1 OK");
         Token refreshToken = refreshTokenService.createRefreshToken(user);
-        log.info("STEP 2 OK");
         try {
             cookieService.setAuthCookies(
                     response,
@@ -218,10 +215,9 @@ public class AuthService {
                     7 * 24 * 60 * 60
             );
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Erreur lors de la création des cookies d'authentification", e);
             throw e;
         }
-        log.info("STEP 3 OK");
         return new LoginResponseDto("AUTH_LOGIN_SUCCESS");
     }
 

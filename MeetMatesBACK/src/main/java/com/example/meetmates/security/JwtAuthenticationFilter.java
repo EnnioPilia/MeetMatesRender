@@ -138,9 +138,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
 
         } catch (Exception ex) {
-    ex.printStackTrace(); // 🔥 AJOUTE ÇA
-    throw ex;             // 🔥 ET ÇA
-}
+            log.error("Erreur dans le filtre JWT", ex);
+            throw ex;
+        }
     }
 
     /**
