@@ -38,7 +38,10 @@ public interface EventUserRepository extends JpaRepository<EventUser, UUID> {
     @Query("""
         SELECT eu
         FROM EventUser eu
-        JOIN eu.event e
+        JOIN FETCH eu.event e
+        JOIN FETCH eu.user u
+        LEFT JOIN FETCH e.address
+        LEFT JOIN FETCH e.activity
         WHERE eu.user.id = :userId
         AND eu.role = :role
         AND e.deletedAt IS NULL
