@@ -60,10 +60,14 @@ private String domain;
      * @param maxAgeSeconds durée de vie du cookie en secondes
      */
     public void setCookie(HttpServletResponse response, String name, String value, long maxAgeSeconds) {
+               System.out.println("🔥 SET COOKIE CALLED");
+        System.out.println("secure=" + secure);
+        System.out.println("sameSite=" + sameSite);
+        System.out.println("domain=" + domain);
         ResponseCookie.ResponseCookieBuilder builder = ResponseCookie.from(name, value)
                 .httpOnly(true)
-                .secure(secure)
-                .sameSite(sameSite)
+                .secure(true)
+                .sameSite("None")
                 .path("/")
                 .maxAge(maxAgeSeconds);
 
