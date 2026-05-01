@@ -20,11 +20,9 @@ import lombok.extern.slf4j.Slf4j;
  * Classe utilitaire responsable de la génération, la lecture et la validation
  * des tokens JWT utilisés pour l’authentification au sein de l’application.
  *
- * Elle fournit les fonctionnalités suivantes :
- * - création de tokens d’accès ;
- * - extraction des claims présentes dans un token ;
- * - récupération du rôle ou du subject (email) ;
- * - vérification de la validité d'un token d'accès.
+ * Elle fournit les fonctionnalités suivantes : - création de tokens d’accès ; -
+ * extraction des claims présentes dans un token ; - récupération du rôle ou du
+ * subject (email) ; - vérification de la validité d'un token d'accès.
  */
 @Slf4j
 @Component
@@ -37,21 +35,23 @@ public class JWTUtils {
      * Initialise l'utilitaire JWT avec la clé secrète et la durée d'expiration
      * définies dans la configuration de l'application.
      *
-     * @param jwtSecret        clé secrète utilisée pour signer les tokens
-     * @param jwtExpirationMs  durée de validité des tokens d'accès en millisecondes
+     * @param jwtSecret clé secrète utilisée pour signer les tokens
+     * @param jwtExpirationMs durée de validité des tokens d'accès en
+     * millisecondes
      */
     public JWTUtils(@Value("${app.jwtSecret}") String jwtSecret,
-                    @Value("${app.jwtExpirationMs}") int jwtExpirationMs) {
+            @Value("${app.jwtExpirationMs}") int jwtExpirationMs) {
         this.key = Keys.hmacShaKeyFor(jwtSecret.getBytes(StandardCharsets.UTF_8));
         this.jwtExpirationMs = jwtExpirationMs;
     }
 
     /**
      * Génère un token JWT d'accès contenant l'email de l'utilisateur, son rôle
-     * ainsi qu'une claim "tokenType" permettant d'identifier qu'il s'agit d'un token ACCESS.
+     * ainsi qu'une claim "tokenType" permettant d'identifier qu'il s'agit d'un
+     * token ACCESS.
      *
      * @param email email de l'utilisateur
-     * @param role  rôle attribué à l'utilisateur
+     * @param role rôle attribué à l'utilisateur
      * @return un token JWT signé et valide
      */
     public String generateAccessToken(String email, String role) {
@@ -91,17 +91,15 @@ public class JWTUtils {
         try {
             return (String) getClaims(token).get("role");
         } catch (Exception e) {
-            log.error("Unable to extract role from token: {}", e.getMessage());
+            log.warn("Unable to extract role from JWT");
             return null;
         }
     }
 
     /**
-     * Vérifie la validité d'un token d'accès.
-     * Cette vérification inclut :
-     * - la validité de la signature ;
-     * - l’absence d'expiration ;
-     * - la présence de la claim "tokenType" = "ACCESS".
+     * Vérifie la validité d'un token d'accès. Cette vérification inclut : - la
+     * validité de la signature ; - l’absence d'expiration ; - la présence de la
+     * claim "tokenType" = "ACCESS".
      *
      * @param token token JWT à vérifier
      * @return true si le token est valide, sinon false
@@ -140,7 +138,7 @@ public class JWTUtils {
         try {
             return getClaims(token).getSubject();
         } catch (JwtException e) {
-            log.error("Unable to extract username from token: {}", e.getMessage());
+            log.warn("Unable to extract username from  JWT");
             return null;
         }
     }

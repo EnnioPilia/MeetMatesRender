@@ -130,7 +130,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     log.warn("Problème avec le refresh token: {}", ex.getMessage());
                     cookieService.clearAuthCookies(response);
                     response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                    response.getWriter().write("{\"message\":\"" + ex.getMessage() + "\"}");
+                    response.getWriter().write("{\"message\":\"Unauthorized\"}");
                     return;
                 }
             }
