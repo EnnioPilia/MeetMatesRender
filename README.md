@@ -187,14 +187,15 @@ mvn test
 ```
 
 ## Sécurité
-
-Authentification JWT
-Cookies HTTP-only
-Refresh token
-Rôles User / Admin
-Guards Angular
-Configuration Spring Security
-Aucune clé sensible exposée côté client
+- Authentification JWT
+- Cookies HTTP-only
+- Gestion des tokens (expiration, refresh sécurisé)
+- Rôles User / Admin
+- Protection des routes (Spring Security, Guards Angular)
+- Validation des données (frontend / backend)
+- Configuration CORS sécurisée
+- Variables sensibles via variables d’environnement
+- Aucune clé sensible exposée côté client
 
 ## Conclusion
 
