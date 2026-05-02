@@ -104,30 +104,18 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 
 ## INSTALLATION
 
-### Prérequis
-- Node.js >= 22
-- Angular CLI >= 19
-- Java JDK 17+
-- Maven
-- MySQL
-- Docker (optionnel)
-
----
-
-## INSTALLATION
-
-### Prérequis
-- Node.js >= 22
-- Angular CLI >= 19
-- Java JDK 17+
-- Maven
-- MySQL
-- Docker (optionnel)
-
 ```bash
 git clone https://github.com/EnnioPilia/MeetMatesRender.git
 cd MeetMatesRender
 ```
+
+### Prérequis
+- Node.js >= 22
+- Angular CLI >= 19
+- Java JDK 17+
+- Maven
+- MySQL
+- Docker (optionnel)
 
 ## Installation du back-end
 
