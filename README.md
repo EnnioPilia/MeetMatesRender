@@ -24,13 +24,9 @@ Le projet reste entièrement fonctionnel en local via la section Installation ci
 à des activités variées afin de rencontrer de nouvelles personnes et partager des moments de convivialité .
 
 Les utilisateurs peuvent :
-- consulter des événements publiés par la communauté
-- participer à des activités existantes
-- créer leurs propres annonces afin d’inviter d’autres membres
-  
-L'administrateur peut :
-- Gérer les utilisateurs (désactivation ou bannissement de comptes)
-- Modérer les événements (suppression / désactivation)
+- Consulter des événements publiés par la communauté
+- Participer à des activités existantes
+- Créer leurs propres annonces afin d’inviter d’autres membres
   
 Projet initié dans le cadre de la formation **Concepteur Développeur d’Applications (CDA)** 
 
