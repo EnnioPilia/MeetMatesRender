@@ -43,40 +43,18 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 - Authentification sécurisée (JWT + cookies HTTP-only)
 - Gestion du profil utilisateur
 - Suppression du compte (soft delete / hard delete)
-- Consultation des événements
+- Consultation des événements (organisés participe
 - Recherche et filtrage des activités
-- Participation aux événements
-- Création, modification et suppression d’annonces
-- Page **Mes activités**
-  - événements organisés
-  - événements auxquels l’utilisateur participe
+- Création et participation aux événements
+- Modification et suppression d’annonces
+- Centralisation des messages (succès/erreurs) côté back-end
+- Affichage dynamique des messages via des notifications snackbar côté front-end
 
 ###  Administration
 - Interface d’administration dédiée
-- Gestion des utilisateurs
-- Gestion des annonces et événements
+- Gestion des utilisateurs  (désactivation ou bannissement de comptes)
+- Modéreration des événements (suppression / désactivation)
 - Protection des routes administrateur
-
----
-
-## UI / UX
-
-L’interface utilisateur a été conçue avec une approche centrée utilisateur, en mettant l’accent sur la clarté des interactions et la qualité des retours visuels.
-
-### Expérience utilisateur
-- Formulaires guidés avec validation en temps réel
-- Navigation intuitive et accès rapide aux fonctionnalités principales
-- Feedback utilisateur immédiat lors des actions (succès, erreur, chargement)
-  
-### Gestion des messages
-- Les messages de succès et d’erreur sont centralisés côté back-end via un fichier properties
-- Ils sont transmis au front pour garantir une cohérence globale
-- Affichage via des notifications snackbar (Angular Material) pour un retour utilisateur clair et non intrusif
-
-### Design & Accessibilité
-- Utilisation de Angular Material pour des composants accessibles et cohérents
-- Tailwind CSS pour un design responsive et flexible
-- Respect des bonnes pratiques d’accessibilité (contrastes, navigation, lisibilité)
 
 ---
 
