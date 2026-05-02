@@ -65,7 +65,7 @@ L’interface utilisateur a été conçue avec une approche centrée utilisateur
 - Feedback utilisateur immédiat lors des actions (succès, erreur, chargement)
   
 ### Gestion des messages
-- Les messages de succès et d’erreur sont centralisés côté back-end via un propriétés dédiées
+- Les messages de succès et d’erreur sont centralisés côté back-end via un fichier properties
 - Ils sont transmis au front pour garantir une cohérence globale
 - Affichage via des notifications snackbar (Angular Material) pour un retour utilisateur clair et non intrusif
 
