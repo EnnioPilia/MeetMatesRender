@@ -168,6 +168,7 @@ mvn spring-boot:run
 
 http://localhost:8080
 
+---
 
 ###  Installation du front-end
 ```bash
