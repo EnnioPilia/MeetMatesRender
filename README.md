@@ -57,7 +57,7 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 ## TECHNOLOGIES UTILISÉES
 
 ### Front-end
-- Angular 19
+- Angular 
 - TypeScript
 - Tailwind CSS
 - Angular Material
