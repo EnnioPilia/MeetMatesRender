@@ -80,7 +80,7 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 
 ## ARCHITECTURE
 
-- **Frontend** : SPA Angular (Standalone Components, RxJS et Signals)
+- **Frontend** : SPA Angular (Standalone Components)
 - **Backend** : API REST stateless Spring Boot
 - **Base de données** : MySQL
 - **Authentification**
