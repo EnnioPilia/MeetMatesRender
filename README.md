@@ -55,6 +55,27 @@ Projet réalisé dans le cadre de la formation **Concepteur Développeur d’App
 
 ---
 
+## UI / UX
+
+L’interface utilisateur a été conçue avec une approche centrée utilisateur, en mettant l’accent sur la clarté des interactions et la qualité des retours visuels.
+
+### Expérience utilisateur
+- Formulaires guidés avec validation en temps réel
+- Navigation intuitive et accès rapide aux fonctionnalités principales
+- Feedback utilisateur immédiat lors des actions (succès, erreur, chargement)
+  
+### Gestion des messages
+- Les messages de succès et d’erreur sont centralisés côté back-end via un propriétés dédiées
+- Ils sont transmis au front pour garantir une cohérence globale
+- Affichage via des notifications snackbar (Angular Material) pour un retour utilisateur clair et non intrusif
+
+### Design & Accessibilité
+- Utilisation de Angular Material pour des composants accessibles et cohérents
+- Tailwind CSS pour un design responsive et flexible
+- Respect des bonnes pratiques d’accessibilité (contrastes, navigation, lisibilité)
+
+---
+
 ## TECHNOLOGIES UTILISÉES
 
 ### Front-end
