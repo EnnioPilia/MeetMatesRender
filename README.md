@@ -79,7 +79,7 @@ L’interface utilisateur a été conçue avec une approche centrée utilisateur
 ## TECHNOLOGIES UTILISÉES
 
 ### Front-end
-- Angular 19 (Standalone API)
+- Angular 19
 - TypeScript
 - Tailwind CSS
 - Angular Material
