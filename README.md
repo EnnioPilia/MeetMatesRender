@@ -221,9 +221,9 @@ mvn test
 ## Conclusion
 
 Ce projet met l’accent sur :
-- la **sécurité** des échanges (JWT, cookies HTTP-only, rôles)
+- la **sécurité** des échanges
 - la **maintenabilité** du code grâce à une architecture claire et modulaire
-- l’utilisation de **technologies modernes full-stack** (Angular, Spring Boot)
+- l’utilisation de **technologies modernes full-stack** 
 - une **expérience utilisateur fluide et accessible**, pensée dès la conception
 
 Le front-end a été développé en combinant **Angular Material** pour garantir
