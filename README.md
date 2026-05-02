@@ -65,6 +65,7 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 ### Back-end
 - Spring Boot
 - Java
+- Persistance des données via JPA / Hibernate (ORM)
 - Spring Security
 - MySQL
 
@@ -99,6 +100,29 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 - Guards
 - Interceptors
 - Components shared & Features modulaires
+
+---
+
+## Sécurité
+- Authentification JWT
+- Cookies HTTP-only
+- Gestion des tokens (expiration, refresh sécurisé)
+- Rôles User / Admin
+- Protection des routes (Spring Security, Guards Angular)
+- Validation des données (frontend / backend)
+- Configuration CORS sécurisée
+- Variables sensibles via variables d’environnement
+- Aucune clé sensible exposée côté client
+
+---
+    
+## UI & UX
+
+Le front-end a été développé selon une approche **mobile-first**, en combinant **Angular Material** pour garantir
+une cohérence visuelle, une bonne accessibilité, des composants UI robustes, 
+conformes aux standards (navigation clavier, gestion du focus, contrastes) et une structuration sémantique adaptée.
+**Tailwind CSS** pour la mise en page et le responsive. L’interface est ensuite adaptée aux écrans tablette et desktop 
+grâce aux breakpoints Tailwind, complétés ponctuellement par des **media queries personnalisées** lorsque nécessaire.
 
 ---
 
@@ -187,33 +211,21 @@ ng test
 ```bash
 mvn test
 ```
---- 
 
-## Sécurité
-- Authentification JWT
-- Cookies HTTP-only
-- Gestion des tokens (expiration, refresh sécurisé)
-- Rôles User / Admin
-- Protection des routes (Spring Security, Guards Angular)
-- Validation des données (frontend / backend)
-- Configuration CORS sécurisée
-- Variables sensibles via variables d’environnement
-- Aucune clé sensible exposée côté client
+--- 
 
 ## Conclusion
 
 Ce projet met l’accent sur :
-- la **sécurité** des échanges
+- la **sécurité** des échanges 
 - la **maintenabilité** du code grâce à une architecture claire et modulaire
 - l’utilisation de **technologies modernes full-stack** 
 - une **expérience utilisateur fluide et accessible**, pensée dès la conception
 
-Le front-end a été développé en combinant **Angular Material** pour garantir
-une cohérence visuelle, une bonne accessibilité et des composants UI robustes,
-avec **Tailwind CSS** pour la mise en page et le responsive.
-
 Meet Mates a été conçu comme une application évolutive, pouvant être enrichie
 de nouvelles fonctionnalités et déployée dans un environnement professionnel
+
+---
 
 ## Auteur
 
