@@ -79,8 +79,8 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 
 ## ARCHITECTURE
 
-- **Frontend** : SPA Angular (Standalone Components)
-- **Backend** : API REST Spring Boot
+- **Frontend** : SPA Angular (Standalone Components, RxJS et Signals)
+- **Backend** : API REST stateless Spring Boot
 - **Base de données** : MySQL
 - **Authentification**
   - JWT stocké en cookies HTTP-only
@@ -94,10 +94,11 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 - DTO / Mappers
 
 ### Front-end
-- Services
+- Services 
+- Facades 
 - Guards
 - Interceptors
-- Components & Features modulaires
+- Components shared & Features modulaires
 
 ---
 
