@@ -117,7 +117,7 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 ## Installation du back-end
 
 ```bash
-git clone https://github.com/tonpseudo/meet-mates-back.git
+git clone https://github.com/EnnioPilia/MeetMatesRender.git
 cd meet-mates-back
 mvn clean install
 ```
