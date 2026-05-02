@@ -121,6 +121,7 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 Le front-end a été développé selon une approche **mobile-first**, en combinant **Angular Material** pour garantir
 une cohérence visuelle, une bonne accessibilité, des composants UI robustes, 
 conformes aux standards (navigation clavier, gestion du focus, contrastes) et une structuration sémantique adaptée.
+
 **Tailwind CSS** pour la mise en page et le responsive. L’interface est ensuite adaptée aux écrans tablette et desktop 
 grâce aux breakpoints Tailwind, complétés ponctuellement par des **media queries personnalisées** lorsque nécessaire.
 
