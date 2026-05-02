@@ -27,8 +27,12 @@ Les utilisateurs peuvent :
 - consulter des événements publiés par la communauté
 - participer à des activités existantes
 - créer leurs propres annonces afin d’inviter d’autres membres
-
-Projet réalisé dans le cadre de la formation **Concepteur Développeur d’Applications (CDA)**.
+  
+L'administrateur peut :
+- Gérer les utilisateurs (désactivation ou bannissement de comptes)
+- Modérer les événements (suppression / désactivation)
+  
+Projet initié dans le cadre de la formation **Concepteur Développeur d’Applications (CDA)** 
 
 ---
 
