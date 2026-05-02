@@ -158,7 +158,7 @@ JWT_SECRET=your_jwt_secret
 FRONTEND_URL=http://localhost:4200
 ```
 
-##  Lancer le back-end
+###  Lancer le back-end
 
 ```bash
 mvn spring-boot:run
@@ -170,7 +170,7 @@ http://localhost:8080
 
 ---
 
-###  Installation du front-end
+##  Installation du front-end
 ```bash
 git clone https://github.com/tonpseudo/meet-mates-front.git
 cd meet-mates-front
