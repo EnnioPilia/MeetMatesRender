@@ -114,11 +114,25 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 
 ---
 
-## Installation du back-end
+## INSTALLATION
+
+### Prérequis
+- Node.js >= 22
+- Angular CLI >= 19
+- Java JDK 17+
+- Maven
+- MySQL
+- Docker (optionnel)
 
 ```bash
 git clone https://github.com/EnnioPilia/MeetMatesRender.git
-cd meet-mates-back
+cd MeetMatesRender
+```
+
+## Installation du back-end
+
+```bash
+cd MeetMatesBACK
 mvn clean install
 ```
 
@@ -137,7 +151,7 @@ JWT_SECRET=your_jwt_secret
 FRONTEND_URL=http://localhost:4200
 ```
 
-###  Lancer le back-end
+##  Lancer le back-end
 
 ```bash
 mvn spring-boot:run
@@ -149,14 +163,13 @@ http://localhost:8080
 
 ---
 
-##  Installation du front-end
+## Installation du front-end
 ```bash
-git clone https://github.com/tonpseudo/meet-mates-front.git
-cd meet-mates-front
+cd MeetMatesFRONT
 npm install
 ```
 
-###  Lancer le front-end
+##  Lancer le front-end
 ```bash
 ng serve
 ```
@@ -186,6 +199,7 @@ ng test
 ```bash
 mvn test
 ```
+--- 
 
 ## Sécurité
 - Authentification JWT
