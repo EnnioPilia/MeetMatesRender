@@ -119,7 +119,7 @@ Sécurisation de l’API :
   
 Protection des entrées :
 - Utilisation de l'ORM **JPA / Hibernate** avec requêtes paramétrées (réduction des risques d’injection SQL)
-- Validation des données via **Bean Validation** et **DTO**
+- Validation des données via les **Bean Validation** et les **DTO**
 
 Protection des données sensibles :
 - Hashage des mots de passe
