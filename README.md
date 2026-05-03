@@ -43,14 +43,11 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 - Recherche et filtrage des activités
 - Création et participation aux événements
 - Modification et suppression d’annonces
-- Centralisation des messages (succès/erreurs) côté back-end
-- Affichage dynamique des messages via des notifications snackbar côté front-end
 
 ###  Administration
 - Interface d’administration dédiée
 - Gestion des utilisateurs  (désactivation ou bannissement de comptes)
 - Modéreration des événements (suppression / désactivation)
-- Protection des routes administrateur
 
 ---
 
@@ -80,39 +77,55 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 
 ## ARCHITECTURE
 
-- **Frontend** : SPA Angular (Standalone Components)
-- **Backend** : API REST stateless Spring Boot
-- **Base de données** : MySQL
-- **Authentification**
-  - JWT stocké en cookies HTTP-only
-  - Refresh token
-  - Sécurisation via Spring Security
+### Front-end
+**SPA Angular** avec Standalone Components
+
+Structuration modulaire en couches (core, features, shared) :
+- Services & Facades : abstraction de la logique métier
+- Guards : contrôle d’accès côté UX
+- Interceptors : gestion centralisée des requêtes HTTP et des credentials
+- Components features & shared : pour l’affichage UI
 
 ### Back-end
-- Controllers
-- Services
-- Repositories
-- DTO / Mappers
+**API REST stateless Spring Boot** 
 
-### Front-end
-- Services 
-- Facades 
-- Guards
-- Interceptors
-- Components shared & Features modulaires
+Organisation modulaire par domaine métier (auth, user, etc.) :
+- Controllers : exposition des endpoints REST
+- Services : logique métier
+- Repositories : accès aux données via JPA
+- DTO & Mappers : découplage des modèles internes / externes
+  
+Services transverses :
+- Gestion centralisée des erreurs (DTO standardisés)
+- Centralisation des messages applicatifs
+- Gestion des emails (Spring Mail + Thymeleaf)
+
+### Base de données
+- **MySQL** : Modélisation relationnelle des entités métier
+- **Flyway** : Gestion des migrations
 
 ---
 
-## Sécurité
-- Authentification JWT
-- Cookies HTTP-only
-- Gestion des tokens (expiration, refresh sécurisé)
-- Rôles User / Admin
-- Protection des routes (Spring Security, Guards Angular)
-- Validation des données (frontend / backend)
-- Configuration CORS sécurisée
-- Variables sensibles via variables d’environnement
-- Aucune clé sensible exposée côté client
+## SECURITE
+Authentification basée sur **JWT** :
+- JWT stocké en **cookies HTTP-only**
+- Durée de vie courte de l’access token
+- Rotation des **refresh tokens** 
+  
+Sécurisation de l’API :
+- Protection via **Spring Security**
+- API **Stateless** (aucune session côté serveur)
+- Configuration CORS sécurisée 
+- Contrôle des accès basé sur les rôles (USER / ADMIN)
+  
+Protection des entrées :
+- Utilisation de l'ORM **JPA / Hibernate** avec requêtes paramétrées (réduction des risques d’injection SQL)
+- Validation des données via **Bean Validation** et **DTO**
+
+Protection des données sensibles :
+- Hashage des mots de passe
+- Utilisation de variables d’environnement
+- Aucune donnée sensible exposée côté client
 
 ---
     
