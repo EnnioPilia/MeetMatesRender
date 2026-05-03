@@ -69,7 +69,6 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 ### Outils & DevOps
 - Git / GitHub
 - GitHub Actions (CI/CD)
-- Docker
 - Maven
 - Postman
 
