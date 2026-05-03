@@ -26,7 +26,7 @@ Le projet reste entièrement fonctionnel en local via la section Installation ci
 Les utilisateurs peuvent :
 - Consulter des événements publiés par la communauté
 - Participer à des activités existantes
-- Créer leurs propres annonces afin d’inviter d’autres membres
+- Créer et gérer ses propres annonces afin d’inviter d’autres membres
   
 Projet initié dans le cadre de la formation **Concepteur Développeur d’Applications (CDA)** 
 
@@ -35,14 +35,12 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 ## FONCTIONNALITÉS
 
 ###  Utilisateur
-- Création de compte
-- Authentification sécurisée (JWT + cookies HTTP-only)
+- Inscription & authentification sécurisée (JWT + cookies HTTP-only)
 - Gestion du profil utilisateur
 - Suppression du compte (soft delete / hard delete)
-- Consultation des événements (organisés participe
-- Recherche et filtrage des activités
 - Création et participation aux événements
 - Modification et suppression d’annonces
+- Recherche et filtrage des activités
 
 ###  Administration
 - Interface d’administration dédiée
@@ -79,7 +77,7 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 ### Front-end
 **SPA Angular** avec Standalone Components
 
-Structuration modulaire en couches (core, features, shared) :
+Architecture modulaire en couches (core, features, shared) :
 - Services & Facades : abstraction de la logique métier
 - Guards : contrôle d’accès côté UX
 - Interceptors : gestion centralisée des requêtes HTTP et des credentials
@@ -88,7 +86,7 @@ Structuration modulaire en couches (core, features, shared) :
 ### Back-end
 **API REST stateless Spring Boot** 
 
-Organisation modulaire par domaine métier (auth, user, etc.) :
+Architecture modulaire par domaine métier (auth, user, event...) :
 - Controllers : exposition des endpoints REST
 - Services : logique métier
 - Repositories : accès aux données via JPA
@@ -101,7 +99,7 @@ Services transverses :
 
 ### Base de données
 - **MySQL** : Modélisation relationnelle des entités métier
-- **Flyway** : Gestion des migrations
+- **Flyway** : Versioning et exécution automatique des migrations de base de données
 
 ---
 
