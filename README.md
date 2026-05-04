@@ -24,41 +24,35 @@ Le projet reste entièrement fonctionnel en local via la section Installation ci
 à des activités variées afin de rencontrer de nouvelles personnes et partager des moments de convivialité .
 
 Les utilisateurs peuvent :
-- consulter des événements publiés par la communauté
-- participer à des activités existantes
-- créer leurs propres annonces afin d’inviter d’autres membres
-
-Projet réalisé dans le cadre de la formation **Concepteur Développeur d’Applications (CDA)**.
+- Consulter des événements publiés par la communauté
+- Participer à des activités existantes
+- Créer et gérer ses propres annonces afin d’inviter d’autres membres
+  
+Projet initié dans le cadre de la formation **Concepteur Développeur d’Applications (CDA)** 
 
 ---
 
 ## FONCTIONNALITÉS
 
 ###  Utilisateur
-- Création de compte
-- Authentification sécurisée (JWT + cookies HTTP-only)
+- Inscription & authentification sécurisée (JWT + cookies HTTP-only)
 - Gestion du profil utilisateur
 - Suppression du compte (soft delete / hard delete)
-- Consultation des événements
+- Création et participation aux événements
+- Modification et suppression d’annonces
 - Recherche et filtrage des activités
-- Participation aux événements
-- Création, modification et suppression d’annonces
-- Page **Mes activités**
-  - événements organisés
-  - événements auxquels l’utilisateur participe
 
 ###  Administration
 - Interface d’administration dédiée
-- Gestion des utilisateurs
-- Gestion des annonces et événements
-- Protection des routes administrateur
+- Gestion des utilisateurs  (désactivation ou bannissement de comptes)
+- Modéreration des événements (suppression / désactivation)
 
 ---
 
 ## TECHNOLOGIES UTILISÉES
 
 ### Front-end
-- Angular 19 (Standalone API)
+- Angular (RxJS, Signals)
 - TypeScript
 - Tailwind CSS
 - Angular Material
@@ -66,13 +60,13 @@ Projet réalisé dans le cadre de la formation **Concepteur Développeur d’App
 ### Back-end
 - Spring Boot
 - Java
+- Persistance des données via JPA / Hibernate (ORM)
 - Spring Security
 - MySQL
 
 ### Outils & DevOps
 - Git / GitHub
 - GitHub Actions (CI/CD)
-- Docker
 - Maven
 - Postman
 
@@ -80,29 +74,76 @@ Projet réalisé dans le cadre de la formation **Concepteur Développeur d’App
 
 ## ARCHITECTURE
 
-- **Frontend** : SPA Angular (Standalone Components)
-- **Backend** : API REST Spring Boot
-- **Base de données** : MySQL
-- **Authentification**
-  - JWT stocké en cookies HTTP-only
-  - Refresh token
-  - Sécurisation via Spring Security
+### Front-end
+**SPA Angular** avec Standalone Components
+
+Architecture modulaire en couches (core, features, shared) :
+- Services & Facades : abstraction de la logique métier
+- Guards : contrôle d’accès côté UX
+- Interceptors : gestion centralisée des requêtes HTTP et des credentials
+- Components features & shared : pour l’affichage UI
 
 ### Back-end
-- Controllers
-- Services
-- Repositories
-- DTO / Mappers
+**API REST stateless Spring Boot** 
 
-### Front-end
-- Services
-- Guards
-- Interceptors
-- Components & Features modulaires
+Architecture modulaire par domaine métier (auth, user, event...) :
+- Controllers : exposition des endpoints REST
+- Services : logique métier
+- Repositories : accès aux données via JPA
+- DTO & Mappers : découplage des modèles internes / externes
+  
+Services transverses :
+- Gestion centralisée des erreurs (DTO standardisés)
+- Centralisation des messages applicatifs
+- Gestion des emails (Spring Mail + Thymeleaf)
+
+### Base de données
+- **MySQL** : Modélisation relationnelle des entités métier
+- **Flyway** : Versioning et exécution automatique des migrations de base de données
+
+---
+
+## SECURITE
+Authentification basée sur **JWT** :
+- JWT stocké en **cookies HTTP-only**
+- Durée de vie courte de l’access token
+- Rotation des **refresh tokens** 
+  
+Sécurisation de l’API :
+- Protection via **Spring Security**
+- API **Stateless** (aucune session côté serveur)
+- Configuration CORS sécurisée 
+- Contrôle des accès basé sur les rôles (USER / ADMIN)
+  
+Protection des entrées :
+- Utilisation de l'ORM **JPA / Hibernate** avec requêtes paramétrées (réduction des risques d’injection SQL)
+- Validation des données via les **Bean Validation** et les **DTO**
+
+Protection des données sensibles :
+- Hashage des mots de passe
+- Utilisation de variables d’environnement
+- Aucune donnée sensible exposée côté client
+
+---
+    
+## UI & UX
+
+Le front-end a été développé avec :
+
+- **Angular Material** pour garantir une cohérence visuelle, une bonne accessibilité et des composants UI robustes, 
+conformes aux standards (navigation clavier, gestion du focus, contrastes) et reposant sur une structuration sémantique adaptée.
+
+- **Tailwind CSS** pour la mise en page et le responsive. L’interface est ensuite adaptée aux écrans tablette et desktop grâce aux breakpoints Tailwind, 
+complétés ponctuellement par des **media queries personnalisées** lorsque nécessaire.
 
 ---
 
 ## INSTALLATION
+
+```bash
+git clone https://github.com/EnnioPilia/MeetMatesRender.git
+cd MeetMatesRender
+```
 
 ### Prérequis
 - Node.js >= 22
@@ -112,13 +153,10 @@ Projet réalisé dans le cadre de la formation **Concepteur Développeur d’App
 - MySQL
 - Docker (optionnel)
 
----
-
 ## Installation du back-end
 
 ```bash
-git clone https://github.com/tonpseudo/meet-mates-back.git
-cd meet-mates-back
+cd MeetMatesBACK
 mvn clean install
 ```
 
@@ -147,15 +185,15 @@ mvn spring-boot:run
 
 http://localhost:8080
 
+---
 
-###  Installation du front-end
+## Installation du front-end
 ```bash
-git clone https://github.com/tonpseudo/meet-mates-front.git
-cd meet-mates-front
+cd MeetMatesFRONT
 npm install
 ```
 
-###  Lancer le front-end
+##  Lancer le front-end
 ```bash
 ng serve
 ```
@@ -186,30 +224,20 @@ ng test
 mvn test
 ```
 
-## Sécurité
-
-Authentification JWT
-Cookies HTTP-only
-Refresh token
-Rôles User / Admin
-Guards Angular
-Configuration Spring Security
-Aucune clé sensible exposée côté client
+--- 
 
 ## Conclusion
 
 Ce projet met l’accent sur :
-- la **sécurité** des échanges (JWT, cookies HTTP-only, rôles)
+- la **sécurité** des échanges 
 - la **maintenabilité** du code grâce à une architecture claire et modulaire
-- l’utilisation de **technologies modernes full-stack** (Angular, Spring Boot)
+- l’utilisation de **technologies modernes full-stack** 
 - une **expérience utilisateur fluide et accessible**, pensée dès la conception
-
-Le front-end a été développé en combinant **Angular Material** pour garantir
-une cohérence visuelle, une bonne accessibilité et des composants UI robustes,
-avec **Tailwind CSS** pour la mise en page et le responsive.
 
 Meet Mates a été conçu comme une application évolutive, pouvant être enrichie
 de nouvelles fonctionnalités et déployée dans un environnement professionnel
+
+---
 
 ## Auteur
 
