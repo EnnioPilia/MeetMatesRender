@@ -65,7 +65,7 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 
 ### Bases de données
 - MySQL
-- FLYWAY
+- Flyway
 
 ### Outils & DevOps
 - Git / GitHub
