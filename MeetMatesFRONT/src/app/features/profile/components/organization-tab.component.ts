@@ -73,9 +73,7 @@ export class OrganizationTabComponent {
   constructor() {
     effect(() => {
       // console.log('ORGANIZED EVENTS', this.events());
-      
     });
-    
   }
 
   get mappedEvents() {
