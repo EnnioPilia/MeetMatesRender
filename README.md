@@ -8,7 +8,7 @@ L’application Meet Mates est actuellement déployée en ligne via Render.
 
 ---
 
-###  Important
+###  IMPORTANT
 
 Ce déploiement est une version de démonstration du projet.
 
