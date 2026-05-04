@@ -62,14 +62,18 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 - Java
 - Persistance des données via JPA / Hibernate (ORM)
 - Spring Security
+
+### Bases de données
 - MySQL
+- FLYWAY
 
 ### Outils & DevOps
 - Git / GitHub
-- GitHub Actions (CI/CD)
+- Render (déploiement / hébergement)
 - Maven
 - Postman
-
+- Figma
+  
 ---
 
 ## ARCHITECTURE
@@ -153,14 +157,14 @@ cd MeetMatesRender
 - MySQL
 - Docker (optionnel)
 
-## Installation du back-end
+### Installation du back-end
 
 ```bash
 cd MeetMatesBACK
 mvn clean install
 ```
 
-## Variables d’environnement
+### Variables d’environnement
 
 Les données sensibles ne sont pas stockées en dur.
 
@@ -175,7 +179,7 @@ JWT_SECRET=your_jwt_secret
 FRONTEND_URL=http://localhost:4200
 ```
 
-##  Lancer le back-end
+###  Lancer le back-end
 
 ```bash
 mvn spring-boot:run
@@ -187,13 +191,13 @@ http://localhost:8080
 
 ---
 
-## Installation du front-end
+### Installation du front-end
 ```bash
 cd MeetMatesFRONT
 npm install
 ```
 
-##  Lancer le front-end
+###  Lancer le front-end
 ```bash
 ng serve
 ```
