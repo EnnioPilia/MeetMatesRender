@@ -62,6 +62,7 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 - Java
 - Persistance des données via JPA / Hibernate (ORM)
 - Spring Security
+- Apache Maven
 
 ### Bases de données
 - MySQL
@@ -70,7 +71,6 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 ### Outils & DevOps
 - Git / GitHub
 - Render (déploiement / hébergement)
-- Maven
 - Postman
 - Figma
   
