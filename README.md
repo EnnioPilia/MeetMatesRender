@@ -111,7 +111,7 @@ Services transverses :
 Authentification basée sur **JWT** :
 - JWT stocké en **cookies HTTP-only**
 - Durée de vie courte de l’access token
-- Rotation des **refresh tokens** 
+- **Refresh tokens** avec rotation
   
 Sécurisation de l’API :
 - Protection via **Spring Security**
