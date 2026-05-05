@@ -230,6 +230,25 @@ mvn test
 
 --- 
 
+## CI / CD
+
+Le projet utilise :
+
+- **GitHub Actions** pour l’intégration continue (CI)
+  - build backend Spring Boot
+  - build frontend Angular
+  - exécution des tests
+
+- **Render** pour le déploiement continu (CD)
+  - déploiement automatique à chaque push sur la branche `main`
+  - build Docker du backend Spring Boot
+
+### Déploiement
+
+Le backend est déployé automatiquement sur Render via le repository GitHub :
+https://github.com/EnnioPilia/MeetMatesRender
+
+La branche surveillée est : `main`
 ## Conclusion
 
 Ce projet met l’accent sur :
