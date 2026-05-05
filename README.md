@@ -70,7 +70,8 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 
 ### Outils & DevOps
 - Git / GitHub
-- Render (déploiement / hébergement)
+- GitHub Actions (CI)
+- Render (CD)
 - Postman
 - Figma
   
@@ -155,7 +156,6 @@ cd MeetMatesRender
 - Java JDK 17+
 - Maven
 - MySQL
-- Docker (optionnel)
 
 ### Installation du back-end
 
