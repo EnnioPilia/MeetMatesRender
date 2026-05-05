@@ -1,11 +1,11 @@
-# MEET MATES 
+# MEETMATES 
 Application web permettant aux utilisateurs de découvrir, créer et gérer des événements au sein d’une plateforme communautaire.
 
 ---
 
 ### Live Demo
 
-L’application Meet Mates est actuellement déployée en ligne via Render.
+L’application MeetMates est actuellement déployée en ligne via Render.
 
 [Voir la démo](https://meetmates-1.onrender.com)
 
