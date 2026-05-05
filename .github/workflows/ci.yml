@@ -24,7 +24,7 @@ jobs:
       - name: Run tests
         run: |
           cd MeetMatesBACK
-          ./mvnw clean verify
+          ./mvnw clean verify -e
         env:
           SPRING_PROFILES_ACTIVE: test
 
