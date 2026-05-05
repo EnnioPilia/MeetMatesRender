@@ -32,6 +32,8 @@ logs/
 # Fichiers de config sensibles
 src/main/resources/application-*.properties
 src/main/resources/application-*.yml
+!src/main/resources/application-prod.properties
+!src/main/resources/application-test.yml
 
 # Exception : garder les fichiers de base
 !src/main/resources/application.properties

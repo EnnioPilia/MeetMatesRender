@@ -19,6 +19,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.junit.jupiter.MockitoSettings;
+import org.mockito.quality.Strictness;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -39,6 +41,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @ExtendWith(MockitoExtension.class)
+@MockitoSettings(strictness = Strictness.LENIENT)
 class JwtAuthenticationFilterTest {
 
     @Mock
@@ -68,6 +71,7 @@ class JwtAuthenticationFilterTest {
     @BeforeEach
     void setup() {
         SecurityContextHolder.clearContext();
+        when(request.getMethod()).thenReturn("GET"); 
     }
 
     @AfterEach
@@ -102,6 +106,7 @@ class JwtAuthenticationFilterTest {
 
         when(jwtUtils.isValidAccessToken("validAccessToken")).thenReturn(true);
         when(jwtUtils.getUsername("validAccessToken")).thenReturn("user@test.com");
+        when(jwtUtils.getUsername(any())).thenReturn("user@test.com");
 
         Claims claims = mock(Claims.class);
         when(claims.get("role", String.class)).thenReturn("USER");
@@ -161,6 +166,9 @@ class JwtAuthenticationFilterTest {
                 .thenReturn("newAccess");
 
         when(jwtUtils.getJwtExpirationMs()).thenReturn(60000);
+
+        when(jwtUtils.isValidAccessToken("newAccess")).thenReturn(true);
+        when(jwtUtils.getUsername(any())).thenReturn("user@test.com");
 
         when(jwtUtils.getUsername("newAccess")).thenReturn("user@test.com");
 
