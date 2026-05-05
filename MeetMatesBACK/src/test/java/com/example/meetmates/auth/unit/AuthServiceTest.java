@@ -176,18 +176,20 @@ void should_login_user_successfully() {
         verify(cookieService).clearAuthCookies(response);
     }
 
-    @Test
-    void should_throw_when_email_already_used() {
-        User existing = new User();
-        existing.setDeletedAt(null);
+@Test
+void should_throw_when_email_already_used() {
+    User existing = new User();
+    existing.setDeletedAt(null);
+    existing.setEnabled(true); 
+    existing.setStatus(UserStatus.ACTIVE); 
 
-        when(userRepository.findByEmail("john@mail.com"))
-                .thenReturn(Optional.of(existing));
+    when(userRepository.findByEmail("john@mail.com"))
+            .thenReturn(Optional.of(existing));
 
-        assertThatThrownBy(() -> authService.register(registerRequest))
-                .isInstanceOf(ApiException.class)
-                .hasFieldOrPropertyWithValue("errorCode", ErrorCode.USER_EMAIL_USED);
-    }
+    assertThatThrownBy(() -> authService.register(registerRequest))
+            .isInstanceOf(ApiException.class)
+            .hasFieldOrPropertyWithValue("errorCode", ErrorCode.USER_EMAIL_USED);
+}
 
     @Test
     void should_throw_when_registering_banned_user() {
