@@ -47,7 +47,7 @@ export class AppComponent {
 
   constructor() {
     effect(() => {
-      console.log('Current user:', this.signals.currentUser());
+      // console.log('Current user:', this.signals.currentUser());
     });
   }
 ngOnInit() {

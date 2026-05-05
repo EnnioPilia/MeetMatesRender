@@ -1,247 +1,198 @@
-﻿# MEET MATES
+﻿# 🎮 Bubble Game – Projet Concours Simplon 2025
 
-## LIVE DEMO
+Jeu web développé en JavaScript dans le cadre de la formation **Concepteur Développeur d’Applications (CDA)** chez Simplon (2025). Projet concours inter-promotion.
 
-L’application Meet Mates est actuellement déployée en ligne via Render.
-
-[Voir la démo](https://meetmates-1.onrender.com)
+Récompensé pour le jeu le plus "fun".
 
 ---
 
-###  Important
+## Jouer au jeu
 
-Ce déploiement est une version de démonstration du projet.
+Le jeu est accessible en ligne via Vercel :
 
-Les performances peuvent varier car l’application est hébergée sur une infrastructure gratuite (Render Free Tier).
-
-Le projet reste entièrement fonctionnel en local via la section Installation ci-dessous.
+[Lancer le jeu](https://bubble-game-ennio.vercel.app/)
 
 ---
 
-## PRESENTATION
+##  Présentation
 
-**Meet Mates** est une application web permettant aux utilisateurs de découvrir, organiser et participer  
-à des activités variées afin de rencontrer de nouvelles personnes et partager des moments de convivialité .
+**Bubble Game** est un jeu d’arcade dynamique basé sur les réflexes et la précision, où chaque seconde compte.
 
-Les utilisateurs peuvent :
-- Consulter des événements publiés par la communauté
-- Participer à des activités existantes
-- Créer et gérer ses propres annonces afin d’inviter d’autres membres
+Le joueur évolue dans un environnement en constante accélération, mêlant pression, prise de décision rapide et gestion du risque. Entre bulles à cliquer, pièges à éviter et bonus stratégiques, le jeu propose une expérience nerveuse et progressive.
+
+Accessible grâce à plusieurs niveaux de difficulté, le jeu s’adapte à tous les profils tout en offrant un défi de plus en plus intense au fil de la partie. **Bubble Game** met l’accent sur le score, la réactivité et l’amélioration continue du joueur.
+
+---
+
+##  Logique du jeu
+
+###   Gameplay
+
+Le joueur doit :
+
+- Cliquer sur les bulles normales pour gagner des points
+- Éviter les bulles rouges : Game Over immédiat
+- Ne pas rater les bulles normales : perte de vie
+- Faire face à une difficulté croissante : accélération progressive du jeu
+- Utiliser les items bonus pour faciliter le game play
+- Survivre le plus longtemps possible pour maximiser son score
+
+**Boucle principale :**  
+Cliquer → Éviter → Survivre → Score
+
+###  Système de bulles et bonus
+
+
+####  Bulles normales
+- Donnent des points
+- Perte de vie si non cliquées
+
+####  Bulles rouges pièges
+- Provoquent un Game Over instantané
+
+####  Bulles spéciales
+- Nécessitent plusieurs clics
+- Rapportent un point par clic
+
+###  Items bonus
+-  Cœur  → Récupére une vie
+-  Sablier → Mode slow : ralentit temporairement le jeu
+-  Cible  → Mode aimbot : vise automatiquement au clic
+-  Etoile  → Mode bonus : bulles avec multiplicateur de score
+
+---
+
+
+##  Modes de difficulté
+
+Les modes modifient les paramètres du jeu sans changer les règles :
+
+- Vitesse des bulles
+- Tailles des bulles
+- Perte en efficacité des bonus 
+- Fréquence des bonus 
+
+| Mode   | Description |
+|--------|------------|
+| Easy   | Expérience accessible |
+| Hard   | Challenge équilibré |
+| Expert | Difficulté élevée |
+
+---
+
+
+##  Mode Training
+
+- Permet de s'entraîner librement
+- Pas de Game Over
+- Vitesse et tailles des bulles augmenté selon la difficulté (Easy / Medium / Hard / Expert)
+
+
+---
+
+
+##  Interface utilisateur (UI)
+
+- Menu principal interactif
+- Popups dynamiques (classement , paramètres…)
+- Interface fluide et responsive
   
-Projet initié dans le cadre de la formation **Concepteur Développeur d’Applications (CDA)** 
+---
+
+## Système de configuration 
+
+- Réglage du système audio : volume de la musique et des effets sonores
+- Curseur personnalisables : choix du style et ajustement de la taille
+- Sélection de différents fonds d’écran
 
 ---
 
-## FONCTIONNALITÉS
+## Système de score
 
-###  Utilisateur
-- Inscription & authentification sécurisée (JWT + cookies HTTP-only)
-- Gestion du profil utilisateur
-- Suppression du compte (soft delete / hard delete)
-- Création et participation aux événements
-- Modification et suppression d’annonces
-- Recherche et filtrage des activités
-
-###  Administration
-- Interface d’administration dédiée
-- Gestion des utilisateurs  (désactivation ou bannissement de comptes)
-- Modéreration des événements (suppression / désactivation)
+- Sauvegarde automatique en LocalStorage
+- Classement Top 10 par difficulté
+- Tri décroissant
 
 ---
 
-## TECHNOLOGIES UTILISÉES
+##  Système audio
+- Musiques dynamiques :
+  - Menu
+  - Jeu
+  - Dernière vie
+  - Modes : Slow, AimBot, Star, Training
 
-### Front-end
-- Angular (RxJS, Signals)
-- TypeScript
-- Tailwind CSS
-- Angular Material
-
-### Back-end
-- Spring Boot
-- Java
-- Persistance des données via JPA / Hibernate (ORM)
-- Spring Security
-- MySQL
-
-### Outils & DevOps
-- Git / GitHub
-- GitHub Actions (CI/CD)
-- Maven
-- Postman
+- Effets sonores :
+  - Bulles : normales, spéciales, star
+  - Items bonus
+  - Erreur
+  - Game Over
 
 ---
 
-## ARCHITECTURE
+##  Stack technique
 
-### Front-end
-**SPA Angular** avec Standalone Components
-
-Architecture modulaire en couches (core, features, shared) :
-- Services & Facades : abstraction de la logique métier
-- Guards : contrôle d’accès côté UX
-- Interceptors : gestion centralisée des requêtes HTTP et des credentials
-- Components features & shared : pour l’affichage UI
-
-### Back-end
-**API REST stateless Spring Boot** 
-
-Architecture modulaire par domaine métier (auth, user, event...) :
-- Controllers : exposition des endpoints REST
-- Services : logique métier
-- Repositories : accès aux données via JPA
-- DTO & Mappers : découplage des modèles internes / externes
-  
-Services transverses :
-- Gestion centralisée des erreurs (DTO standardisés)
-- Centralisation des messages applicatifs
-- Gestion des emails (Spring Mail + Thymeleaf)
-
-### Base de données
-- **MySQL** : Modélisation relationnelle des entités métier
-- **Flyway** : Versioning et exécution automatique des migrations de base de données
+- **JavaScript ES6 Modules** 
+- **HTML5**
+- **CSS3** (animations, responsive, effets visuels)
+- **LocalStorage** (scores + settings)
+- **Vercel** (déploiement)
 
 ---
 
-## SECURITE
-Authentification basée sur **JWT** :
-- JWT stocké en **cookies HTTP-only**
-- Durée de vie courte de l’access token
-- Rotation des **refresh tokens** 
-  
-Sécurisation de l’API :
-- Protection via **Spring Security**
-- API **Stateless** (aucune session côté serveur)
-- Configuration CORS sécurisée 
-- Contrôle des accès basé sur les rôles (USER / ADMIN)
-  
-Protection des entrées :
-- Utilisation de l'ORM **JPA / Hibernate** avec requêtes paramétrées (réduction des risques d’injection SQL)
-- Validation des données via les **Bean Validation** et les **DTO**
+##  Installation
 
-Protection des données sensibles :
-- Hashage des mots de passe
-- Utilisation de variables d’environnement
-- Aucune donnée sensible exposée côté client
-
----
-    
-## UI & UX
-
-Le front-end a été développé avec :
-
-- **Angular Material** pour garantir une cohérence visuelle, une bonne accessibilité et des composants UI robustes, 
-conformes aux standards (navigation clavier, gestion du focus, contrastes) et reposant sur une structuration sémantique adaptée.
-
-- **Tailwind CSS** pour la mise en page et le responsive. L’interface est ensuite adaptée aux écrans tablette et desktop grâce aux breakpoints Tailwind, 
-complétés ponctuellement par des **media queries personnalisées** lorsque nécessaire.
-
----
-
-## INSTALLATION
+1. Cloner le projet :
 
 ```bash
-git clone https://github.com/EnnioPilia/MeetMatesRender.git
-cd MeetMatesRender
+git clone <https://github.com/EnnioPilia/BubbleGame.git>
+cd bubble-game
 ```
 
-### Prérequis
-- Node.js >= 22
-- Angular CLI >= 19
-- Java JDK 17+
-- Maven
-- MySQL
-- Docker (optionnel)
-
-## Installation du back-end
+2. Ouvrir le projet (Utiliser un serveur local, ex: **Live Server** sur VS Code) : 
 
 ```bash
-cd MeetMatesBACK
-mvn clean install
+index.html 
 ```
 
-## Variables d’environnement
-
-Les données sensibles ne sont pas stockées en dur.
-
-Les fichiers application.properties utilisent uniquement
-des variables d’environnement système.
-
-```env
-DB_URL=jdbc:mysql://localhost:3306/meetmates
-DB_USER=your_db_user
-DB_PASS=your_db_password
-JWT_SECRET=your_jwt_secret
-FRONTEND_URL=http://localhost:4200
-```
-
-##  Lancer le back-end
-
-```bash
-mvn spring-boot:run
-```
-
-### API accessible à l’adresse :
-
-http://localhost:8080
+ Aucun build nécessaire (100% front vanilla)
 
 ---
 
-## Installation du front-end
-```bash
-cd MeetMatesFRONT
-npm install
-```
+## Lancer le jeu
 
-##  Lancer le front-end
-```bash
-ng serve
-```
+- Entrer votre pseudo
+- Cliquer sur **"PLAY"**
+- Jouer 
 
-### Application accessible à l’adresse :
-
-http://localhost:4200
 
 ---
 
-##  TESTS
+##  Améliorations possibles
 
-###  Stratégie de tests
-- Tests unitaires front : Angular (Jasmine / Karma)
-- Tests unitaires et d’intégration back : JUnit 5, Mockito
-- Tests de sécurité : Spring Security Test
-- Base de données H2 pour les tests
-
-### Lancer les tests
-
-#### Front-end
-```bash
-ng test
-```
-
-#### Back-end
-```bash
-mvn test
-```
-
---- 
-
-## Conclusion
-
-Ce projet met l’accent sur :
-- la **sécurité** des échanges 
-- la **maintenabilité** du code grâce à une architecture claire et modulaire
-- l’utilisation de **technologies modernes full-stack** 
-- une **expérience utilisateur fluide et accessible**, pensée dès la conception
-
-Meet Mates a été conçu comme une application évolutive, pouvant être enrichie
-de nouvelles fonctionnalités et déployée dans un environnement professionnel
+-  Backend pour leaderboard global
+-  Mode multijoueur
+-  Nouveaux power-ups
+-  Animations avancées
 
 ---
 
-## Auteur
+## Contexte du projet
 
-PILIA Ennio
- Développeur Fullstack 
+- Formation : **CDA Simplon Grenoble 2025**
+- Travail "concours" entre promotion 
+- Récompensé parmi les meilleurs projets
+- Le projet a été amélioré après le concours avec de nouvelles fonctionnalités, des optimisations et des ajustements de gameplay.
 
+---
 
+##  Auteur
+
+**Ennio Pilia**  
+Développeur Fullstack
+
+---
+
+##  Licence
+
+Projet pédagogique – Simplon Grenoble 2025

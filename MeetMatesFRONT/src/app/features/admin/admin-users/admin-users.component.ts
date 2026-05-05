@@ -50,7 +50,7 @@ export class AdminUsersComponent implements OnInit {
   /** Initialise la page  déclenche le chargement des utilisateurs */
   ngOnInit(): void {
     this.facade.loadUsers().subscribe(() => {
-      console.log(this.users());
+      // console.log(this.users());
     });
   }
 
