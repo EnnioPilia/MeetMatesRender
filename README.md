@@ -243,12 +243,8 @@ Le projet utilise :
   - déploiement automatique à chaque push sur la branche `main`
   - build Docker du backend Spring Boot
 
-### Déploiement
+---
 
-Le backend est déployé automatiquement sur Render via le repository GitHub :
-https://github.com/EnnioPilia/MeetMatesRender
-
-La branche surveillée est : `main`
 ## Conclusion
 
 Ce projet met l’accent sur :

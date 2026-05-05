@@ -140,7 +140,7 @@ public class AuthService {
         newUser.setPassword(passwordEncoder.encode(request.getPassword()));
         newUser.setAge(request.getAge());
         newUser.setRole(UserRole.USER);
-        newUser.setEnabled(true);
+        newUser.setEnabled(false);
         newUser.setAcceptedCguAt(request.getDateAcceptationCGU());
 
         userRepository.save(newUser);
