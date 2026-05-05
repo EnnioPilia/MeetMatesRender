@@ -283,7 +283,7 @@ Ce projet met l’accent sur :
 - L’utilisation de **technologies modernes full-stack** 
 - Une **expérience utilisateur fluide et accessible**, pensée dès la conception
 
-Meet Mates a été conçu comme une application évolutive, pouvant être enrichie
+MeetMates a été conçu comme une application évolutive, pouvant être enrichie
 de nouvelles fonctionnalités et déployée dans un environnement professionnel
 
 ---
