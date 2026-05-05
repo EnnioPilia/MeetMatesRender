@@ -1,5 +1,7 @@
-# MEET MATES
+# MEET MATES 
+Application web permettant aux utilisateurs de découvrir, créer et gérer des événements au sein d’une plateforme communautaire.
 
+---
 
 ### Live Demo
 
@@ -22,12 +24,12 @@ Le projet reste entièrement fonctionnel en local via la section Installation ci
 ## PRESENTATION
 
 **Meet Mates** est une application web permettant aux utilisateurs de découvrir, organiser et participer  
-à des activités variées afin de rencontrer de nouvelles personnes et partager des moments de convivialité .
+à des activités variées afin de rencontrer de nouvelles personnes et partager des moments de convivialité.
 
 Les utilisateurs peuvent :
 - Consulter des événements publiés par la communauté
-- Participer à des activités existantes
-- Créer et gérer ses propres annonces afin d’inviter d’autres membres
+- Participer à des activités variées
+- Organiser leurs propres rencontres
   
 Projet initié dans le cadre de la formation **Concepteur Développeur d’Applications (CDA)** 
 
@@ -46,7 +48,7 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 ###  Administration
 - Interface d’administration dédiée
 - Gestion des utilisateurs  (désactivation ou bannissement de comptes)
-- Modéreration des événements (suppression / désactivation)
+- Modération des événements (suppression / désactivation)
 
 ---
 
@@ -245,7 +247,7 @@ La CI est assurée par **GitHub Actions**, avec un workflow déclenché automati
 - Utilisation d’une base **H2 en mémoire** pour les tests
 - Profil test activé pour isoler la configuration
   
-#### Frontend (Angular) :
+#### Front-end (Angular) :
 - Installation des dépendances (`npm install`)
 - Exécution des tests via **Karma / Chrome Headless**
 - Mode non interactif (`--watch=false`) pour CI
