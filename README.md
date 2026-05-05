@@ -1,6 +1,7 @@
-﻿﻿# MEET MATES
+# MEET MATES
 
-## LIVE DEMO
+
+### Live Demo
 
 L’application Meet Mates est actuellement déployée en ligne via Render.
 
@@ -8,7 +9,7 @@ L’application Meet Mates est actuellement déployée en ligne via Render.
 
 ---
 
-###  IMPORTANT
+###  Important
 
 Ce déploiement est une version de démonstration du projet.
 
@@ -65,7 +66,7 @@ Projet initié dans le cadre de la formation **Concepteur Développeur d’Appli
 - Apache Maven
 
 ### Bases de données
-- MySQL
+- PostgreSQL 
 - Flyway
 
 ### Outils & DevOps
@@ -103,7 +104,7 @@ Services transverses :
 - Gestion des emails (Spring Mail + Thymeleaf)
 
 ### Base de données
-- **MySQL** : Modélisation relationnelle des entités métier
+- **PostgreSQL** : Modélisation relationnelle des entités métier
 - **Flyway** : Versioning et exécution automatique des migrations de base de données
 
 ---
@@ -139,7 +140,7 @@ Le front-end a été développé avec :
 conformes aux standards (navigation clavier, gestion du focus, contrastes) et reposant sur une structuration sémantique adaptée.
 
 - **Tailwind CSS** pour la mise en page et le responsive. L’interface est ensuite adaptée aux écrans tablette et desktop grâce aux breakpoints Tailwind, 
-complétés ponctuellement par des **media queries personnalisées** lorsque nécessaire.
+complétés ponctuellement par des media queries personnalisées lorsque nécessaire.
 
 ---
 
@@ -155,7 +156,7 @@ cd MeetMatesRender
 - Angular CLI >= 19
 - Java JDK 17+
 - Maven
-- MySQL
+- PostgreSQL
 
 ### Installation du back-end
 
@@ -168,11 +169,11 @@ mvn clean install
 
 Les données sensibles ne sont pas stockées en dur.
 
-Les fichiers application.properties utilisent uniquement
+Les fichiers `application.properties` utilisent uniquement
 des variables d’environnement système.
 
 ```env
-DB_URL=jdbc:mysql://localhost:3306/meetmates
+DB_URL=jdbc:postgresql://localhost:5432/meetmates
 DB_USER=your_db_user
 DB_PASS=your_db_password
 JWT_SECRET=your_jwt_secret
@@ -232,26 +233,53 @@ mvn test
 
 ## CI / CD
 
-Le projet utilise :
+Le projet met en place une pipeline complète d’intégration et de déploiement continus afin d’assurer la qualité du code et automatiser les mises en production.
 
-- **GitHub Actions** pour l’intégration continue (CI)
-  - build backend Spring Boot
-  - build frontend Angular
-  - exécution des tests
+### Intégration Continue (CI)
 
-- **Render** pour le déploiement continu (CD)
-  - déploiement automatique à chaque push sur la branche `main`
-  - build Docker du backend Spring Boot
+La CI est assurée par **GitHub Actions**, avec un workflow déclenché automatiquement à chaque push sur la branche `main` et à chaque `Pull Request`.
+
+#### Back-end (Spring Boot) :
+- Build du projet via Maven (`mvn clean verify`)
+- Exécution des tests unitaires et d’intégration
+- Utilisation d’une base **H2 en mémoire** pour les tests
+- Profil test activé pour isoler la configuration
+  
+#### Frontend (Angular) :
+- Installation des dépendances (`npm install`)
+- Exécution des tests via **Karma / Chrome Headless**
+- Mode non interactif (`--watch=false`) pour CI
+
+### Déploiement Continu (CD)
+
+Le déploiement est automatisé via **Render** :
+- Déploiement déclenché automatiquement à chaque push sur `main`
+- Build du backend via Docker
+- Exposition du service sur le port 8080
+  
+---
+
+## CONTAINERISATION
+
+Le backend est packagé via un `Dockerfile`.
+
+L’image est construite automatiquement par Render lors du déploiement.
+
+Le Dockerfile utilise une approche **multi-stage** :
+- Une étape de build avec Maven
+- Une étape d’exécution avec une image Java légère
+
+Cette approche permet de réduire la taille de l’image finale et de garantir un environnement d’exécution reproductible.
 
 ---
 
 ## Conclusion
 
 Ce projet met l’accent sur :
-- la **sécurité** des échanges 
-- la **maintenabilité** du code grâce à une architecture claire et modulaire
-- l’utilisation de **technologies modernes full-stack** 
-- une **expérience utilisateur fluide et accessible**, pensée dès la conception
+- La **sécurité** des échanges 
+- La **maintenabilité** du code grâce à une architecture claire et modulaire
+- L’utilisation de **technologies modernes full-stack** 
+- Une **expérience utilisateur fluide et accessible**, pensée dès la conception
 
 Meet Mates a été conçu comme une application évolutive, pouvant être enrichie
 de nouvelles fonctionnalités et déployée dans un environnement professionnel
