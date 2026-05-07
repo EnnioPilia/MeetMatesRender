@@ -38,6 +38,7 @@ import { AppInputComponent } from '../../../shared-components/input/input.compon
   selector: 'app-register',
   standalone: true,
   templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,

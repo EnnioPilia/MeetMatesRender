@@ -12,23 +12,23 @@
 }
 
 .publish-btn {
-  background-color: #ff6e14 !important;
+  background-color: #ff6200 !important;
   color: white !important;
   border-radius: 22px;
   height: 60px !important;
-  font-size: 20px !important;
-  font-weight: 600 !important;
+  font-size: 23px !important;
+  font-weight: 800 !important;
   text-transform: none;
   box-shadow: none !important;
   transition: background 0.2s ease;
 }
 
 .publish-btn:hover {
-  background-color: #c04d05 !important;
+  background-color: #ff8437 !important;
 }
 
 .publish-btn mat-icon {
-  font-size: 29px;
+  font-size: 40px !important;
 }
 
 .header-btn {
@@ -66,10 +66,12 @@
     background-color: white;
   }
 
+
   .header {
     display: flex !important;
     height: 105px;
     background-color: white !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
 
   }
 

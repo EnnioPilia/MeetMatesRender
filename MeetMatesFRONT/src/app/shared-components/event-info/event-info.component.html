@@ -1,5 +1,5 @@
-<div class="flex flex-col w-full text-sm leading-relaxed gap-3 mt-3">
-  @if (showStatus) {
+<div class="container-list flex flex-col w-full text-sm leading-relaxed gap-3 mt-3">
+    @if (showStatus) {
     <p>
       <strong>STATUT : </strong>
       <span [ngClass]="statusLabel | statusColor">{{ statusLabel }}</span>

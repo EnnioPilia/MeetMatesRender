@@ -6,9 +6,9 @@
   </app-state-handler>
 
   @if (events().length > 0) {
-    <div class="flex flex-col items-center">
+    <div class="container-card flex flex-col items-center">
       @for (event of events(); track event.id) {
-        <div #eventCard [attr.data-id]="event.id" class="flex flex-col items-center p-6">
+        <div #eventCard [attr.data-id]="event.id" class="card flex flex-col items-center p-6">
 
           <app-event-header
             class="title m-3"

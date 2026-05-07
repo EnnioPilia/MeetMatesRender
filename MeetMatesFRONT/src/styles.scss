@@ -22,14 +22,18 @@ body {
 .header {
   background-color: #d7eeff !important;
   border-bottom: 1px solid #000000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+
 }
 
 .footer {
   background-color: #d7eeff !important;
   border-top: 1px solid #000000;
+  box-shadow: 0 -8px 10px rgba(0, 0, 0, 0.2) !important;
 }
 
-.primary-button, .primary-button-home {
+.primary-button,
+.primary-button-home {
   font-weight: 700;
   border-radius: 9px !important;
   box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.6);
@@ -187,9 +191,11 @@ mat-error {
     display: none !important;
   }
 
-  .primary-button{
+  .primary-button {
     font-weight: 600;
     box-shadow: 0 9px 8px -6px #c04d05;
     border-bottom: rgba(0, 0, 0, 0.658) solid 1px !important;
   }
 }
+
+
