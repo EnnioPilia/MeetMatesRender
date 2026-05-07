@@ -1,11 +1,72 @@
+.logo {
+    font-family: 'Poiret One', cursive;
+
+}
+
+.title {
+    display: none;
+}
+
 .container {
-    @media (min-width: 1000px) and (max-width: 2900px) {
+    @media (min-width: 600px) and (max-width: 999px) {
+        width: 70vw;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
         width: 40vw;
         margin: 0 auto;
     }
 
-    @media (min-width: 600px) and (max-width: 999px) {
-        width: 70vw;
-        margin: 0 auto;
+    .logo {
+        display: none;
+    }
+
+    .title {
+        display: flex;
+        font-size: 90px;
+        font-weight: 200;
+        margin-bottom: 50px;
+    }
+
+    .text {
+        display: flex;
+        font-size: 30px;
+        font-weight: 400;
+        width: 1050px !important;
+        margin-bottom: 70px !important;
+    }
+
+
+    app-button.primary-button-home ::ng-deep button {
+        height: 80px !important;
+        width: 500px !important;
+
+        font-size: 40px !important;
+        font-weight: 600 !important;
+
+        border-radius: 14px;
+
+        box-shadow: 0 9px 8px -6px #c04d05;
+        border-bottom: rgba(0, 0, 0, 0.658) solid 1px !important;
+    }
+
+    .primary-button-home {
+        height: 80px !important;
+        width: 500px !important;
+        transition: transform 0.25s ease;
+
+    }
+
+    .primary-button-home:hover {
+        transform: scale(0.95);
+    }
+
+    .button-home {
+        display: flex;
+        flex-direction: row;
+        gap: 50px !important;
     }
 }

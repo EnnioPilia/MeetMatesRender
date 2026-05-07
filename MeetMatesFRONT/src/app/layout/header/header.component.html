@@ -1,10 +1,62 @@
-<mat-toolbar class="header fixed top-0 left-0 right-0 flex items-center justify-between z-50">
-  
-  <app-back-button>
-  </app-back-button>
+<mat-toolbar class="header fixed top-0 left-0 right-0 z-50">
 
-  <span class="text-2xl flex-1 text-center pr-10">
+  <!-- MOBILE -->
+<div class="mobile-header relative flex items-center w-full h-12 px-2">
+
+  <!-- BACK BUTTON -->
+  <div class="absolute left-1">
+    <app-back-button></app-back-button>
+  </div>
+
+  <!-- TITLE CENTERED -->
+  <span class="mx-auto text-lg font-bold text-center">
     {{ signals.pageTitle() }}
   </span>
+
+</div>
+
+  <!-- DESKTOP -->
+<div class="desktop-header items-center justify-between w-full max-w-[1400px] mx-auto px-6 h-[100px]">
+    <!-- LEFT -->
+    <div class="flex items-center gap-12">
+
+      <div 
+        class="logo text-5xl font-extrabold"
+        (click)="navigateTo('home')">
+        MEET MATES
+      </div>
+
+      <button 
+        mat-raised-button
+        class="publish-btn flex items-center gap-1"
+        (click)="navigateTo('post-event')">
+
+        <mat-icon class="text-base">add</mat-icon>
+        Déposer une annonce
+      </button>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="flex items-center gap-6">
+
+      <button mat-button class="header-btn" (click)="navigateTo('category')" >
+        <mat-icon class="text-base">grid_view</mat-icon>
+        Catégories
+      </button>
+
+      <button mat-button class="header-btn" (click)="navigateTo('search-events')">
+        <mat-icon class="text-base">search</mat-icon>
+        Rechercher
+      </button>
+
+      <button mat-button class="header-btn" (click)="navigateTo('profile')">
+        <mat-icon class="text-base">person</mat-icon>
+        Profil
+      </button>
+
+    </div>
+
+  </div>
 
 </mat-toolbar>

@@ -28,7 +28,7 @@ import { SignalsService } from '../../core/services/signals/signals.service';
 })
 export class HomeComponent {
   private router = inject(Router);
-  private signals = inject(SignalsService);
+readonly signals = inject(SignalsService);
 
   navigateTo(path: string): void {
     this.router.navigate([path]);

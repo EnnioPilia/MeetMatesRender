@@ -1,0 +1,23 @@
+@media (min-width: 1024px) {
+
+    .icone-card {
+        background-color: #fafdff !important;
+        width: 320px !important;
+        min-height: 320px !important;
+         box-shadow: 0 0 20px rgb(216, 84, 2) !important;
+        transition: transform 0.25s ease;
+  border: black solid 1px !important;
+  border-radius: 4% !important;
+    }
+
+    .icone-card img {
+        width: 150px !important;
+        min-height: 150px !important;
+
+    }
+
+      .icone-card:hover {
+        transform: scale(0.95);
+    }
+
+}

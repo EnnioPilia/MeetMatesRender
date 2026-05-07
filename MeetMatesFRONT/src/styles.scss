@@ -12,23 +12,24 @@
 
 html,
 body {
-  font-family: 'Poiret One', cursive;
+  font-family: 'Nunito Sans', sans-serif;
+
   font-weight: 700;
   color: #000000;
-  background-color: #f0f8ff;
+  background-color: white;
 }
 
 .header {
-  background-color: #acdbff !important;
+  background-color: #d7eeff !important;
   border-bottom: 1px solid #000000;
 }
 
 .footer {
-  background-color: #b8e0ff !important;
+  background-color: #d7eeff !important;
   border-top: 1px solid #000000;
 }
 
-.primary-button {
+.primary-button, .primary-button-home {
   font-weight: 700;
   border-radius: 9px !important;
   box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.6);
@@ -171,4 +172,24 @@ mat-error {
   transform: translateY(4px);
   box-shadow: 0 0.5px 0 #000000;
   border-radius: 5px;
+}
+
+@media (min-width: 1024px) {
+  .mobile-header {
+    display: none !important;
+  }
+
+  .desktop-header {
+    display: flex !important;
+  }
+
+  .footer {
+    display: none !important;
+  }
+
+  .primary-button{
+    font-weight: 600;
+    box-shadow: 0 9px 8px -6px #c04d05;
+    border-bottom: rgba(0, 0, 0, 0.658) solid 1px !important;
+  }
 }

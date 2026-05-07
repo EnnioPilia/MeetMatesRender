@@ -13,6 +13,7 @@ import { NgClass } from '@angular/common';
  */
 @Component({
   selector: 'app-icon-card',
+  styleUrls: ['./icon-card.component.scss'],
   standalone: true,
   imports: [
     MatCardModule, 

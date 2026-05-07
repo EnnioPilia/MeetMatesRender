@@ -1,5 +1,6 @@
 // Angular
 import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 // Angular Material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -24,16 +25,22 @@ import { BackButtonComponent } from '../../shared-components/back-button/back-bu
  */
 @Component({
   selector: 'app-header',
+  styleUrls: ['./header.component.scss'],
   standalone: true,
   imports: [
     MatToolbarModule, 
     MatIconModule, 
     MatButtonModule, 
     MatDialogModule,
-    BackButtonComponent]
-    ,
+    BackButtonComponent
+  ],
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {
   signals = inject(SignalsService);
+  router = inject(Router);
+
+  navigateTo(path: string) {
+    this.router.navigate([`/${path}`]);
+  }
 }
