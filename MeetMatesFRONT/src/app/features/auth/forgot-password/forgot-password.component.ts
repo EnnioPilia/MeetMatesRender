@@ -31,6 +31,7 @@ import { AppInputComponent } from '../../../shared-components/input/input.compon
   selector: 'app-forgot-password',
   standalone: true,
   templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,

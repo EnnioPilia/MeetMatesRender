@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center justify-start min-h-screen px-7 py-20">
+<div class="container  flex flex-col items-center justify-start min-h-screen px-7 py-20">
   
   <app-state-handler 
     [loading]="loading"
@@ -8,11 +8,7 @@
   @if (event()) {
     <div class="w-full flex flex-col items-center">
 
-      <app-button 
-        label="M O D I F I E R" 
-        class="primary-button w-80 mb-6" 
-        [routerLink]="['/edit-event', event()!.id]">
-      </app-button>
+
 
       <app-event-header 
         class="title"
@@ -44,7 +40,13 @@
         [showStatus]="true" 
         [showOrganizer]="false">
       </app-event-info>
-      
+
+      <app-button 
+        label="M O D I F I E R" 
+        class="primary-button w-80 mb-6" 
+        [routerLink]="['/edit-event', event()!.id]">
+      </app-button>
+
       <app-button 
         label="S U P P R I M E R" 
         class="w-80 primary-button mt-4" 

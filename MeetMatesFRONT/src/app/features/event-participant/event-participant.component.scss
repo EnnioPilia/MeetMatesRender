@@ -1,9 +1,4 @@
 .container {
-    @media (min-width: 1000px) and (max-width: 2900px) {
-        margin: 0 auto;
-        padding-top: 7rem;
-    }
-
     @media (min-width: 600px) and (max-width: 999px) {
         margin: 0 auto;
         padding-top: 7rem;
@@ -11,11 +6,6 @@
 }
 
 .list {
-    @media (min-width: 1000px) and (max-width: 2900px) {
-        width: 20vw;
-        margin: 0 auto;
-    }
-
     @media (min-width: 600px) and (max-width: 999px) {
         width: 40vw;
         margin: 0 auto;
@@ -23,13 +13,103 @@
 }
 
 .title {
-    @media (min-width: 1000px) and (max-width: 2900px) {
-        width: 20vw;
-        margin: 0 auto;
-    }
-
     @media (min-width: 600px) and (max-width: 999px) {
         width: 40vw;
         margin: 0 auto;
     }
+}
+
+@media (min-width: 1024px) {
+
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 200px;
+    }
+
+    ::ng-deep .title h1,
+    ::ng-deep .title h2 {
+        font-size: 48px !important;
+        text-align: center;
+    }
+
+    ::ng-deep .title p {
+        font-size: 26px !important;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    ::ng-deep app-event-status {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    ::ng-deep app-event-status div {
+        width: fit-content;
+        align-items: flex-start !important;
+        font-size: 24px !important;
+        line-height: 1.8;
+    }
+
+    ::ng-deep app-event-status p {
+        text-align: left !important;
+        font-size: 24px !important;
+    }
+
+    ::ng-deep app-event-info {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    ::ng-deep app-event-info .flex,
+    ::ng-deep app-event-info .flex-col {
+        width: fit-content;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        margin: 0 auto;
+    }
+
+    ::ng-deep app-event-info p,
+    ::ng-deep app-event-info span,
+    ::ng-deep app-event-info div {
+        font-size: 24px !important;
+        line-height: 1.6;
+        text-align: left !important;
+    }
+
+    ::ng-deep app-participant-list {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    ::ng-deep app-participant-list>div {
+        width: fit-content;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    ::ng-deep app-participant-list p,
+    ::ng-deep app-participant-list li {
+        font-size: 24px !important;
+        line-height: 1.7;
+        text-align: left;
+    }
+
+    ::ng-deep button.primary-button {
+        width: 100% !important;
+        max-width: 700px;
+        height: 80px !important;
+        font-size: 28px !important;
+    }
+
+    .primary-button:hover {
+        transform: scale(0.95);
+    }
+
 }

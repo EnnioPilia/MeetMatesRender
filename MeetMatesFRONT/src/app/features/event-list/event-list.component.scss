@@ -22,9 +22,9 @@
 @media (min-width: 1024px) {
     .empty {
         margin: 0 auto;
-
     }
-    .empty p{
+
+    .empty p {
         font-size: 3rem;
         font-weight: 200 !important;
     }
@@ -42,8 +42,22 @@
 
     .container-card {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 5rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        padding-top: 25px;
     }
 
+    .container-card>*:only-child {
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+
+    ::ng-deep app-button.primary-button {
+        display: inline-block;
+        transition: transform 0.25s ease;
+    }
+
+    ::ng-deep app-button.primary-button:hover {
+        transform: scale(0.95);
+    }
 }

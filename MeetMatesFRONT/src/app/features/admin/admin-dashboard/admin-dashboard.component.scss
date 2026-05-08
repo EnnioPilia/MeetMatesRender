@@ -13,3 +13,34 @@
         justify-content: center;
     }
 }
+
+@media (min-width: 1024px) {
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 50%;
+    max-width: 900px;
+
+    margin: 0 auto;
+  }
+p{
+    font-size: 40px;
+}
+  app-button {
+    width: 100%;
+  }
+
+  ::ng-deep .w-80,
+  ::ng-deep button.primary-button {
+    width: 100% !important;
+  }
+
+  ::ng-deep button.primary-button {
+    height: 80px !important;
+    font-size: 28px !important;
+  }
+}
