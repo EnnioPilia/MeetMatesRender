@@ -30,43 +30,49 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
     // SAFE FETCH (NO COLLECTION)
     // =========================
 
-    @Query("""
-      SELECT e FROM Event e
-      LEFT JOIN FETCH e.activity
-      LEFT JOIN FETCH e.address
-      WHERE e.id = :id
-        AND e.deletedAt IS NULL
-    """)
-    Optional<Event> findByIdWithBasicDetails(UUID id);
+@Query("""
+  SELECT DISTINCT e FROM Event e
+  LEFT JOIN FETCH e.activity
+  LEFT JOIN FETCH e.address
+  LEFT JOIN FETCH e.participants p
+  LEFT JOIN FETCH p.user
+  WHERE e.id = :id
+    AND e.deletedAt IS NULL
+""")
+Optional<Event> findByIdWithBasicDetails(UUID id);
 
-    @Query("""
-      SELECT e FROM Event e
-      LEFT JOIN FETCH e.activity a
-      LEFT JOIN FETCH e.address addr
-      WHERE a.id = :activityId
-        AND e.deletedAt IS NULL
-    """)
-    List<Event> findActiveByActivityIdWithDetails(UUID activityId);
+@Query("""
+  SELECT DISTINCT e FROM Event e
+  LEFT JOIN FETCH e.activity a
+  LEFT JOIN FETCH e.address addr
+  LEFT JOIN FETCH e.participants p
+  LEFT JOIN FETCH p.user
+  WHERE a.id = :activityId
+    AND e.deletedAt IS NULL
+""")
+List<Event> findActiveByActivityIdWithDetails(UUID activityId);
 
     // =========================
     // SEARCH (SAFE)
     // =========================
 
-    @Query("""
-      SELECT DISTINCT e FROM Event e
-      JOIN e.activity a
-      LEFT JOIN e.address addr
-      WHERE e.deletedAt IS NULL
-        AND (
-          LOWER(e.title) LIKE LOWER(CONCAT('%', :query, '%'))
-          OR LOWER(a.name) LIKE LOWER(CONCAT('%', :query, '%'))
-          OR LOWER(CONCAT(
-            COALESCE(addr.street, ''), ' ',
-            COALESCE(addr.postalCode, ''), ' ',
-            COALESCE(addr.city, '')
-          )) LIKE LOWER(CONCAT('%', :query, '%'))
-        )
-    """)
-    List<Event> searchActiveEvents(String query);
+@Query("""
+  SELECT DISTINCT e FROM Event e
+  JOIN FETCH e.activity a
+  LEFT JOIN FETCH e.address addr
+  LEFT JOIN FETCH e.participants p
+  LEFT JOIN FETCH p.user
+  WHERE e.deletedAt IS NULL
+    AND (
+      LOWER(e.title) LIKE LOWER(CONCAT('%', :query, '%'))
+      OR LOWER(a.name) LIKE LOWER(CONCAT('%', :query, '%'))
+      OR LOWER(CONCAT(
+        COALESCE(addr.street, ''), ' ',
+        COALESCE(addr.postalCode, ''), ' ',
+        COALESCE(addr.city, '')
+      )) LIKE LOWER(CONCAT('%', :query, '%'))
+    )
+""")
+List<Event> searchActiveEvents(String query);
 
 }

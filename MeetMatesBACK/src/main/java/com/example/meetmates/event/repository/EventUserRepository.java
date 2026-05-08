@@ -18,11 +18,25 @@ public interface EventUserRepository extends JpaRepository<EventUser, UUID> {
 
     List<EventUser> findAllByUserIdAndRole(UUID userId, ParticipantRole role);
 
-    List<EventUser> findAllByUserIdAndRoleAndParticipationStatusNotIn(
-            UUID userId,
-            ParticipantRole role,
-            List<EventUser.ParticipationStatus> excludedStatuses
-    );
+@Query("""
+    SELECT eu
+    FROM EventUser eu
+    JOIN FETCH eu.event e
+    JOIN FETCH eu.user u
+    LEFT JOIN FETCH e.address
+    LEFT JOIN FETCH e.activity
+    LEFT JOIN FETCH e.participants p
+    LEFT JOIN FETCH p.user
+    WHERE u.id = :userId
+    AND eu.role = :role
+    AND eu.participationStatus NOT IN :excludedStatuses
+    AND e.deletedAt IS NULL
+""")
+List<EventUser> findAllActiveByUserIdAndRoleWithEvent(
+        UUID userId,
+        ParticipantRole role,
+        List<EventUser.ParticipationStatus> excludedStatuses
+);
 
     // ✅ IMPORTANT : récupérer les participants d’un event (remplace JOIN FETCH)
     List<EventUser> findAllByEventId(UUID eventId);
