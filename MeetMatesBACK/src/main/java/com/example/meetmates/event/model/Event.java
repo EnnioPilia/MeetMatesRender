@@ -105,10 +105,11 @@ public class Event {
      * Adresse de l’événement.
      * Relation One-to-One avec suppression en cascade.
      */
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "address_id", nullable = false)
-    private Address address;
-
+@OneToOne(fetch = FetchType.LAZY,
+          cascade = CascadeType.ALL,
+          orphanRemoval = true)
+@JoinColumn(name = "address_id", nullable = false)
+private Address address;
     /**
      * Activité associée à l’événement.
      * Relation Many-to-One : une activité peut contenir plusieurs événements.

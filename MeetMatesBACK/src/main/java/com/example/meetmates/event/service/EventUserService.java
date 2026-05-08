@@ -200,7 +200,7 @@ public class EventUserService {
      */
     public List<EventUserDto> findByUserId(UUID userId) {
         log.info("Récupération des participations actives de l'utilisateur {}", userId);
-        return eventUserRepository.findAllByUserIdAndRoleAndParticipationStatusNotIn(
+        return eventUserRepository.findAllActiveByUserIdAndRoleWithEvent(
                 userId,
                 ParticipantRole.PARTICIPANT,
                 List.of(ParticipationStatus.LEFT, ParticipationStatus.LEFT_REJECTED))
