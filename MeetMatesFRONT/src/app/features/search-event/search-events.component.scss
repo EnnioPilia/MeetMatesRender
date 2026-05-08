@@ -102,4 +102,23 @@
   ::ng-deep .mat-expansion-panel-header {
     height: 100px !important;
   }
+    ::ng-deep app-loading-spinner mat-progress-spinner {
+    transform: scale(3);
+    margin-top: 80px !important;
+
+    --mdc-circular-progress-active-indicator-color: #ff6600;
+  }
+
+  ::ng-deep app-loading-spinner p {
+    font-size: 25px !important;
+    line-height: 1.6;
+    margin-top: 30px;
+  }
+
+  .text-red-600 {
+    font-size: 28px !important;
+    line-height: 1.6;
+    margin-top: 40px !important;
+    text-align: center;
+  }
 }

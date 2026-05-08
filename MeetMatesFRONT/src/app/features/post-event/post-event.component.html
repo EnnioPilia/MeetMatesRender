@@ -5,15 +5,18 @@
       [error]="error">
     </app-state-handler>
 
-    <app-event-form
-      class="mb-8"
-      mode="create"
-      [activities]="activities()"
-      [addressSuggestions]="addressSuggestions()"
-      (addressInput)="searchAddress($event)"
-      (addressSelected)="selectAddress($event)"
-      (submitForm)="create($event)">
-    </app-event-form>
+@if (!loading() && !error()) {
 
+  <app-event-form
+    class="mb-8"
+    mode="create"
+    [activities]="activities()"
+    [addressSuggestions]="addressSuggestions()"
+    (addressInput)="searchAddress($event)"
+    (addressSelected)="selectAddress($event)"
+    (submitForm)="create($event)">
+  </app-event-form>
+
+}
 
 </div>
