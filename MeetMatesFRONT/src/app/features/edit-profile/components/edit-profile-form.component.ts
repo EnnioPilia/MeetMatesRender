@@ -41,7 +41,7 @@ import { User } from '../../../core/models/user.model';
 
       <app-button 
         label="Enregistrer les modifications" 
-        class="primary-button w-80" 
+        class="primary-button w-full" 
         type="submit" [disabled]="form.invalid || loading">
       </app-button>
     </form>

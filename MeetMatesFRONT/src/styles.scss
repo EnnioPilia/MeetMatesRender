@@ -12,23 +12,28 @@
 
 html,
 body {
-  font-family: 'Poiret One', cursive;
+  font-family: 'Nunito Sans', sans-serif;
+
   font-weight: 700;
   color: #000000;
-  background-color: #f0f8ff;
+  background-color: white;
 }
 
 .header {
-  background-color: #acdbff !important;
+  background-color: #d7eeff !important;
   border-bottom: 1px solid #000000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+
 }
 
 .footer {
-  background-color: #b8e0ff !important;
+  background-color: #d7eeff !important;
   border-top: 1px solid #000000;
+  box-shadow: 0 -8px 10px rgba(0, 0, 0, 0.2) !important;
 }
 
-.primary-button {
+.primary-button,
+.primary-button-home {
   font-weight: 700;
   border-radius: 9px !important;
   box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.6);
@@ -72,7 +77,7 @@ h3 {
 }
 
 .user-card {
-  background-color: #ddedff !important;
+  background-color: #e6f1ff !important;
   box-shadow: 0 6px 10px -6px rgba(0, 0, 0, 0.6) !important;
   border: 1px solid #6d829b !important;
   margin-bottom: 3rem !important;
@@ -171,4 +176,93 @@ mat-error {
   transform: translateY(4px);
   box-shadow: 0 0.5px 0 #000000;
   border-radius: 5px;
+}
+
+@media (min-width: 1024px) {
+  .mobile-header {
+    display: none !important;
+  }
+
+  .desktop-header {
+    display: flex !important;
+  }
+
+  .footer {
+    display: none !important;
+  }
+
+  .primary-button {
+    font-weight: 600;
+    box-shadow: 0 9px 8px -6px #c04d05;
+    border-bottom: rgba(0, 0, 0, 0.658) solid 1px !important;
+  }
+
+  .mat-mdc-snack-bar-container .mat-mdc-snackbar-surface {
+    min-width: 700px !important;
+    max-width: 918px !important;
+
+    padding: 24px 32px !important;
+    border-radius: 5px !important;
+  }
+
+  .mat-mdc-snack-bar-container .mat-mdc-snack-bar-label {
+    font-size: 28px !important;
+    line-height: 1.5 !important;
+  }
+
+  .mat-mdc-snack-bar-container .mat-mdc-snack-bar-actions button {
+    font-size: 24px !important;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease,
+      background-color 0.2s ease !important;
+  }
+
+  .mat-mdc-snack-bar-container .mat-mdc-button:hover {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .mat-mdc-snack-bar-container .mat-mdc-button-persistent-ripple {
+    display: none !important;
+  }
+
+  .mat-mdc-snack-bar-container .mat-mdc-button:hover {
+    transform: scale(0.92);
+    opacity: 0.9;
+  }
+
+  .mat-mdc-snack-bar-container .mat-mdc-button-persistent-ripple {
+    display: none !important;
+  }
+
+  .mat-mdc-dialog-container .mdc-dialog__surface {
+    width: 900px !important;
+
+    padding: 40px !important;
+    border-radius: 5px !important;
+  }
+
+  .mat-mdc-dialog-container {
+    font-size: 28px !important;
+  }
+
+  .mat-mdc-dialog-container h1,
+  .mat-mdc-dialog-container h2,
+  .mat-mdc-dialog-container h3 {
+    font-size: 36px !important;
+  }
+
+  .mat-mdc-dialog-container p,
+  .mat-mdc-dialog-container span,
+  .mat-mdc-dialog-container div {
+    font-size: 26px !important;
+    line-height: 1.6 !important;
+  }
+
+  .mat-mdc-dialog-container button {
+    height: 70px !important;
+    font-size: 24px !important;
+  }
+  
 }

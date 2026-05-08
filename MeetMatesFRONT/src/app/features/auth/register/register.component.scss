@@ -1,0 +1,83 @@
+@media (min-width: 1024px) {
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        min-height: 100vh;
+        width: 100%;
+        margin-top: 45px !important;
+
+        margin: 0 auto;
+        padding: 40px 0;
+    }
+
+    form {
+        width: 50%;
+        max-width: 900px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin: 0 auto;
+    }
+
+    app-input,
+    app-button {
+        width: 100%;
+    }
+
+    ::ng-deep .w-80,
+    ::ng-deep mat-form-field,
+    ::ng-deep button.primary-button {
+        width: 100% !important;
+    }
+
+    ::ng-deep .mdc-form-field {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    ::ng-deep input {
+        height: 80px !important;
+        font-size: 30px !important;
+    }
+
+    ::ng-deep .mdc-floating-label {
+        font-size: 23px !important;
+    }
+
+    ::ng-deep button.primary-button {
+        height: 80px !important;
+        font-size: 28px !important;
+    }
+
+    ::ng-deep .mdc-checkbox__native-control,
+    ::ng-deep .mdc-checkbox__background {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    ::ng-deep .mdc-form-field label {
+        font-size: 28px !important;
+    }
+
+    ::ng-deep app-button.primary-button button {
+        transition: transform 0.25s ease;
+    }
+
+    ::ng-deep app-button.primary-button button:hover {
+        transform: scale(0.95);
+        border: none !important;
+    }
+}
+
+::ng-deep input:-webkit-autofill,
+::ng-deep input:-webkit-autofill:hover,
+::ng-deep input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
+    -webkit-text-fill-color: black !important;
+}

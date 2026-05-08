@@ -33,13 +33,13 @@ import { MatIconModule } from '@angular/material/icon';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
   
-    <div class="absolute top-15 right-5 z-50">
+    <div class=" absolute top-15 right-5 z-50">
 
       <button mat-icon-button [matMenuTriggerFor]="settingsMenu">
-        <mat-icon>settings</mat-icon>
+        <mat-icon class="settings-icon">settings</mat-icon>
       </button>
 
-      <mat-menu #settingsMenu="matMenu">
+      <mat-menu #settingsMenu="matMenu" class="settings-menu">
         <button mat-menu-item (click)="editProfile.emit()">
           <span>Modifier le profil</span><mat-icon>edit</mat-icon>
         </button>

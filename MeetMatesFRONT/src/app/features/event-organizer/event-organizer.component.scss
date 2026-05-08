@@ -1,21 +1,109 @@
 .primary-button {
-    @media (min-width: 1000px) and (max-width: 2900px) {
-        margin-top: 2rem;
-    }
-
     @media (min-width: 600px) and (max-width: 999px) {
         margin-top: 2rem;
     }
 }
 
 .title {
-    @media (min-width: 1000px) and (max-width: 2900px) {
-        width: 25vw;
-        margin: 0 auto;
-    }
-
     @media (min-width: 600px) and (max-width: 999px) {
         width: 50vw;
         margin: 0 auto;
     }
+}
+
+@media (min-width: 1024px) {
+
+  .container {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 170px !important;
+  }
+
+  ::ng-deep .w-80,
+  ::ng-deep button.primary-button {
+    width: 100% !important;
+    max-width: 700px;
+    height: 80px !important;
+    font-size: 28px !important;
+  }
+    .primary-button:hover {
+        transform: scale(0.95);
+    }
+
+  ::ng-deep .title h1,
+  ::ng-deep .title h2 {
+    font-size: 48px !important;
+    text-align: center;
+  }
+
+  ::ng-deep .title p {
+    font-size: 26px !important;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  ::ng-deep .mat-mdc-tab-group {
+    width: 700px !important;
+    margin-top: 30px;
+  }
+
+  ::ng-deep .mdc-tab__text-label {
+    font-size: 26px !important;
+  }
+
+  ::ng-deep .mat-mdc-tab-body {
+    padding: 20px;
+  }
+
+  ::ng-deep .mat-mdc-tab-body span,
+  ::ng-deep .mat-mdc-tab-body p {
+    font-size: 24px !important;
+  }
+
+  ::ng-deep mat-icon {
+    transform: scale(1.5);
+  }
+
+  ::ng-deep .w-72 {
+    width: 100% !important;
+    max-width: 700px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  ::ng-deep app-event-info {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  ::ng-deep app-event-info p,
+  ::ng-deep app-event-info span,
+  ::ng-deep app-event-info div {
+    font-size: 24px !important;
+    line-height: 1.6;
+  }
+
+
+  ::ng-deep app-event-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  ::ng-deep app-event-info .flex,
+  ::ng-deep app-event-info .flex-col {
+    width: fit-content;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    margin: 0 auto;
+  }
+
+  ::ng-deep app-event-info p,
+  ::ng-deep app-event-info span,
+  ::ng-deep app-event-info div {
+    font-size: 24px !important;
+    line-height: 1.6;
+    text-align: left !important;
+  }
 }

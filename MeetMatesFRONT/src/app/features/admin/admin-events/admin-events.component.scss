@@ -9,3 +9,52 @@
         margin-bottom: 3rem;
     }
 }
+
+@media (min-width: 1024px) {
+
+  .container {
+    width: 50%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  ::ng-deep mat-accordion {
+    width: 100%;
+  }
+
+  ::ng-deep mat-expansion-panel {
+    width: 100%;
+  }
+
+  ::ng-deep .w-72 {
+    width: 100% !important;
+    max-width: 700px;
+  }
+
+  ::ng-deep button.primary-button {
+    width: 100% !important;
+    min-width: 500px;
+
+    height: 80px !important;
+    font-size: 28px !important;
+  }
+
+  ::ng-deep .mat-expansion-panel-header {
+    height: 90px !important;
+  }
+
+  ::ng-deep .mat-expansion-panel-header-title,
+  ::ng-deep .mat-expansion-panel-header-description,
+  ::ng-deep .mat-content span {
+    font-size: 24px !important;
+  }
+
+  ul li,
+  p {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 42px !important;
+  }
+}

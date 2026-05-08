@@ -1,6 +1,11 @@
 <div class="container flex flex-col items-center justify-center min-h-screen px-6 py-10 text-center">
 
-  <h2 class="text-4xl">MEET MATES</h2>
+  <h2 class="logo text-5xl">MEET MATES</h2>
+
+  <span class="title mx-auto text-lg font-bold text-center">
+    {{ signals.pageTitle() }}
+  </span>
+
 
   <p class="text card-text mt-7 mb-8 p-4">
     Meet Mates est une application qui permet de participer à des activités en tout genre,
@@ -8,24 +13,24 @@
     Publiez vos propres annonces afin d’inviter la communauté à vous rejoindre et partager vos passions.
   </p>
 
-  <div class="flex flex-col items-center justify-center text-2xl gap-3">
+  <div class="button-home flex flex-col items-center justify-center text-2xl gap-3">
 
     <app-button 
       label="C O N N E X I O N"
-      class="primary-button w-80"
+      class="primary-button-home w-80"
       routerLink="/login">
     </app-button>
 
     <app-button 
       label="I N S C R I P T I O N"
-      class="primary-button w-80"
+      class="primary-button-home w-80"
       routerLink="/register">
     </app-button>
 
     @if (isAdmin()) {
       <app-button
-        label="ADMIN "
-        class="primary-button"
+        label="ADMIN"
+        class="primary-button-home w-80"
         routerLink="/admin/dashboard">
       </app-button>
     }
