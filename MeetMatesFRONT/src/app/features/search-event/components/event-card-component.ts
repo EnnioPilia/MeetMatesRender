@@ -21,6 +21,7 @@ import { EventInfoCardComponent } from '../../../shared-components/event-info-ca
  */
 @Component({
   selector: 'app-event-card',
+   styleUrls: ['./event-card-component.scss'],
   standalone: true,
   imports: [
     CommonModule,
@@ -29,28 +30,41 @@ import { EventInfoCardComponent } from '../../../shared-components/event-info-ca
   ],
   template: `
 
-      <mat-expansion-panel class="w-full flex flex-col justify-center">
-        <mat-expansion-panel-header>
-          <div class="flex justify-between w-full mr-3">
-            <span>{{ event.title }}</span>
-            <span>{{ event.date | date: 'dd/MM/yy' }}</span>
-          </div>
-        </mat-expansion-panel-header>
+<mat-expansion-panel class="event-panel">
 
-        <div class="flex flex-col items-center justify-center w-full gap-2">
+  <mat-expansion-panel-header class="event-header">
 
-          <app-event-info-card 
-            [event]="event">
-          </app-event-info-card>
+    <div class="event-header-content">
 
-          <button 
-            class="primary-button h-10 w-32" 
-            (click)="emitDetails()">
-            VOIR DÉTAILS
-          </button>
+      <span class="event-title">
+        {{ event.title }}
+      </span>
 
-        </div>
-      </mat-expansion-panel>
+      <span class="event-date">
+        {{ event.date | date: 'dd/MM/yy' }}
+      </span>
+
+    </div>
+
+  </mat-expansion-panel-header>
+
+  <div class="event-content">
+
+    <app-event-info-card 
+      [event]="event">
+    </app-event-info-card>
+
+    <button 
+      class="primary-button"
+      (click)="emitDetails()">
+
+      VOIR DÉTAILS
+
+    </button>
+
+  </div>
+
+</mat-expansion-panel>
   `,
 })
 export class EventCardComponent {

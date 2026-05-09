@@ -1,268 +1,93 @@
-/**
- * Styles globaux de l’application.
- *
- * Ce fichier définit :
- * - l’identité visuelle globale (typographie, couleurs, backgrounds)
- * - les styles communs des composants (header, footer, boutons, cards)
- * - la surcharge des composants Angular Material
- * - les effets d’interaction (hover, active, feedback utilisateur)
- *
- * Objectif : garantir une cohérence visuelle sur toute l’application.
- */
+/* RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html,
 body {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100%;
+
+  overflow-x: hidden;
+}
+
+/* DESIGN TOKENS */
+
+:root {
+
+  /* COLORS */
+  --color-primary: #1976d2;
+  --color-accent: #ff6200;
+
+  --color-bg: #ffffff;
+  --color-text: #000000;
+
+  --color-border: #000000;
+
+  /* SHADOWS */
+  --shadow-button:
+    0 10px 18px -10px #c04d05,
+    0 6px 10px -8px rgba(0, 0, 0, 0.4);
+
+  --shadow-soft:
+    0 4px 12px rgba(0, 0, 0, 0.08);
+
+  /* LAYOUT */
+  --header-mobile: 64px;
+  --header-desktop: 84px;
+
+  --footer-mobile: 72px;
+
+  /* RADIUS */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+}
+
+/* TYPO */
+
+body {
   font-family: 'Nunito Sans', sans-serif;
-
-  font-weight: 700;
-  color: #000000;
-  background-color: white;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
-.header {
-  background-color: #d7eeff !important;
-  border-bottom: 1px solid #000000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
-
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }
 
-.footer {
-  background-color: #d7eeff !important;
-  border-top: 1px solid #000000;
-  box-shadow: 0 -8px 10px rgba(0, 0, 0, 0.2) !important;
+/* ===== SNACKBAR GLOBAL ===== */
+
+.success-snackbar,
+.warning-snackbar,
+.error-snackbar {
+
+  --mdc-snackbar-container-color: #000 !important;
+  --mdc-snackbar-supporting-text-color: #fff !important;
+
+  border: 1px solid #ff6600;
 }
 
-.primary-button,
-.primary-button-home {
-  font-weight: 700;
-  border-radius: 9px !important;
-  box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.6);
-  border-bottom: black solid 1px !important;
+/* bouton "Fermer" */
+.success-snackbar .mat-mdc-snack-bar-action,
+.warning-snackbar .mat-mdc-snack-bar-action,
+.error-snackbar .mat-mdc-snack-bar-action {
+  color: #ff6600 !important;
 }
 
-app-button.secondary-button button {
-  border: none !important;
-  box-shadow: none !important;
-  background: transparent !important;
-}
-
-p {
-  font-weight: 700;
-  color: #000000;
-}
-
-h3 {
-  font-weight: 700 !important;
-  color: #000000;
-  border-bottom: 1px solid black !important;
-}
-
-.text {
-  border-bottom: 1px solid black !important;
-}
-
-.image {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 12px;
-  object-fit: cover;
-}
-
-.icone-card {
-  background-color: #e6f1fd !important;
-  border-radius: 5px !important;
-  border-bottom: black solid 1px !important;
-  box-shadow: 0 6px 10px -6px rgba(0, 0, 0, 0.6) !important;
-  cursor: pointer;
-}
-
-.user-card {
-  background-color: #e6f1ff !important;
-  box-shadow: 0 6px 10px -6px rgba(0, 0, 0, 0.6) !important;
-  border: 1px solid #6d829b !important;
-  margin-bottom: 3rem !important;
-  padding-bottom: 1rem;
-
-}
-
-// Organization and Participant TABS (profil)
-mat-expansion-panel {
-  box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.8) !important;
-  border-bottom: 1px solid black !important;
-  border-left: 1px solid black !important;
-  border-right: 1px solid black !important;
-  background-color: #f5f8fd !important;
-  border-radius: 0 !important;
-}
-
-.mat-accordion .mat-expansion-panel:not(.mat-expanded),
-.mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
-  border-radius: 3px !important;
-}
-
-// Snack-bar
-.mat-mdc-snack-bar-container {
-  --mdc-snackbar-container-color: #000000;
-  --mdc-snackbar-supporting-text-color: #ffffff;
-  --mdc-snackbar-label-text-color: #000000;
-  font-weight: 500 !important;
-  font-family: 'Poiret One', cursive;
-}
-
-// Selectors
-.mat-mdc-select-panel {
-  border-bottom: 2px solid #000000 !important;
-  background-color: #ffffff !important;
-  border-radius: 0 !important;
-}
-
-// Selector Date
-.mat-datepicker-content {
-  border-bottom: 2px solid #000000 !important;
-  border-top: 2px solid #000000 !important;
-  background-color: #f3f4f6 !important;
-  width: 20rem !important;
-}
-
-.mat-calendar-body-cell {
-  background-color: #f3f4f6 !important;
-}
-
-// Selector Address
-.mat-mdc-autocomplete-panel {
-  background-color: #f3f4f6 !important;
-  border-bottom: 2px solid #000000 !important;
-  border-top: 2px solid #000000 !important;
-}
-
-// Profile Menu
-.mat-mdc-menu-panel {
-  background-color: white !important;
-  border-bottom: 2px solid black;
-  border-left: 2px solid black;
-}
-
-// dial popup
-.mat-mdc-dialog-surface {
-  --mdc-dialog-container-color: rgb(243, 236, 236);
-}
-
-mat-progress-spinner {
-  --mdc-circular-progress-active-indicator-color: #1976d2;
-}
-
-mat-error {
-  color: #ff0000 !important;
-  font-weight: 700;
-}
-
-// Clic effects
-.primary-button {
-  cursor: pointer;
-  transition: transform 0.05s cubic-bezier(0.25, 0.1, 0.25, 1),
-}
-
-.primary-button:active {
-  transform: translateY(4px);
-  box-shadow: 0 1.5px 0 #000000;
-}
-
-.icon-card {
-  cursor: pointer;
-  transition: transform 0.05s cubic-bezier(0.25, 0.1, 0.25, 1),
-}
-
-.icon-card:active {
-  transform: translateY(4px);
-  box-shadow: 0 0.5px 0 #000000;
-  border-radius: 5px;
-}
-
-@media (min-width: 1024px) {
-  .mobile-header {
-    display: none !important;
-  }
-
-  .desktop-header {
-    display: flex !important;
-  }
-
-  .footer {
-    display: none !important;
-  }
-
-  .primary-button {
-    font-weight: 600;
-    box-shadow: 0 9px 8px -6px #c04d05;
-    border-bottom: rgba(0, 0, 0, 0.658) solid 1px !important;
-  }
-
-  .mat-mdc-snack-bar-container .mat-mdc-snackbar-surface {
-    min-width: 700px !important;
-    max-width: 918px !important;
-
-    padding: 24px 32px !important;
-    border-radius: 5px !important;
-  }
-
-  .mat-mdc-snack-bar-container .mat-mdc-snack-bar-label {
-    font-size: 28px !important;
-    line-height: 1.5 !important;
-  }
-
-  .mat-mdc-snack-bar-container .mat-mdc-snack-bar-actions button {
-    font-size: 24px !important;
-    transition:
-      transform 0.2s ease,
-      opacity 0.2s ease,
-      background-color 0.2s ease !important;
-  }
-
-  .mat-mdc-snack-bar-container .mat-mdc-button:hover {
-    background: transparent !important;
-    box-shadow: none !important;
-  }
-
-  .mat-mdc-snack-bar-container .mat-mdc-button-persistent-ripple {
-    display: none !important;
-  }
-
-  .mat-mdc-snack-bar-container .mat-mdc-button:hover {
-    transform: scale(0.92);
-    opacity: 0.9;
-  }
-
-  .mat-mdc-snack-bar-container .mat-mdc-button-persistent-ripple {
-    display: none !important;
-  }
-
-  .mat-mdc-dialog-container .mdc-dialog__surface {
-    width: 900px !important;
-
-    padding: 40px !important;
-    border-radius: 5px !important;
-  }
-
-  .mat-mdc-dialog-container {
-    font-size: 28px !important;
-  }
-
-  .mat-mdc-dialog-container h1,
-  .mat-mdc-dialog-container h2,
-  .mat-mdc-dialog-container h3 {
-    font-size: 36px !important;
-  }
-
-  .mat-mdc-dialog-container p,
-  .mat-mdc-dialog-container span,
-  .mat-mdc-dialog-container div {
-    font-size: 26px !important;
-    line-height: 1.6 !important;
-  }
-
-  .mat-mdc-dialog-container button {
-    height: 70px !important;
-    font-size: 24px !important;
-  }
-  
+/* texte */
+.success-snackbar .mdc-snackbar__label,
+.warning-snackbar .mdc-snackbar__label,
+.error-snackbar .mdc-snackbar__label {
+  font-size: 16px;
+  font-weight: 500;
 }

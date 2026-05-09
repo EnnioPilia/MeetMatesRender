@@ -1,15 +1,29 @@
-<mat-form-field class="w-full">
-  <mat-label>{{ label }}</mat-label>
+<div class="app-select">
 
-  <mat-select [formControl]="control">
+  <label class="app-select-label">
+    {{ label }}
+  </label>
+
+  <select
+    class="app-select-field"
+    [formControl]="control">
+
+    <option value="" disabled selected hidden>
+    
+    </option>
+
     @for (option of options; track option.value) {
-      <mat-option [value]="option.value">
+      <option [value]="option.value">
         {{ option.label }}
-      </mat-option>
+      </option>
     }
-  </mat-select>
 
-  @if (control && control) {
-    <mat-error>{{ error }}</mat-error>
+  </select>
+
+  @if (control.invalid && (control.touched || control.dirty)) {
+    <span class="app-select-error">
+      {{ error }}
+    </span>
   }
-</mat-form-field>
+
+</div>

@@ -1,15 +1,18 @@
 // Angular
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-
-// Angular Material
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
-import { MatInputModule } from '@angular/material/input';
+import {
+  FormGroup,
+  ReactiveFormsModule,
+  FormControl
+} from '@angular/forms';
 
 // Core (models)
 import { Activity } from '../../../core/models/activity.model';
+
+// Shared components
+import { AppInputComponent } from '../../../shared-components/input/input.component';
+import { AppSelectComponent } from '../../../shared-components/select/select.component';
 
 /**
  * Sous-composant de présentation dédié à la sélection
@@ -22,52 +25,53 @@ import { Activity } from '../../../core/models/activity.model';
  */
 @Component({
   selector: 'app-event-activity',
+    styleUrls: ['./event-activity.component.scss'],
   standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule
+    AppInputComponent,
+    AppSelectComponent
   ],
   template: `
-    <div [formGroup]="form" class="flex flex-col items-center w-80 gap-4">
 
-      <mat-form-field class="w-full">
-        <mat-label>Activité</mat-label>
-        <mat-select formControlName="activityId">
-          @for (activity of activities; track activity.id) {
-            <mat-option [value]="activity.id">
-              {{ activity.name }}
-            </mat-option>
-          }
-        </mat-select>
+    <div [formGroup]="form" class="event-activity">
 
-        @if (form.get('activityId')?.invalid && form.get('activityId')?.touched) {
-          <mat-error>Activité requise</mat-error>
-        }
-      </mat-form-field>
+      <app-select
+        label="Activité"
+        [control]="activityControl"
+        [options]="activityOptions"
+        error="Activité requise">
+      </app-select>
 
-      <mat-form-field class="w-full">
-        <mat-label>Nombre de participants</mat-label>
-        
-        <input
-          matInput
-          type="number"
-          min="2"
-          formControlName="maxParticipants" />
-
-        @if (form.get('maxParticipants')?.invalid && form.get('maxParticipants')?.touched) {
-          <mat-error>Minimum 2 participants</mat-error>
-        }
-      </mat-form-field>
+      <app-input
+        label="Nombre de participants"
+        [control]="maxParticipantsControl"
+        type="number">
+      </app-input>
 
     </div>
+
   `
 })
 export class EventActivityComponent {
 
   @Input({ required: true }) form!: FormGroup;
   @Input() activities: Activity[] = [];
-  
+
+  get activityControl(): FormControl {
+    return this.form.get('activityId') as FormControl;
+  }
+
+  get maxParticipantsControl(): FormControl {
+    return this.form.get('maxParticipants') as FormControl;
+  }
+
+  get activityOptions() {
+    return this.activities.map(activity => ({
+      label: activity.name,
+      value: activity.id
+    }));
+  }
+
 }

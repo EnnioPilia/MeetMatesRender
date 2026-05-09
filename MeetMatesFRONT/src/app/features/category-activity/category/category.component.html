@@ -1,22 +1,26 @@
-<div class="pt-[40px] pb-[60px] mt-2">
+<div class="category-page">
 
   <app-state-handler 
     [loading]="loading"
     [error]="error">
   </app-state-handler>
 
-  @if (!loading() && !error()){
-    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 justify-items-center gap-6 p-6">
+  @if (!loading() && !error()) {
+
+    <div class="categories-grid">
+
       @for (category of categories(); track category.id) {
-      
+
         <app-icon-card
-          class="icon-card"
           [title]="category.name"
           [iconPath]="'/assets/images/icons/' + category.imageUrl"
           (cardClick)="navigateTo(category.id)">
         </app-icon-card>
 
       }
+
     </div>
-    }
+
+  }
+
 </div>

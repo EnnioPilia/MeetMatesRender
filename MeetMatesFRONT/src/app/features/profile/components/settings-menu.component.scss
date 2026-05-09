@@ -1,0 +1,37 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.settings-menu-wrapper {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  z-index: 50;
+}
+
+.settings-icon {
+  transform: scale(1.2);
+}
+
+@media (min-width: 1024px) {
+
+  .settings-icon {
+    transform: scale(1.5);
+  }
+
+  ::ng-deep .settings-menu {
+    width: 420px !important;
+  }
+
+  // ::ng-deep .settings-menu .mat-mdc-menu-content {
+  //   padding: 24px !important;
+  // }
+
+  ::ng-deep .settings-menu .mat-mdc-menu-item {
+    height: 72px !important;
+    font-size: 22px !important;
+  }
+}

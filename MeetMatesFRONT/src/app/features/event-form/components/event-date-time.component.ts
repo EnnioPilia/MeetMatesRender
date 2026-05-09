@@ -20,6 +20,7 @@ import { MatNativeDateModule } from '@angular/material/core';
  */
 @Component({
   selector: 'app-event-date-time',
+  styleUrls: ['./event-date-time.component.scss'],
   standalone: true,
   imports: [
     CommonModule,
@@ -30,45 +31,72 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatNativeDateModule
   ],
   template: `
+<div [formGroup]="form" class="event-date-time">
 
-    <div [formGroup]="form" class="flex flex-col items-center gap-4 w-80">
+  <div class="field">
 
-      <mat-form-field class="w-full">
-        <mat-label>Date</mat-label>
-          <input 
-            matInput 
-            [matDatepicker]="picker" 
-            formControlName="eventDate"
-            >
-          <mat-datepicker-toggle 
-            matSuffix [for]="picker">
-          </mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-        
-        @if (form.get('eventDate')?.hasError('required') 
-          && (form.get('eventDate')?.touched || form.get('eventDate')?.dirty)) {
-            <mat-error>La date est requise.</mat-error>
-        }
-      </mat-form-field>
+    <label class="label">
+      Date
+    </label>
 
-        <div class="flex w-full gap-4">
-          <mat-form-field class="flex-1">
-            <mat-label>Heure de début</mat-label>
-            <input matInput type="time" formControlName="startTime" />
-              @if (form.get('startTime')?.hasError('required')) {
-                <mat-error>L’heure de début est requise.</mat-error>
-              }
-          </mat-form-field>
+<div class="date-wrapper">
 
-          <mat-form-field class="flex-1">
-            <mat-label>Heure de fin</mat-label>
-            <input matInput type="time" formControlName="endTime" />
-              @if (form.get('endTime')?.hasError('required')) {
-                <mat-error>L’heure de fin est requise.</mat-error>
-              }
-          </mat-form-field>
-        </div>
+  <input
+    matInput
+    class="input"
+    [matDatepicker]="picker"
+    formControlName="eventDate" />
+
+  <mat-datepicker-toggle
+    matSuffix
+    [for]="picker">
+  </mat-datepicker-toggle>
+
+</div>
+
+<mat-datepicker #picker></mat-datepicker>
+    @if (
+      form.get('eventDate')?.hasError('required') &&
+      (form.get('eventDate')?.touched || form.get('eventDate')?.dirty)
+    ) {
+      <span class="error">
+        La date est requise.
+      </span>
+    }
+
+  </div>
+
+  <div class="time-row">
+
+    <div class="field">
+
+      <label class="label">
+        Heure de début
+      </label>
+
+      <input
+        class="input"
+        type="time"
+        formControlName="startTime" />
+
     </div>
+
+    <div class="field">
+
+      <label class="label">
+        Heure de fin
+      </label>
+
+      <input
+        class="input"
+        type="time"
+        formControlName="endTime" />
+
+    </div>
+
+  </div>
+
+</div>
 
   `
 })

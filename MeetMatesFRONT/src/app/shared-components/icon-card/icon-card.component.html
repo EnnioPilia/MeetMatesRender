@@ -1,11 +1,13 @@
 <mat-card
-  class="icone-card flex flex-col items-center justify-center"
-  [ngClass]="cardSizeClass"
+  class="icon-card"
   (click)="onCardClick()">
 
-  <img [attr.src]="'/assets/images/icons/' + title.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-') + '.png'"class="image"/>
+  <img
+    [src]="computedIconPath"
+    [alt]="title"
+    class="icon-image" />
 
-  <mat-card-title>
+  <mat-card-title class="icon-title">
     {{ title }}
   </mat-card-title>
 

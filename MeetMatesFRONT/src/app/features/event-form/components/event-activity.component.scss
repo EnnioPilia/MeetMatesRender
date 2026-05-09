@@ -1,0 +1,12 @@
+:host {
+  width: 100%;
+}
+
+.event-activity {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}

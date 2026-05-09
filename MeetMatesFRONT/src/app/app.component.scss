@@ -1,0 +1,12 @@
+.main-layout {
+  padding-top: var(--header-mobile);
+  padding-bottom: var(--footer-mobile);
+
+}
+
+@media (min-width: 1024px) {
+  .main-layout {
+    padding-top: var(--header-desktop);
+    padding-bottom: 0;
+  }
+}

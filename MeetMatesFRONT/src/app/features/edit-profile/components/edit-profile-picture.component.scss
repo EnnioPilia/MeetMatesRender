@@ -1,0 +1,57 @@
+
+    :host {
+      width: 100%;
+      display: block;
+    }
+
+    .profile-picture-section {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      gap: 20px;
+    }
+
+    .picture-wrapper {
+      position: relative;
+    }
+
+    .profile-picture {
+      width: 128px;
+      height: 128px;
+
+      border-radius: 9999px;
+      border: 2px solid black;
+
+      object-fit: cover;
+    }
+
+    .delete-button {
+      position: absolute;
+      bottom: -8px;
+      right: -8px;
+    }
+
+    .primary-button {
+      width: 100%;
+    }
+
+    @media (min-width: 1024px) {
+
+      .profile-picture {
+        width: 180px;
+        height: 180px;
+      }
+
+      ::ng-deep button.primary-button {
+        height: 80px !important;
+        font-size: 28px !important;
+      }
+
+      ::ng-deep .mat-icon {
+        transform: scale(1.3);
+      }
+
+    }

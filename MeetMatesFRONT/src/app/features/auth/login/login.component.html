@@ -1,37 +1,48 @@
-<div class="container flex flex-col items-center justify-center min-h-screen">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col items-center gap-3">
+<section class="login">
 
-    <app-input 
-      label="Email" 
-      [control]="form.controls.email" 
-      type="email" 
-      [required]="true">
-    </app-input>
+  <form
+    class="login-form"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+  >
 
-    <app-input 
-      label="Mot de passe" 
-      [control]="form.controls.password" 
-      type="password" 
-      [required]="true">
-    </app-input>
-      
-    <app-button 
-      label="Se connecter" 
-      class="primary-button" 
-      type="submit" [disabled]="isSubmitting">
-    </app-button>
+    <app-input
+      label="Email"
+      [control]="form.controls.email"
+      type="email"
+      [required]="true"
+    />
 
-    <app-button 
-      label="Mot de passe oublié" 
-      class="primary-button w-80" 
-      routerLink="/forgot-password">
-    </app-button>
+    <app-input
+      label="Mot de passe"
+      [control]="form.controls.password"
+      type="password"
+      [required]="true"
+    />
 
-    <app-button 
-      label="Pas encore de compte ?" 
-      class="primary-button w-80" 
-      routerLink="/register">
-    </app-button>
-    
+    <div class="login-actions">
+
+      <app-button
+        label="SE CONNECTER"
+        type="submit"
+        [disabled]="isSubmitting"
+        [fullWidth]="true"
+      />
+
+      <app-button
+        label="MOT DE PASSE OUBLIÉ"
+        routerLink="/forgot-password"
+        [fullWidth]="true"
+      />
+
+      <app-button
+        label="PAS ENCORE DE COMPTE ?"
+        routerLink="/register"
+        [fullWidth]="true"
+      />
+
+    </div>
+
   </form>
-</div>
+
+</section>

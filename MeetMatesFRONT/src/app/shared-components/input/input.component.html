@@ -1,30 +1,40 @@
-<mat-form-field class="w-80">
-  
-  <mat-label>{{ label }}</mat-label>
+<div class="app-input">
+
+  <label class="app-input-label">
+    {{ label }}
+  </label>
 
   <input
-    matInput
+    class="app-input-field"
     [formControl]="control"
     [type]="type"
     [required]="required"
+    [placeholder]="placeholder"
     [attr.maxlength]="maxLength"
   />
 
   @if (control.hasError('required') && (control.touched || control.dirty)) {
-    <mat-error>{{ label }} est requis.</mat-error>
+    <span class="app-input-error">
+      {{ label }} est requis.
+    </span>
   }
 
   @if (control.hasError('email') && !control.hasError('required')) {
-    <mat-error>Adresse email invalide.</mat-error>
+    <span class="app-input-error">
+      Adresse email invalide.
+    </span>
   }
 
   @if (control.hasError('minlength') && !control.hasError('required')) {
-    <mat-error>Minimum {{ control.getError('minlength')?.requiredLength }} caractères.</mat-error>
+    <span class="app-input-error">
+      Minimum {{ control.getError('minlength')?.requiredLength }} caractères.
+    </span>
   }
-  
-  @if (control.hasError('maxlength') && !control.hasError('required')) {
-    <mat-error>Maximum {{ control.getError('maxlength')?.requiredLength }} caractères.</mat-error>
-  }
-  
-</mat-form-field>
 
+  @if (control.hasError('maxlength') && !control.hasError('required')) {
+    <span class="app-input-error">
+      Maximum {{ control.getError('maxlength')?.requiredLength }} caractères.
+    </span>
+  }
+
+</div>

@@ -20,29 +20,49 @@ import { Participant } from '../../../core/models/participant.model';
  */
 @Component({
   selector: 'app-event-tab-accepted',
+  styleUrls: ['./event-tab-accepted.component.scss'],
   standalone: true,
   imports: [CommonModule, MatIconModule, MatButtonModule],
+  
   template: `
+<div class="participants-list">
 
-    <div class="max-h-[40vh] overflow-y-auto p-4">
-      @if (filteredAcceptedParticipants.length > 0) {
-        <div class="flex flex-col gap-1">
-          @for (p of filteredAcceptedParticipants; track p.id) {
-            <div class="flex justify-between items-center">              
-              <span>{{ p.firstName }} {{ p.lastName }}</span>
-              <button mat-icon-button color="warn"
-                (click)="onReject(p.id)">
-                <mat-icon>highlight_off</mat-icon>
-              </button>
-            </div>
-          }
+  @if (filteredAcceptedParticipants.length > 0) {
+
+    <div class="participants-content">
+
+      @for (p of filteredAcceptedParticipants; track p.id) {
+
+        <div class="participant-row">
+
+          <span class="participant-name">
+            {{ p.firstName }} {{ p.lastName }}
+          </span>
+
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="onReject(p.id)">
+
+            <mat-icon>highlight_off</mat-icon>
+
+          </button>
+
         </div>
-      } @else {
-        <p class="text-center text-gray-500 mt-4">
-          Aucun participant accepté.
-        </p>
+
       }
+
     </div>
+
+  } @else {
+
+    <p class="empty-state">
+      Aucun participant accepté.
+    </p>
+
+  }
+
+</div>
   `,
 })
 export class EventTabAcceptedComponent {

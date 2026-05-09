@@ -1,46 +1,89 @@
-.container {
-    @media (min-width: 1000px) and (max-width: 2900px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+:host {
+  display: block;
+  width: 100%;
+}
 
-    @media (min-width: 500px) and (max-width: 999px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+.admin-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 24px;
+
+  box-sizing: border-box;
+}
+
+.admin-content {
+  width: 100%;
+  max-width: 700px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 40px;
+}
+
+.admin-buttons {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+.admin-stats {
+  text-align: center;
+  color: #6b7280;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.admin-stats p {
+  font-size: 18px;
+}
+
+@media (min-width: 600px) and (max-width: 999px) {
+
+  .admin-page {
+    padding-top: 100px;
+  }
+
+  .admin-content {
+    gap: 50px;
+  }
 }
 
 @media (min-width: 1024px) {
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .admin-page {
+  }
 
-    width: 50%;
+  .admin-content {
     max-width: 900px;
-
-    margin: 0 auto;
-  }
-p{
-    font-size: 40px;
-}
-  app-button {
-    width: 100%;
+    gap: 70px;
   }
 
-  ::ng-deep .w-80,
+  .admin-buttons {
+    gap: 36px;
+  }
+
   ::ng-deep button.primary-button {
     width: 100% !important;
+    height: 90px !important;
+
+    font-size: 32px !important;
   }
 
-  ::ng-deep button.primary-button {
-    height: 80px !important;
-    font-size: 28px !important;
+  .admin-stats p {
+    font-size: 32px;
   }
 }

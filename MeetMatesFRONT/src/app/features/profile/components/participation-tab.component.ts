@@ -1,5 +1,11 @@
 // Angular
-import { Component, Input, ChangeDetectionStrategy, inject } from '@angular/core';
+import {
+  Component,
+  Input,
+  ChangeDetectionStrategy,
+  inject
+} from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -7,17 +13,13 @@ import { RouterModule } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 
-// Core (services, models)
+// Core
 import { EventMapperService } from '../../../core/mappers/event-mapper';
 import { EventListItem } from '../../../core/models/event-list-item.model';
 import { EventResponse } from '../../../core/models/event-response.model';
 
 // Shared components
-import { StatusColorPipe } from '../../../shared-components/pipes/statusColor.pipe';
-
-// Utils
-import { getStatusLabel, getParticipationLabel } from '../../../core/utils/labels.utils';
-
+import { EventInfoCardComponent } from '../../../shared-components/event-info-card/event-info-card';
 
 /**
  * Sous-composant dédié à l’affichage des événements
@@ -25,80 +27,98 @@ import { getStatusLabel, getParticipationLabel } from '../../../core/utils/label
  *
  * Responsabilités :
  * - afficher la liste des événements de participation
- * - présenter le statut de l’événement
- * - présenter le statut de participation de l’utilisateur
- * - fournir un accès à la page de détail participant
+ * - présenter les informations principales
+ * - présenter le statut de participation
+ * - fournir un accès à la page participant
  */
 @Component({
   selector: 'app-participation-tab',
   standalone: true,
   imports: [
     CommonModule,
-    MatExpansionModule, 
-    RouterModule, 
-    MatButtonModule, 
-    StatusColorPipe
+    MatExpansionModule,
+    RouterModule,
+    MatButtonModule,
+    EventInfoCardComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./participation-tab.component.scss'],
   template: `
 
-    <div class="max-h-[35vh] overflow-y-auto mt-2 p-1">
+    <div class="participation-list">
+
       @if (mappedEvents.length === 0) {
-        <p class="text-center text-gray-500 mt-4">
+
+        <p class="empty-state">
           Vous ne participez à aucun événement actuellement.
         </p>
-      } @else {
-        <mat-accordion multi class="flex flex-col gap-4">
-          @for (event of mappedEvents; track event.id) {
-            <mat-expansion-panel class="w-full">
-              <mat-expansion-panel-header class="items-start">
-                <div class="flex justify-between w-full items-start mr-3">
-                  <span class="text-xl">{{ event.title }}</span>
-                  <span class="mt-1">{{ event.date | date: 'dd/MM/yy' }}</span>
-                </div>
-              </mat-expansion-panel-header>
-              <div class="flex flex-col gap-2">
-                <p><strong>Status de l'activité :</strong>
-                  <span [ngClass]="getStatusLabel(event.status) | statusColor">
-                    {{ getStatusLabel(event.status) }}
-                  </span>
-                </p>
-                <p><strong>Votre participation :</strong>
-                  <span [ngClass]="getParticipationLabel(event.participationStatus) | statusColor">
-                    {{ getParticipationLabel(event.participationStatus) }}
-                  </span>
-                </p>
 
-                  <p>{{ event.addressLabel }}</p>
-                    
-                  <button 
-                    class="primary-button h-10" 
-                    [routerLink]="['/event-participant', event.eventId]">
-                    VOIR DÉTAILS
-                  </button>
+      } @else {
+
+        <mat-accordion
+          multi
+          class="events-accordion">
+
+          @for (event of mappedEvents; track event.id) {
+
+            <mat-expansion-panel class="event-panel">
+
+              <mat-expansion-panel-header>
+
+                <div class="event-header">
+
+                  <span class="event-title">
+                    {{ event.title }}
+                  </span>
+
+                  <span class="event-date">
+                    {{ event.date | date:'dd/MM/yy' }}
+                  </span>
+
+                </div>
+
+              </mat-expansion-panel-header>
+
+              <div class="event-content">
+
+                <app-event-info-card
+                  [event]="event"
+                  [showActivity]="false"
+                  [showStatus]="true"
+                  [showParticipationStatus]="true"
+                  [showAddress]="true">
+                </app-event-info-card>
+
+                <button
+                  class="primary-button"
+                  [routerLink]="['/event-participant', event.eventId]">
+
+                  VOIR DÉTAILS
+
+                </button>
 
               </div>
+
             </mat-expansion-panel>
+
           }
+
         </mat-accordion>
+
       }
+
     </div>
+
   `
 })
 export class ParticipationTabComponent {
+
   private mapper = inject(EventMapperService);
-  
-  @Input() events: EventResponse[] = [];
+
+  @Input()
+  events: EventResponse[] = [];
 
   get mappedEvents(): EventListItem[] {
     return this.mapper.toEventList(this.events);
-  }
-
-  getStatusLabel(status?: string): string {
-    return status ? getStatusLabel(status) : '';
-  }
-
-  getParticipationLabel(status?: string | null): string {
-    return getParticipationLabel(status ?? null);
   }
 }

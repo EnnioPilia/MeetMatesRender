@@ -1,69 +1,83 @@
 // Angular
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  ReactiveFormsModule,
+  FormControl
+} from '@angular/forms';
 
 // Angular Material
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
-// Shared components
+// Shared
 import { AppInputComponent } from '../../../shared-components/input/input.component';
 
-/**
- * Sous-composant de présentation dédié aux informations générales
- * d’un événement.
- *
- * Responsabilités :
- * - saisir le titre de l’événement
- * - saisir la description
- * - afficher et gérer le statut de l’événement (en mode édition)
- */
 @Component({
   selector: 'app-event-info',
   standalone: true,
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
     MatButtonToggleModule,
     AppInputComponent
   ],
   template: `
-    <div [formGroup]="form" class="flex flex-col items-center w-full">
 
-      @if (showStatus) {
-        <mat-button-toggle-group formControlName="status">
-          <mat-button-toggle value="OPEN">Ouvert</mat-button-toggle>
-          <mat-button-toggle value="FULL">Complet</mat-button-toggle>
-          <mat-button-toggle value="CANCELLED">Annulé</mat-button-toggle>
-          <mat-button-toggle value="FINISHED">Terminé</mat-button-toggle>
-        </mat-button-toggle-group>
-      }
+<div [formGroup]="form" class="event-info">
 
-      <app-input
-        label="Titre"
-        [control]="form.get('title')!"
-        type="text">
-      </app-input>
+  @if (showStatus) {
 
-      <mat-form-field class="w-80">
-        <mat-label>Description</mat-label>
-        <textarea matInput formControlName="description"></textarea>
-           @if (form.get('description')?.hasError('required') && 
-           (form.get('description')?.touched || form.get('description')?.dirty)) {
-          <mat-error>Description est requise.</mat-error>
-        }
-      </mat-form-field>
-      
-    </div>
-  `
+    <mat-button-toggle-group formControlName="status">
+      <mat-button-toggle value="OPEN">Ouvert</mat-button-toggle>
+      <mat-button-toggle value="FULL">Complet</mat-button-toggle>
+      <mat-button-toggle value="CANCELLED">Annulé</mat-button-toggle>
+      <mat-button-toggle value="FINISHED">Terminé</mat-button-toggle>
+    </mat-button-toggle-group>
+
+  }
+
+  <app-input
+    label="Titre"
+    [control]="titleControl"
+    type="text"
+    [required]="true">
+  </app-input>
+
+  <div class="description-wrapper">
+
+    <label class="description-label">
+      Description
+    </label>
+
+    <textarea
+      class="description-textarea"
+      formControlName="description">
+    </textarea>
+
+    @if (
+      form.get('description')?.hasError('required') &&
+      (form.get('description')?.touched ||
+       form.get('description')?.dirty)
+    ) {
+      <span class="description-error">
+        Description requise.
+      </span>
+    }
+
+  </div>
+
+</div>
+
+  `,
+  styleUrls: ['./event-info.component.scss']
 })
 export class EventInfoComponent {
 
   @Input({ required: true }) form!: FormGroup;
   @Input() showStatus = false;
-  
+
+  get titleControl(): FormControl {
+    return this.form.get('title') as FormControl;
+  }
 }

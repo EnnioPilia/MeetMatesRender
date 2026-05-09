@@ -1,158 +1,58 @@
-.layout-container {
-  @media (min-width: 1000px) and (max-width: 2900px) {
-    position: relative;
-    width: 40vw;
-    margin: 0 auto;
-    padding-inline: 4rem;
-    padding-top: 6rem;
-  }
+:host {
+  display: block;
+  width: 100%;
+}
 
-  @media (min-width: 600px) and (max-width: 999px) {
-    position: relative;
-    width: 70vw;
-    margin: 0 auto;
-    padding-inline: 4rem;
-    padding-top: 9rem;
-  }
+.profile-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 15px 24px 15px;
+
+  box-sizing: border-box;
+}
+
+.profile-layout {
+  width: 100%;
+  max-width: 900px;
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+}
+
+.profile-tabs {
+  width: 100%;
+  margin-top: 24px;
 }
 
 @media (min-width: 1024px) {
 
-  .layout-container {
-    position: relative;
-    width: 35vw;
-    margin: 0 auto;
-    padding-top: 10rem;
-    overflow-y: auto !important;
+  .profile-page {
+    padding-top: 50px;
+    padding-bottom: 80px;
   }
 
-  ::ng-deep button[mat-icon-button] .mat-icon {
-    transform: scale(1.5) !important;
+  .profile-layout {
+    max-width: 600px;
   }
 
-  app-organization-tab>div,
-  app-participation-tab>div {
-    max-height: 90vh !important;
-    overflow-y: auto !important;
-  }
-
-  ::ng-deep app-organization-tab .max-h-\[35vh\],
-  ::ng-deep app-participation-tab .max-h-\[35vh\] {
-    max-height: none !important;
-    height: auto !important;
-    overflow-y: visible !important;
-    margin-top: 30px !important;
-  }
-
-  ::ng-deep .settings-menu {
-    max-width: none !important;
-    width: 450px !important;
-    height: 500px !important;
-    overflow-x: hidden !important;
-  }
-
-  ::ng-deep .settings-menu .mat-mdc-menu-content {
-    width: 100% !important;
-    height: 100% !important;
-    padding: 30px !important;
-    box-sizing: border-box;
-  }
-
-  ::ng-deep .settings-menu .mat-mdc-menu-item {
-    height: 90px !important;
-    font-size: 30px !important;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-  }
-
-  ::ng-deep .settings-menu .mat-icon {
-    font-size: 28px !important;
-    width: 28px !important;
-    height: 28px !important;
+  .profile-tabs {
+    margin-top: 32px;
   }
 
   ::ng-deep .mdc-tab {
-    height: 90px !important;
-    min-width: 260px !important;
-    padding-inline: 40px !important;
+    height: 72px !important;
+    min-width: 220px !important;
+    padding-inline: 32px !important;
   }
 
   ::ng-deep .mdc-tab__text-label {
-    font-size: 28px !important;
-    font-weight: 600 !important;
-  }
-
-  app-participation-tab,
-  app-organization-tab {
-    font-size: 28px !important;
-    line-height: 1.6;
-    opacity: 0.8 !important;
-  }
-
-  app-profile-card {
-    font-size: 25px !important;
-    font-weight: 300 !important;
-  }
-
-  app-profile-card p {
-    font-size: 25px !important;
-    line-height: 1.5;
-  }
-
-  app-profile-card a {
-    font-size: 30px !important;
-  }
-
-  app-profile-card img {
-    width: 200px !important;
-    height: 200px !important;
-  }
-
-  ::ng-deep .mat-expansion-panel-body {
-    background-color: white !important;
-    padding-top: 5px !important;
-    padding-bottom: 50px !important;
-  }
-
-  app-event-info-card>div {
-    gap: 20px !important;
-    padding: 30px !important;
-  }
-
-  app-event-info-card p {
-    font-size: 28px !important;
-    line-height: 1.7 !important;
-  }
-
-  ::ng-deep button.primary-button {
-    opacity: 1 !important;
-    border: none !important;
-    box-shadow: none !important;
-    margin-top: 30px;
-  }
-
-  ::ng-deep button.primary-button:hover {
-    opacity: 0.7 !important;
-  }
-
-  ::ng-deep .mat-expansion-panel-header span.text-xl {
-    font-size: 38px !important;
+    font-size: 22px !important;
     font-weight: 700 !important;
-    line-height: 1.2 !important;
   }
-
-  ::ng-deep .mat-expansion-panel-header {
-    height: 80px !important;
-    background-color: white !important;
-  }
-
-    ::ng-deep .mat-expansion-panel-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  
 }

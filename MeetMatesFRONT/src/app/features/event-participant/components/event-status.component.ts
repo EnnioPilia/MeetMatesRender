@@ -18,23 +18,40 @@ import { getStatusLabel, getParticipationLabel } from '../../../core/utils/label
  */
 @Component({
   selector: 'app-event-status',
+    styleUrls: ['./event-status.component.scss'],
   standalone: true,
   imports: [CommonModule, StatusColorPipe],
   template: `
   
-    <div class="flex flex-col items-center gap-2 border-b border-black mb-3 p-3">
+<div class="event-status-container">
 
-        <p><strong>VOTRE PARTICIPATION :</strong><span 
-          [ngClass]="getParticipationLabel(participationStatus || '') | statusColor">
-            {{ getParticipationLabel(participationStatus || '') }}</span>
-        </p> 
-            
-        <p><strong>STATUT DE L'ACTIVITÉ :</strong><span 
-          [ngClass]="getStatusLabel(eventStatus || '') | statusColor">
-            {{ getStatusLabel(eventStatus || '') }}</span>
-        </p>
-      
-    </div>
+  <p>
+
+    <strong>VOTRE PARTICIPATION :</strong>
+
+    <span
+      [ngClass]="getParticipationLabel(participationStatus || '') | statusColor">
+
+      {{ getParticipationLabel(participationStatus || '') }}
+
+    </span>
+
+  </p>
+
+  <p>
+
+    <strong>STATUT DE L'ACTIVITÉ :</strong>
+
+    <span
+      [ngClass]="getStatusLabel(eventStatus || '') | statusColor">
+
+      {{ getStatusLabel(eventStatus || '') }}
+
+    </span>
+
+  </p>
+
+</div>
   `
 })
 export class EventStatusComponent {
