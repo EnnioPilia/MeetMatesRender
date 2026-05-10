@@ -1,120 +1,120 @@
-.container {
-    @media (min-width: 600px) and (max-width: 999px) {
-        margin: 0 auto;
-        padding-top: 7rem;
-    }
+:host {
+  display: block;
+  width: 100%;
 }
 
-.list {
-    @media (min-width: 600px) and (max-width: 999px) {
-        width: 40vw;
-        margin: 0 auto;
-    }
+.participant-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+
+  padding: 24px;
+  padding-top: 96px;
+
+  box-sizing: border-box;
 }
 
-.title {
-    @media (min-width: 600px) and (max-width: 999px) {
-        width: 40vw;
-        margin: 0 auto;
-    }
+.participant-content {
+  width: 100%;
+  max-width: 560px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.participant-header,
+.participant-status,
+.participant-info,
+.participant-list,
+.participant-actions {
+  width: 100%;
+}
+
+.participant-status,
+.participant-info,
+.participant-list {
+  margin-top: 24px;
+}
+
+.participant-actions {
+  margin-top: 32px;
+}
+
+.primary-button {
+  width: 100%;
 }
 
 @media (min-width: 1024px) {
 
-    .container {
-        width: 100%;
-        margin: 0 auto;
-        padding-top: 200px;
-    }
+  .participant-page {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-inline: 48px;
+  }
 
-    ::ng-deep .title h1,
-    ::ng-deep .title h2 {
-        font-size: 48px !important;
-        text-align: center;
-    }
+  .participant-content {
+    max-width: 500px;
+  }
 
-    ::ng-deep .title p {
-        font-size: 26px !important;
-        text-align: center;
-        line-height: 1.6;
-        max-width: 500px;
-        margin: 0 auto;
-        word-break: break-word;
-    }
+  .participant-status,
+  .participant-info,
+  .participant-list {
+    margin-top: 40px;
+  }
 
-    ::ng-deep app-event-status {
-        margin-top: 30px;
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
+  .participant-actions {
+    margin-top: 40px;
+  }
 
-    ::ng-deep app-event-status div {
-        width: fit-content;
-        align-items: flex-start !important;
-        font-size: 24px !important;
-        line-height: 1.8;
-    }
+  ::ng-deep button.primary-button {
+    height: 80px !important;
+    font-size: 28px !important;
+  }
 
-    ::ng-deep app-event-status p {
-        text-align: left !important;
-        font-size: 24px !important;
-    }
+  ::ng-deep app-event-header h1 {
+    font-size: 48px !important;
+    text-align: center;
+  }
 
-    ::ng-deep app-event-info {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
-    }
+  ::ng-deep app-event-header p {
+    font-size: 24px !important;
+    line-height: 1.6;
+    text-align: center;
+  }
 
-    ::ng-deep app-event-info .flex,
-    ::ng-deep app-event-info .flex-col {
-        width: fit-content;
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
-        margin: 0 auto;
-    }
+  ::ng-deep app-event-status {
+    display: flex;
+    justify-content: center;
+  }
 
-    ::ng-deep app-event-info p,
-    ::ng-deep app-event-info span,
-    ::ng-deep app-event-info div {
-        font-size: 24px !important;
-        line-height: 1.6;
-        text-align: left !important;
-    }
+  ::ng-deep app-event-status p {
+    font-size: 24px !important;
+    line-height: 1.8;
+  }
 
-    ::ng-deep app-participant-list {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 30px;
-    }
+  ::ng-deep app-event-info {
+    display: flex;
+    justify-content: center;
+  }
 
-    ::ng-deep app-participant-list>div {
-        width: fit-content;
-        max-width: 500px;
-        margin: 0 auto;
-    }
+  ::ng-deep app-event-info p,
+  ::ng-deep app-event-info span,
+  ::ng-deep app-event-info div {
+    font-size: 24px !important;
+    line-height: 1.6;
+  }
 
-    ::ng-deep app-participant-list p,
-    ::ng-deep app-participant-list li {
-        font-size: 24px !important;
-        line-height: 1.7;
-        text-align: left;
-    }
+  ::ng-deep app-participant-list {
+    display: flex;
+    justify-content: center;
+  }
 
-    ::ng-deep button.primary-button {
-        width: 100% !important;
-        max-width: 700px;
-        height: 80px !important;
-        font-size: 28px !important;
-        box-shadow: none !important;
-        border: none !important;
-    }
-    ::ng-deep button.primary-button:hover {
-        opacity: 0.7;
-    }
-
-
+  ::ng-deep app-participant-list p,
+  ::ng-deep app-participant-list li {
+    font-size: 24px !important;
+    line-height: 1.7;
+  }
 }

@@ -1,38 +1,61 @@
 // Angular
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Input,
+  ChangeDetectionStrategy
+} from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 
-// Core (models)
+// Core
 import { EventDetails } from '../../core/models/event-details.model';
 
-// Shared components
+// Shared
 import { StatusColorPipe } from '../../shared-components/pipes/statusColor.pipe';
 
-// Utils 
-import { getStatusLabel as mapStatusLabel } from '../../core/utils/labels.utils';
+// Utils
+import {
+  getStatusLabel as mapStatusLabel,
+  getParticipationLabel
+} from '../../core/utils/labels.utils';
 
 /**
  * Carte compacte affichant les informations clés d’un événement.
  *
  * Responsabilités :
  * - afficher une version synthétique d’un événement
- * - gérer l’affichage conditionnel (statut, adresse, date, activité)
+ * - gérer l’affichage conditionnel :
+ *   - activité
+ *   - statut
+ *   - participation
+ *   - adresse
+ *   - date
  *
- * Utilisée dans les listes, recherches et onglets profil.
+ * Utilisée dans :
+ * - listes d’événements
+ * - recherche
+ * - profil utilisateur
+ * - onglets participation / organisation
  */
 @Component({
   selector: 'app-event-info-card',
   standalone: true,
-  imports: [CommonModule, StatusColorPipe],
+  imports: [
+    CommonModule,
+    StatusColorPipe
+  ],
   templateUrl: './event-info-card.html',
+  styleUrls: ['./event-info-card.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EventInfoCardComponent {
-  
-  @Input() event!: Partial<EventDetails>;
+
+  @Input({ required: true })
+  event!: Partial<EventDetails>;
 
   @Input() showActivity = true;
   @Input() showStatus = true;
+  @Input() showParticipationStatus = false;
   @Input() showAddress = true;
   @Input() showDate = false;
 
@@ -40,11 +63,25 @@ export class EventInfoCardComponent {
     return this.event?.status;
   }
 
+  get participationStatus(): string | null {
+    return this.event?.participationStatus ?? null;
+  }
+
   get hasStatus(): boolean {
     return !!this.status;
   }
 
+  get hasParticipationStatus(): boolean {
+    return !!this.participationStatus;
+  }
+
   get statusLabel(): string {
-    return this.status ? mapStatusLabel(this.status) : '';
+    return this.status
+      ? mapStatusLabel(this.status)
+      : '';
+  }
+
+  get participationLabel(): string {
+    return getParticipationLabel(this.participationStatus);
   }
 }

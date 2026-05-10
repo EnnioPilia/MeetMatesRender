@@ -22,13 +22,11 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-input',
   standalone: true,
   templateUrl: './input.component.html',
+  styleUrls: ['./input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule, 
-    ReactiveFormsModule, 
-    MatFormFieldModule, 
-    MatInputModule, 
-    MatIconModule
+    ReactiveFormsModule
   ],
 })
 export class AppInputComponent<T = any> {

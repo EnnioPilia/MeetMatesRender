@@ -1,0 +1,82 @@
+:host {
+  width: 100%;
+}
+
+.event-info {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.description-wrapper {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.description-label {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.description-textarea {
+    width: 100%;
+    min-height: 58px;
+    padding: 0 18px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    border: none;
+    border-radius: 0;
+
+    background: #ffffff;
+
+    border-bottom: 2px solid rgba(0, 0, 0, 0.75);
+
+    box-shadow:
+      0 6px 8px -6px rgba(0, 0, 0, 0.6);
+
+    outline: none;
+}
+
+.description-textarea:focus {
+    border-bottom: 2px solid #ff6200;
+
+    box-shadow:
+        0 10px 14px -10px #c04d05,
+        0 6px 8px -6px rgba(0, 0, 0, 0.45);
+}
+
+.description-error {
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #dc2626;
+}
+
+@media (min-width: 1024px) {
+
+  .description-label {
+    font-size: 18px;
+  }
+
+  .description-textarea {
+    min-height: 220px;
+
+    padding: 24px;
+
+    font-size: 20px;
+
+  }
+
+  .description-error {
+    font-size: 16px;
+  }
+}

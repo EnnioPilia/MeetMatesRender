@@ -1,0 +1,56 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.participants-list {
+  width: 99%;
+  padding: 16px 0;
+}
+
+.participants-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.participant-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+
+  gap: 16px;
+}
+
+.participant-name {
+  font-weight: 500;
+}
+
+.participant-actions {
+  display: flex;
+  align-items: center;
+}
+
+.empty-state {
+  margin-top: 16px;
+
+  text-align: center;
+
+  color: #6b7280;
+}
+
+button:hover{
+    color: #c04d05;
+}
+
+@media (min-width: 1024px) {
+
+  .participants-content {
+    gap: 24px;
+  }
+
+  .participant-name {
+    font-size: 24px;
+  }
+}

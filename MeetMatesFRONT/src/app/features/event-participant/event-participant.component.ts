@@ -7,8 +7,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { DialogService } from '../../core/services/dialog.service/dialog.service';
-import { EventStatusComponent } from './components/event-status';
-import { ParticipantListComponent } from './components/participant-list';
+import { EventStatusComponent } from './components/event-status.component';
+import { ParticipantListComponent } from './components/participant-list.component';
 import { EventHeaderComponent } from '../../shared-components/event-header/event-header.component';
 import { EventInfoComponent } from '../../shared-components/event-info/event-info.component';
 import { AppButtonComponent } from '../../shared-components/button/button.component';

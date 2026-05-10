@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col items-center gap-4">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
 
   <app-event-info
     [form]="form"
@@ -25,10 +25,10 @@
     [form]="form">
   </app-event-details>
 
-  <app-button
-    label="E N R E G I S T R E R"
-    type="submit"
-    class="primary-button w-80">
-  </app-button>
+<app-button
+  label="E N R E G I S T R E R"
+  type="submit"
+  [fullWidth]="true">
+</app-button>
 
 </form>

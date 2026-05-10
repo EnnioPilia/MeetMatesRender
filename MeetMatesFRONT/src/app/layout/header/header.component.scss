@@ -1,81 +1,135 @@
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #000000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
 .mobile-header {
-  display: flex !important;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 16px;
+}
+
+.back-section {
+  position: absolute;
+  left: 12px;
+}
+
+.page-title {
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .desktop-header {
-  display: none !important;
+  display: none;
 }
 
-.logo {
-  font-family: 'Poiret One', cursive;
+.nav-btn {
+  height: 48px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 700;
   cursor: pointer;
-}
-
-.publish-btn {
-  background-color: #ff6200 !important;
-  color: white !important;
-  border-radius: 22px;
-  height: 60px !important;
-  font-size: 23px !important;
-  font-weight: 800 !important;
-  text-transform: none;
-  box-shadow: none !important;
   transition: background 0.2s ease;
-}
-
-.publish-btn:hover {
-  background-color: #ff8437 !important;
-}
-
-.publish-btn mat-icon {
-  font-size: 40px !important;
-}
-
-.header-btn {
-  height: 60px !important;
-  font-size: 25px !important;
-  font-weight: 600 !important;
-  text-transform: none;
-  box-shadow: none !important;
-  transition: background 0.2s ease;
-}
-
-.header-btn:hover {
-  opacity: 0.7;
-}
-
-.header-btn mat-icon {
-  font-size: 29px;
-}
-
-.text-base {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 20px !important;
-  gap: 8px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 @media (min-width: 1024px) {
+
   .mobile-header {
-    display: none !important;
+    display: none;
   }
 
   .desktop-header {
-    display: flex !important;
-    background-color: white;
+    height: 100px;
+
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding: 50px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
-
-  .header {
-    display: flex !important;
-    height: 105px;
-    background-color: white !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
-
+  .desktop-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
   }
 
-  .footer {
-    display: none !important;
+  .logo {
+    font-family: 'Poiret One', cursive;
+
+    font-size: 42px;
+    font-weight: 800;
+
+    cursor: pointer;
   }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .publish-btn {
+    height: 52px;
+    padding: 0 24px;
+    border: none;
+    border-radius: 999px;
+    background: #ff6200;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .publish-btn:hover {
+    background: #ff7b29;
+    opacity: 0.92;
+  }
+
+.nav-btn {
+  height: 48px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: transparent;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  color: black;
+
+  transition: color 0.2s ease;
+}
+
+.nav-btn:hover {
+  color: #c04d05;
+}
 }

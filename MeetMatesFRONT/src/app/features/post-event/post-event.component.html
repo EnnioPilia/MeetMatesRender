@@ -1,14 +1,11 @@
-<div class="container flex flex-col items-center justify-start min-h-screen px-6 py-10 mt-8">
+<section class="post-event">
 
-    <app-state-handler
-      [loading]="loading"
-      [error]="error">
-    </app-state-handler>
-
-@if (!loading() && !error()) {
+  <app-state-handler
+    [loading]="loading"
+    [error]="error">
+  </app-state-handler>
 
   <app-event-form
-    class="mb-8"
     mode="create"
     [activities]="activities()"
     [addressSuggestions]="addressSuggestions()"
@@ -17,6 +14,4 @@
     (submitForm)="create($event)">
   </app-event-form>
 
-}
-
-</div>
+</section>

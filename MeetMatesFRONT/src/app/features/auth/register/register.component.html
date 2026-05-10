@@ -1,61 +1,78 @@
-<div class="container flex flex-col items-center justify-center min-h-screen px-8">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col items-center">
+<section class="register">
 
-    <app-input 
-      label="Nom" 
-      [control]="form.controls.lastName" 
-      type="text" 
-      [required]="true">
-    </app-input>
+  <form
+    class="register-form"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+  >
 
-    <app-input 
-      label="Prénom" 
-      [control]="form.controls.firstName" 
-      type="text" 
-      [required]="true">
-    </app-input>
+    <app-input
+      label="Nom"
+      [control]="form.controls.lastName"
+      type="text"
+      [required]="true"
+    />
 
-    <app-input 
-      label="Email" 
-      [control]="form.controls.email" 
-      type="email" 
-      [required]="true">
-    </app-input>
+    <app-input
+      label="Prénom"
+      [control]="form.controls.firstName"
+      type="text"
+      [required]="true"
+    />
 
-    <app-input 
-      label="Mot de passe" 
-      [control]="form.controls.password" 
-      type="password" 
-      [required]="true">
-    </app-input>
+    <app-input
+      label="Email"
+      [control]="form.controls.email"
+      type="email"
+      [required]="true"
+    />
 
-    <app-input 
-      label="Confirmez le mot de passe" 
-      [control]="form.controls.confirmPassword" 
+    <app-input
+      label="Mot de passe"
+      [control]="form.controls.password"
       type="password"
-      [required]="true">
-    </app-input>
+      [required]="true"
+    />
 
-    <mat-checkbox
-      formControlName="acceptCgu"
-      class="text-sm">J’accepte les
-      <a href="#"(click)="openCguDialog($event)"
-      class="underline hover:opacity-60">
-      Conditions Générales d’Utilisation</a>
-    </mat-checkbox>
-      @if (form.controls.acceptCgu.hasError('required') 
-        && form.controls.acceptCgu.touched) {
-          <span class="ml-3 text-[#ff0000] text-[15px] ">
-            Vous devez accepter les Conditions Générales.
-          </span>
-      }
+    <app-input
+      label="Confirmez le mot de passe"
+      [control]="form.controls.confirmPassword"
+      type="password"
+      [required]="true"
+    />
 
-    <app-button 
-      label="S’inscrire"
-      class="w-80 primary-button mt-2"
-      type="submit" 
-      [disabled]="isSubmitting">
-    </app-button>
-   
+    <div class="register-cgu">
+
+      <mat-checkbox formControlName="acceptCgu">
+        J’accepte les
+      </mat-checkbox>
+
+      <button
+        type="button"
+        class="cgu-link"
+        (click)="openCguDialog($event)"
+      >
+        Conditions Générales d’Utilisation
+      </button>
+
+    </div>
+
+    @if (
+      form.controls.acceptCgu.hasError('required')
+      && form.controls.acceptCgu.touched
+    ) {
+      <span class="register-error">
+        Vous devez accepter les Conditions Générales.
+      </span>
+    }
+
+    <app-button
+      label="S’INSCRIRE"
+      type="submit"
+      [fullWidth]="true"
+      [disabled]="isSubmitting"
+    />
+
   </form>
-</div>
+
+</section>

@@ -34,7 +34,8 @@ import { AuthFacade } from './core/facades/auth/auth.facade';
     HeaderComponent, 
     FooterComponent
   ],
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 
 })
 export class AppComponent {
@@ -52,7 +53,6 @@ export class AppComponent {
   }
 ngOnInit() {
 
-  // 🔥 HYDRATATION UTILISATEUR (OBLIGATOIRE)
   this.authFacade.loadCurrentUser().subscribe();
 
   this.router.events

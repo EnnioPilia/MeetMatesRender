@@ -19,6 +19,7 @@ import { EventListItem } from '../../core/models/event-list-item.model';
 
 // Feature components
 import { EventCardComponent } from '../../features/search-event/components/event-card-component';
+import { StateHandlerComponent } from '../../shared-components/state-handler/state-handler.component';
 
 // Shared components
 import { LoadingSpinnerComponent } from '../../shared-components/loading-spinner/loading-spinner.component';
@@ -54,7 +55,8 @@ import { AppInputComponent } from '../../shared-components/input/input.component
     EventCardComponent,
     MatExpansionModule,
     MatProgressSpinnerModule,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    StateHandlerComponent
   ],
   templateUrl: './search-events.component.html',
   styleUrls: ['./search-events.component.scss'],

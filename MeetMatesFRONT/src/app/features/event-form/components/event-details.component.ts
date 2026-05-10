@@ -23,6 +23,7 @@ import { MATERIAL_OPTIONS, LEVEL_OPTIONS} from '../../../shared-components/const
  */
 @Component({
   selector: 'app-event-details',
+  styleUrls: ['./event-details.component.scss'],
   standalone: true,
   imports: [
     CommonModule,
@@ -34,33 +35,45 @@ import { MATERIAL_OPTIONS, LEVEL_OPTIONS} from '../../../shared-components/const
   ],
   template: `
   
-    <div [formGroup]="form" class="flex flex-col w-80 gap-4">
+<div [formGroup]="form" class="event-details">
 
-      <app-select
-        label="Niveau"
-        [control]="levelControl"
-        [options]="levelOptions"
-        error="Niveau requis">
-      </app-select>
+  <app-select
+    label="Niveau"
+    [control]="levelControl"
+    [options]="levelOptions"
+    error="Niveau requis">
+  </app-select>
 
-      <div>
-        <label class="block mb-2">Matériel :</label>
-        <mat-radio-group
-          formControlName="material"
-          class="flex flex-col gap-1">
-            @for (option of materialOptions; track option.value) {
-              <mat-radio-button [value]="option.value">
-                {{ option.label }}
-              </mat-radio-button>
-            }
-        </mat-radio-group>
-          @if (
-            form.get('material')?.hasError('required') &&
-            (form.get('material')?.touched || form.get('material')?.dirty)) {
-              <mat-error>Veuillez choisir une option de matériel.</mat-error>
-          }
-      </div>
-    </div>
+  <div>
+
+    <label class="material-title">
+      Matériel
+    </label>
+
+    <mat-radio-group
+      formControlName="material"
+      class="material-group">
+
+      @for (option of materialOptions; track option.value) {
+        <mat-radio-button [value]="option.value">
+          {{ option.label }}
+        </mat-radio-button>
+      }
+
+    </mat-radio-group>
+
+    @if (
+      form.get('material')?.hasError('required') &&
+      (form.get('material')?.touched || form.get('material')?.dirty)
+    ) {
+      <span class="error">
+        Veuillez choisir une option.
+      </span>
+    }
+
+  </div>
+
+</div>
   `
 })
 export class EventDetailsComponent {

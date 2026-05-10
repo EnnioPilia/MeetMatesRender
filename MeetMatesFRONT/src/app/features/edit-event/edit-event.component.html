@@ -1,14 +1,13 @@
-<div class="container flex flex-col items-center min-h-screen px-6 py-10 mt-8">
+<div class="edit-event-page">
 
-    <app-state-handler
-      [loading]="loading"
-      [error]="error">
-    </app-state-handler>
+  <app-state-handler
+    [loading]="loading"
+    [error]="error">
+  </app-state-handler>
 
   @if (formData()) {
 
     <app-event-form
-      class="mb-10"
       mode="edit"
       [initialData]="formData()!"
       [activities]="activities()"
@@ -18,4 +17,5 @@
     </app-event-form>
 
   }
+
 </div>

@@ -1,117 +1,62 @@
-.container {
+:host {
+  display: block;
+  width: 100%;
+}
 
-  @media (min-width: 600px) and (max-width: 999px) {
-    margin: 0 auto;
-    margin-top: 2rem;
-  }
+.edit-event-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 25px 24px 15px;
+
+  box-sizing: border-box;
+}
+
+app-event-form {
+  width: 100%;
+  max-width: 550px;
+}
+
+::ng-deep .mat-button-toggle-group {
+  width: 100%;
+
+  display: flex !important;
+}
+
+::ng-deep .mat-button-toggle {
+  flex: 1;
+
+  min-height: 58px;
+}
+
+::ng-deep .mat-button-toggle-label-content {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px !important;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2 !important;
 }
 
 @media (min-width: 1024px) {
 
-  .container {
-    width: 100%;
-    margin: 0 auto;
-    padding-top: 180px;
-  }
-
-  ::ng-deep app-event-form {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  ::ng-deep app-event-form form {
-    width: 100%;
-    max-width: 900px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-
-  ::ng-deep .w-80,
-  ::ng-deep mat-form-field,
-  ::ng-deep app-input,
-  ::ng-deep app-select {
-    width: 900px !important;
-    max-width: 900px !important;
-  }
-
-  ::ng-deep input,
-  ::ng-deep textarea,
-  ::ng-deep .mat-mdc-select-trigger {
-    font-size: 28px !important;
-  }
-
-  ::ng-deep input,
-  ::ng-deep .mat-mdc-select-trigger {
-    height: 80px !important;
-  }
-
-  ::ng-deep textarea {
-    min-height: 180px !important;
-  }
-
-  ::ng-deep .mdc-floating-label,
-  ::ng-deep mat-label {
-    font-size: 24px !important;
-  }
-
-  ::ng-deep button.primary-button {
-    width: 900px !important;
-    height: 90px !important;
-    font-size: 32px !important;
-    margin-top: 20px;
+  .edit-event-page {
+    padding-top: 70px;
+    padding-bottom: 100px;
   }
 
   ::ng-deep .mat-button-toggle {
-    min-width: 200px !important;
-    height: 90px !important;
+    min-height: 72px;
   }
 
   ::ng-deep .mat-button-toggle-label-content {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 35px !important;
-    font-size: 40px !important;
-    line-height: 0 !important;
-  }
+    padding: 0 24px !important;
 
-  ::ng-deep .mat-mdc-checkbox {
-    display: flex !important;
-    align-items: center !important;
-  }
-
-  ::ng-deep .mdc-form-field {
-    display: flex !important;
-    align-items: center !important;
-    gap: 16px;
-  }
-
-  ::ng-deep .mdc-checkbox__background {
-    width: 32px !important;
-    height: 32px !important;
-  }
-
-  ::ng-deep .mdc-checkbox {
-    width: 32px !important;
-    height: 32px !important;
-    flex: 0 0 32px;
-  }
-
-  ::ng-deep .mdc-checkbox__checkmark {
-    width: 25px !important;
-    height: 25px !important;
-  }
-
-  ::ng-deep .mdc-form-field > label,
-  ::ng-deep .mdc-label {
-    font-size: 25px !important;
-    line-height: 1.3 !important;
-  }
-    ::ng-deep label.block.mb-2 {
-    font-size: 32px !important;
-    line-height: 1.2;
+    font-size: 24px;
   }
 }

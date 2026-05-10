@@ -1,69 +1,48 @@
+.login {
+  min-height: calc(100vh - 64px - 72px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 460px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.login-actions {
+  margin-top: 8px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
 @media (min-width: 1024px) {
 
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  .login {
+    min-height: calc(100vh - 84px);
 
-    width: 100%;
-    margin: 0 auto;
+    padding: 64px;
   }
 
-  form {
-    width: 50%;
-    max-width: 900px;
+  .login-form {
+    max-width: 560px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    margin: 0 auto;
+    gap: 24px;
   }
 
-  app-input,
-  app-button {
-    width: 100%;
+  .login-actions {
+    gap: 18px;
   }
 
-::ng-deep app-button.primary-button {
-  transition: transform 0.25s ease;
-}
-
-::ng-deep app-button.primary-button button {
-  transition: transform 0.25s ease;
-}
-
-::ng-deep app-button.primary-button button:hover {
-  transform: scale(0.95);
-  border: none !important;
-}
-
-  ::ng-deep .w-80,
-  ::ng-deep mat-form-field,
-  ::ng-deep button.primary-button {
-    width: 100% !important;
-  }
-
-  ::ng-deep input {
-    height: 80px !important;
-    font-size: 30px !important;
-  }
-
-  ::ng-deep .mdc-floating-label {
-    font-size: 23px !important;
-  }
-
-  ::ng-deep button.primary-button {
-    height: 80px !important;
-    font-size: 28px !important;
-  }
-}
-
-::ng-deep input:-webkit-autofill,
-::ng-deep input:-webkit-autofill:hover,
-::ng-deep input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
-  box-shadow: 0 0 0px 1000px white inset !important;
-  -webkit-text-fill-color: black !important;
 }

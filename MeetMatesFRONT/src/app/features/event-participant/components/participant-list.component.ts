@@ -11,26 +11,41 @@ import { CommonModule } from '@angular/common';
  * - gérer l’état vide (aucun participant)
  */
 @Component({
-  selector: 'app-participant-list',
+  selector: 'app-participant-list.',
+      styleUrls: ['./participant-list.component.scss'],
   standalone: true,
   imports: [CommonModule],
   template: `
   
-    <div class="flex flex-col w-full mt-4">
-      <p class="font-semibold text-lg mb-2 border-b border-black">
-        LISTE DES PARTICIPANTS :
-      </p>
+<div class="participant-list-container">
 
-      @if (participants.length) {
-        <ul class="list-disc pl-6 flex flex-start flex-col gap-1">
-          @for (p of participants; track p.id) {
-            <li>{{ p.firstName }} {{ p.lastName }}</li>
-          }
-        </ul>
-      } @else {
-        <p class="text-gray-500">Aucun participant accepté pour le moment.</p>
+  <p class="participant-list-title">
+    LISTE DES PARTICIPANTS :
+  </p>
+
+  @if (participants.length) {
+
+    <ul class="participants">
+
+      @for (p of participants; track p.id) {
+
+        <li class="participant-item">
+          {{ p.firstName }} {{ p.lastName }}
+        </li>
+
       }
-    </div>
+
+    </ul>
+
+  } @else {
+
+    <p class="empty-state">
+      Aucun participant accepté pour le moment.
+    </p>
+
+  }
+
+</div>
   `
 })
 export class ParticipantListComponent {
