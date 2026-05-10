@@ -1,7 +1,20 @@
-    <mat-dialog-content class="max-h-[80vh] overflow-y-auto">
-      <div [innerHTML]="safeContent"></div>
-    </mat-dialog-content>
+<mat-dialog-content class="dialog-content">
 
-    <mat-dialog-actions>
-      <button mat-button mat-dialog-close>Fermer</button>
-    </mat-dialog-actions>
+  <div
+    class="dialog-body"
+    [innerHTML]="safeContent">
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+
+  <button
+    class="primary-button text-button"
+    mat-dialog-close>
+
+    FERMER
+
+  </button>
+
+</mat-dialog-actions>

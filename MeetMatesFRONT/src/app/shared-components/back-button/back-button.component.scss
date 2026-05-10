@@ -1,0 +1,64 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+.back-button {
+    width: 100%;
+
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 0 18px;
+
+    border: none;
+
+    color: black;
+
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.back-button:hover {
+    opacity: 0.92;
+}
+
+.back-button:active {
+    transform: scale(0.98);
+}
+
+.back-icon {
+    font-size: 22px;
+
+    width: 22px;
+    height: 22px;
+}
+
+.back-label {
+    line-height: 1;
+}
+
+@media (min-width: 1024px) {
+
+    .back-button {
+        min-height: 72px;
+
+        border-radius: 14px;
+
+        font-size: 20px;
+    }
+
+    .back-icon {
+        font-size: 28px;
+
+        width: 28px;
+        height: 28px;
+    }
+}

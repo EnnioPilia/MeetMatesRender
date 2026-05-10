@@ -22,6 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [MatButtonModule, MatIconModule],
   templateUrl: './back-button.component.html',
+  styleUrls: ['./back-button.component.scss'],
 })
 export class BackButtonComponent {
   private location = inject(Location);

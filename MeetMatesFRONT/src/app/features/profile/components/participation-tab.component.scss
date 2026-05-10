@@ -39,7 +39,9 @@
 }
 
 .event-date {
-  margin-top: 4px;
+  margin-top: 7px;
+    font-size: 20px;
+  font-weight: 700;
 }
 
 .event-content {
@@ -84,7 +86,7 @@
   }
 
   ::ng-deep .mat-expansion-panel-body {
-    padding-bottom: 32px !important;
+    padding-bottom: 20px !important;
   }
 
 

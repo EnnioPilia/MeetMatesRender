@@ -1,16 +1,39 @@
-<div class="border border-black">
+<div class="confirm-dialog">
 
-  <h2 mat-dialog-title class="text-center !font-bold">
+  <h2
+    mat-dialog-title
+    class="dialog-title">
+
     {{ data.title }}
+
   </h2>
 
-  <mat-dialog-content class="text-center">
-    <p>{{ data.message }}</p>
+  <mat-dialog-content class="dialog-content">
+
+    <p class="dialog-message">
+      {{ data.message }}
+    </p>
+
   </mat-dialog-content>
 
-  <mat-dialog-actions class="flex flex-row !justify-center items-center mt-4 !flex-nowrap gap-4">
-    <button mat-raised-button class="primary-button w-40" (click)="onClose(true) ">Confirmer</button>
-    <button mat-button class="primary-button w-40" (click)="onClose(false)">Annuler</button>
-  </mat-dialog-actions>
-  
+  <div class="dialog-actions">
+
+    <button
+      class="primary-button text-button"
+      (click)="onClose(true)">
+
+      CONFIRMER
+
+    </button>
+
+    <button
+      class="primary-button text-button"
+      (click)="onClose(false)">
+
+      ANNULER
+
+    </button>
+
+  </div>
+
 </div>

@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 // Angular Material
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
-
+import { AppButtonComponent } from '../../shared-components/button/button.component';
 /**
  * Boîte de dialogue générique de confirmation.
  *
@@ -20,9 +20,11 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/materia
   imports: [
     CommonModule, 
     MatButtonModule, 
-    MatDialogModule
+    MatDialogModule,
+    AppButtonComponent
   ],
   templateUrl: './confirm-dialog.component.html',
+  styleUrls: ['./confirm-dialog.component.scss'],
 })
 export class ConfirmDialogComponent {
   private dialogRef = inject(MatDialogRef<ConfirmDialogComponent>);

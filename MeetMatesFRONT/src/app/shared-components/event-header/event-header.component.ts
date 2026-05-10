@@ -22,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule
   ],
   templateUrl: './event-header.component.html',
+  styleUrls: ['./event-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventHeaderComponent {
