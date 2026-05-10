@@ -45,9 +45,11 @@
 
       }
 
-      @if (!loadingSearch() 
-        && results().length === 0 
-        && form.controls['query'].value?.length > 0) {
+      @if (
+        !loadingSearch()
+        && results().length === 0
+        && form.controls['query'].value?.length > 0
+      ) {
 
         <div class="empty-results">
 

@@ -8,9 +8,8 @@
   min-height: 100vh;
 
   display: flex;
-  justify-content: center;
-
-  padding: 35px 24px 60px;
+  flex-direction: column;
+  align-items: center;
 
   box-sizing: border-box;
 }
@@ -21,13 +20,8 @@
 
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-.search-input {
-  width: 100%;
-  margin-bottom: 24px;
-}
 
 .results-list {
   width: 100%;
@@ -36,6 +30,7 @@
   flex-direction: column;
 
   gap: 24px;
+  margin-bottom: 20px;
 }
 
 .empty-results {
@@ -49,6 +44,7 @@
 .empty-results span {
   color: #111827;
 }
+
 
 @media (min-width: 1024px) {
 
@@ -80,7 +76,6 @@
 
   ::ng-deep app-loading-spinner p {
     margin-top: 30px;
-
     font-size: 24px !important;
   }
 
@@ -93,4 +88,5 @@
     font-size: 28px !important;
     text-align: center;
   }
+  
 }

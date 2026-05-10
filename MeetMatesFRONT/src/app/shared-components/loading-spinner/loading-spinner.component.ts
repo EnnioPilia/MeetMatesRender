@@ -21,6 +21,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatProgressSpinnerModule
   ],
   templateUrl: './loading-spinner.component.html',
+  styleUrls: ['./loading-spinner.component.scss']
 })
 export class LoadingSpinnerComponent {
   @Input() message: string = 'Chargement des donnés...';

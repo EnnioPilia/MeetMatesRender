@@ -1,8 +1,17 @@
 @if (loading()) {
-  <app-loading-spinner></app-loading-spinner>
+
+  <div class="state-loading">
+
+    <app-loading-spinner>
+    </app-loading-spinner>
+
+  </div>
+
 }
 @else if (error()) {
-  <p class="text-red-600 text-center mt-10">
+
+  <p class="state-error">
     {{ error() }}
   </p>
+
 }

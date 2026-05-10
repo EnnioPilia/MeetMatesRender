@@ -1,17 +1,32 @@
 <section class="post-event">
 
-  <app-state-handler
-    [loading]="loading"
-    [error]="error">
-  </app-state-handler>
+  @if (loading()) {
 
-  <app-event-form
-    mode="create"
-    [activities]="activities()"
-    [addressSuggestions]="addressSuggestions()"
-    (addressInput)="searchAddress($event)"
-    (addressSelected)="selectAddress($event)"
-    (submitForm)="create($event)">
-  </app-event-form>
+    <app-state-handler
+      [loading]="loading"
+      [error]="error">
+    </app-state-handler>
+
+  }
+  @else if (error()) {
+
+    <app-state-handler
+      [loading]="loading"
+      [error]="error">
+    </app-state-handler>
+
+  }
+  @else {
+
+    <app-event-form
+      mode="create"
+      [activities]="activities()"
+      [addressSuggestions]="addressSuggestions()"
+      (addressInput)="searchAddress($event)"
+      (addressSelected)="selectAddress($event)"
+      (submitForm)="create($event)">
+    </app-event-form>
+
+  }
 
 </section>
