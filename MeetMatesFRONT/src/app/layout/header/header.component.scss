@@ -2,26 +2,19 @@
   position: fixed;
   top: 0;
   z-index: 1000;
-
   width: 100%;
-
   background: white;
-
   border-bottom: 1px solid #000000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) ;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* MOBILE */
 
 .mobile-header {
   height: 64px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   position: relative;
-
   padding: 0 16px;
 }
 
@@ -35,10 +28,24 @@
   font-weight: 700;
 }
 
-/* DESKTOP */
-
 .desktop-header {
   display: none;
+}
+
+.nav-btn {
+  height: 48px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 @media (min-width: 1024px) {
@@ -84,49 +91,45 @@
 
   .publish-btn {
     height: 52px;
-
     padding: 0 24px;
-
     border: none;
     border-radius: 999px;
-
     background: #ff6200;
     color: white;
-
     font-size: 16px;
     font-weight: 700;
-
     cursor: pointer;
-
     transition:
-      transform 0.2s ease,
+      background 0.2s ease,
       opacity 0.2s ease;
   }
 
   .publish-btn:hover {
-    transform: translateY(-1px);
+    background: #ff7b29;
     opacity: 0.92;
   }
 
-  .nav-btn {
-    height: 48px;
+.nav-btn {
+  height: 48px;
 
-    padding: 0 18px;
+  padding: 0 18px;
 
-    border: none;
-    border-radius: 12px;
+  border: none;
+  border-radius: 12px;
 
-    background: transparent;
+  background: transparent;
 
-    font-size: 16px;
-    font-weight: 700;
+  font-size: 16px;
+  font-weight: 700;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition: background 0.2s ease;
-  }
+  color: black;
 
-  .nav-btn:hover {
-    background: #f3f4f6;
-  }
+  transition: color 0.2s ease;
+}
+
+.nav-btn:hover {
+  color: #c04d05;
+}
 }

@@ -1,7 +1,42 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.event-info {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+  padding: 25px;
+}
+
+.event-info__item {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  color: #111;
+
+  word-break: break-word;
+}
+
+.event-info__item strong {
+  font-weight: 700;
+}
+
 @media (min-width: 1024px) {
 
-  .container-list {
-    gap: 35px !important;
+  .event-info {
+    gap: 24px;
+  }
+
+  .event-info__item {
+    font-size: 22px;
+    line-height: 1.7;
   }
 
 }

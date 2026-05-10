@@ -78,7 +78,14 @@ import { MatNativeDateModule } from '@angular/material/core';
         class="input"
         type="time"
         formControlName="startTime" />
-
+          @if (
+            form.get('startTime')?.hasError('required') &&
+            (form.get('startTime')?.touched || form.get('startTime')?.dirty)
+          ) {
+            <span class="error">
+              L'heure de début est requise.
+            </span>
+          }
     </div>
 
     <div class="field">
@@ -91,7 +98,14 @@ import { MatNativeDateModule } from '@angular/material/core';
         class="input"
         type="time"
         formControlName="endTime" />
-
+          @if (
+            form.get('endTime')?.hasError('required') &&
+            (form.get('endTime')?.touched || form.get('endTime')?.dirty)
+          ) {
+            <span class="error">
+              L'heure de fin est requise.
+            </span>
+          }
     </div>
 
   </div>
@@ -103,5 +117,5 @@ import { MatNativeDateModule } from '@angular/material/core';
 export class EventDateTimeComponent {
 
   @Input({ required: true }) form!: FormGroup;
-  
+
 }

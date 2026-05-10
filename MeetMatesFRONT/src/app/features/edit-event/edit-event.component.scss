@@ -18,7 +18,7 @@
 
 app-event-form {
   width: 100%;
-  max-width: 900px;
+  max-width: 550px;
 }
 
 ::ng-deep .mat-button-toggle-group {
@@ -57,6 +57,6 @@ app-event-form {
   ::ng-deep .mat-button-toggle-label-content {
     padding: 0 24px !important;
 
-    font-size: 30px;
+    font-size: 24px;
   }
 }

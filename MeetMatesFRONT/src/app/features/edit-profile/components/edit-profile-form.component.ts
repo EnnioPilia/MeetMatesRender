@@ -60,7 +60,7 @@ import { User } from '../../../core/models/user.model';
       </app-input>
 
       <app-button
-        label="ENREGISTRER LES MODIFICATIONS"
+        label="ENREGISTRER"
         class="primary-button"
         type="submit"
         [fullWidth]="true"

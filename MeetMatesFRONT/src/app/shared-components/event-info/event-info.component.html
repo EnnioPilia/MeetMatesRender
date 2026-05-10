@@ -1,19 +1,61 @@
-<div class="container-list flex flex-col w-full text-sm leading-relaxed gap-3 mt-3">
-    @if (showStatus) {
-    <p>
-      <strong>STATUT : </strong>
-      <span [ngClass]="statusLabel | statusColor">{{ statusLabel }}</span>
+<div class="event-info">
+
+  @if (showStatus) {
+
+    <p class="event-info__item">
+      <strong>STATUT :</strong>
+
+      <span [ngClass]="statusLabel | statusColor">
+        {{ statusLabel }}
+      </span>
     </p>
+
   }
-    <p><strong>ACTIVITÉ :</strong> {{ event.activityName }}</p>
-    <p><strong>DATE :</strong> {{ eventDate | date:'mediumDate' }}</p>
-    <p><strong>HORAIRE :</strong> {{ eventTime }}</p>
-    <p><strong>ADRESSE :</strong> {{ event.address?.street }}, {{ event.address?.postalCode }} {{ event.address?.city }}</p>   
-    <p><strong>NIVEAU :</strong> {{ levelLabel }}</p>
-    <p><strong>MATÉRIEL :</strong> {{ materialLabel }}</p>
-    <p><strong>NOMBRE DE PARTICIPANTS :</strong> {{ event.maxParticipants }}</p>
+
+  <p class="event-info__item">
+    <strong>ACTIVITÉ :</strong>
+    {{ event.activityName }}
+  </p>
+
+  <p class="event-info__item">
+    <strong>DATE :</strong>
+    {{ eventDate | date:'mediumDate' }}
+  </p>
+
+  <p class="event-info__item">
+    <strong>HORAIRE :</strong>
+    {{ eventTime }}
+  </p>
+
+  <p class="event-info__item">
+    <strong>ADRESSE :</strong>
+    {{ event.address?.street }},
+    {{ event.address?.postalCode }}
+    {{ event.address?.city }}
+  </p>
+
+  <p class="event-info__item">
+    <strong>NIVEAU :</strong>
+    {{ levelLabel }}
+  </p>
+
+  <p class="event-info__item">
+    <strong>MATÉRIEL :</strong>
+    {{ materialLabel }}
+  </p>
+
+  <p class="event-info__item">
+    <strong>NOMBRE DE PARTICIPANTS :</strong>
+    {{ event.maxParticipants }}
+  </p>
 
   @if (showOrganizer) {
-    <p><strong>ORGANISATEUR :</strong> {{ event.organizerName }}</p>
+
+    <p class="event-info__item">
+      <strong>ORGANISATEUR :</strong>
+      {{ event.organizerName }}
+    </p>
+
   }
+
 </div>

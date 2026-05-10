@@ -5,15 +5,31 @@
 
 .settings-menu-wrapper {
   position: absolute;
-
   top: 0;
   right: 0;
-
-  z-index: 50;
 }
 
 .settings-icon {
   transform: scale(1.2);
+}
+
+::ng-deep .settings-menu {
+  border-left: 2px solid rgba(0, 0, 0, 0.75) !important;
+
+  border-bottom: 2px solid rgba(0, 0, 0, 0.75) !important;
+  background-color: white;
+  box-shadow:
+    0 10px 14px -10px #c04d05,
+    0 6px 8px -6px rgba(0, 0, 0, 0.45) !important;
+}
+
+::ng-deep .settings-menu .mat-mdc-menu-content {
+  background: #ffffff !important;
+}
+
+button:hover{
+   opacity: 0.6;
+    // color: #c04d05;
 }
 
 @media (min-width: 1024px) {
@@ -26,12 +42,8 @@
     width: 420px !important;
   }
 
-  // ::ng-deep .settings-menu .mat-mdc-menu-content {
-  //   padding: 24px !important;
-  // }
-
   ::ng-deep .settings-menu .mat-mdc-menu-item {
     height: 72px !important;
-    font-size: 22px !important;
+    font-size: 21px !important;
   }
 }

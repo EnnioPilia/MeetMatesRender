@@ -58,26 +58,23 @@
 
   .home {
 
-    min-height: calc(100vh - 84px);
-
+    min-height: calc(100vh - 180px);
     padding: 64px;
   }
 
-  /* HIDE MOBILE LOGO */
 
   .home-logo {
     display: none;
   }
 
-  /* SHOW DESKTOP TITLE */
 
   .home-title {
     display: block;
 
     margin-top: 16px;
 
-    font-size: clamp(32px, 4vw, 56px);
-    font-weight: 700;
+    font-size: clamp(32px, 4vw, 64px);
+    font-weight: 300;
   }
 
   .home-actions {

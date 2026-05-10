@@ -29,6 +29,15 @@
 
   color: #dc2626;
 }
+::ng-deep .mat-datepicker-content {
+  background: #ffffff !important;
+
+    border-bottom: 2px solid rgba(0, 0, 0, 0.75);
+    border-top: 2px solid rgba(0, 0, 0, 0.75);
+
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.18) !important;
+}
 
 @media (min-width: 1024px) {
 

@@ -1,20 +1,18 @@
-// Angular
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
-/**
- * Carte cliquable avec icône et titre.
- */
 @Component({
   selector: 'app-icon-card',
-  styleUrls: ['./icon-card.component.scss'],
   standalone: true,
   imports: [MatCardModule],
-  templateUrl: './icon-card.component.html'
+  templateUrl: './icon-card.component.html',
+  styleUrls: ['./icon-card.component.scss']
 })
 export class IconCardComponent {
 
   @Input() title!: string;
+
+  @Input() iconPath?: string;
 
   @Output() cardClick = new EventEmitter<void>();
 
@@ -22,10 +20,19 @@ export class IconCardComponent {
     this.cardClick.emit();
   }
 
-  get computedIconPath(): string {
-    return `/assets/images/icons/${this.title
-      .toLowerCase()
-      .replaceAll(' ', '-')
-      .replaceAll('/', '-')}.png`;
+get computedIconPath(): string {
+
+  if (
+    this.iconPath &&
+    this.iconPath !== 'assets/images/icons/undefined' &&
+    this.iconPath !== 'assets/images/icons/null'
+  ) {
+    return this.iconPath;
   }
+
+  return `assets/images/icons/${this.title
+    .toLowerCase()
+    .replaceAll(' ', '-')
+    .replaceAll('/', '-')}.png`;
+}
 }

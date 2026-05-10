@@ -10,13 +10,11 @@
     <div class="categories-grid">
 
       @for (category of categories(); track category.id) {
-
-        <app-icon-card
-          [title]="category.name"
-          [iconPath]="'/assets/images/icons/' + category.imageUrl"
-          (cardClick)="navigateTo(category.id)">
-        </app-icon-card>
-
+<app-icon-card
+  [title]="category.name"
+  [iconPath]="'assets/images/icons/' + category.imageUrl"
+  (cardClick)="navigateTo(category.id)">
+</app-icon-card>
       }
 
     </div>
