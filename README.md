@@ -136,13 +136,13 @@ Protection des données sensibles :
     
 ## UI & UX
 
-Le front-end a été développé selon une approche **mobile-first**, en combinant :
 
-- **Angular Material** pour garantir une cohérence visuelle, une bonne accessibilité et des composants UI robustes, 
-conformes aux standards (navigation clavier, gestion du focus, contrastes) et reposant sur une structuration sémantique adaptée.
+Le front-end a été développé selon une approche **mobile-first**.
 
-- **Tailwind CSS** pour la mise en page et le responsive. L’interface est ensuite adaptée aux écrans tablette et desktop grâce aux breakpoints Tailwind, 
-complétés par des media queries personnalisées lorsque nécessaire.
+**Angular Material** est utilisé pour fournir des composants UI robustes et accessibles (tabs, panneaux, loaders, etc.), tout en garantissant une cohérence visuelle.
+Et reposant sur une structuration sémantique adaptée.
+
+Le responsive et la mise en page sont principalement gérés via des composants Angular standalone, du SCSS modulaire et des **media queries** personnalisées. 
 
 ---
 

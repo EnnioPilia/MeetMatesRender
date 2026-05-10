@@ -15,6 +15,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -23,21 +24,19 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
 /**
- * Entité associative représentant la participation d’un utilisateur à un événement.
+ * Entité associative représentant la participation d’un utilisateur à un
+ * événement.
  *
- * Elle permet de gérer :
- * - le rôle du participant (organisateur, participant)
- * - le statut de participation (en attente, accepté, refusé, parti…)
- * - l’historique d’inscription (date de join)
- * - des informations redondantes utiles (email à l’inscription)
+ * Elle permet de gérer : - le rôle du participant (organisateur, participant) -
+ * le statut de participation (en attente, accepté, refusé, parti…) -
+ * l’historique d’inscription (date de join) - des informations redondantes
+ * utiles (email à l’inscription)
  *
- * Relations :
- * - Many-to-One avec {@link Event} : événement concerné
- * - Many-to-One avec {@link User} : utilisateur participant
+ * Relations : - Many-to-One avec {@link Event} : événement concerné -
+ * Many-to-One avec {@link User} : utilisateur participant
  *
- * Particularités :
- * - La combinaison (event_id + user_id) est unique
- * - L’entité sert de pivot pour la gestion des rôles et des statuts
+ * Particularités : - La combinaison (event_id + user_id) est unique - L’entité
+ * sert de pivot pour la gestion des rôles et des statuts
  */
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
@@ -50,8 +49,8 @@ import jakarta.persistence.UniqueConstraint;
 public class EventUser {
 
     /**
-     * Identifiant UUID unique de la relation participant–événement .
-     * Généré automatiquement par Hibernate via un générateur UUID.
+     * Identifiant UUID unique de la relation participant–événement . Généré
+     * automatiquement par Hibernate via un générateur UUID.
      */
     @Id
     @GeneratedValue
@@ -60,8 +59,8 @@ public class EventUser {
     private UUID id;
 
     /**
-     * L’événement auquel l’utilisateur est associé.
-     * Relation Many-To-One : plusieurs EventUser peuvent pointer vers le même Event
+     * L’événement auquel l’utilisateur est associé. Relation Many-To-One :
+     * plusieurs EventUser peuvent pointer vers le même Event
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonBackReference
@@ -69,24 +68,28 @@ public class EventUser {
     private Event event;
 
     /**
-     * L’utilisateur participant à l’événement.
-     * Relation Many-To-One : chaque participant correspond à un user unique
+     * L’utilisateur participant à l’événement. Relation Many-To-One : chaque
+     * participant correspond à un user unique
      */
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(
+            name = "user_id",
+            nullable = false,
+            foreignKey = @ForeignKey(name = "fk_event_user_user")
+    )
     private User user;
 
     /**
-     * Rôle du participant dans l’événement.
-     * Peut être organisateur ou participant simple.
+     * Rôle du participant dans l’événement. Peut être organisateur ou
+     * participant simple.
      */
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private ParticipantRole role = ParticipantRole.PARTICIPANT;
 
     /**
-     * Statut de participation de l’utilisateur.
-     * Permet de gérer les demandes, refus, départs, etc.
+     * Statut de participation de l’utilisateur. Permet de gérer les demandes,
+     * refus, départs, etc.
      */
     @Enumerated(EnumType.STRING)
     @Column(name = "participation_status", nullable = false)
@@ -96,12 +99,11 @@ public class EventUser {
     private LocalDateTime joinedAt = LocalDateTime.now();
 
     /**
-     * Email de l’utilisateur au moment de l’inscription.
-     * Redondant mais utile pour éviter de joindre la table user pour des affichages simples.
+     * Email de l’utilisateur au moment de l’inscription. Redondant mais utile
+     * pour éviter de joindre la table user pour des affichages simples.
      */
     @Column(name = "user_email", nullable = false)
     private String userEmail;
-
 
     // -- ENUMS ---
     public enum ParticipantRole {
@@ -112,26 +114,60 @@ public class EventUser {
         PENDING, ACCEPTED, REJECTED, LEFT, LEFT_REJECTED
     }
 
-
     // --- GETTERS & SETTERS ---
-    public UUID getId() { return id; }
-    public void setId(UUID id) { this.id = id; }
+    public UUID getId() {
+        return id;
+    }
 
-    public Event getEvent() { return event; }
-    public void setEvent(Event event) { this.event = event; }
+    public void setId(UUID id) {
+        this.id = id;
+    }
 
-    public User getUser() { return user; }
-    public void setUser(User user) { this.user = user; }
+    public Event getEvent() {
+        return event;
+    }
 
-    public ParticipantRole getRole() { return role; }
-    public void setRole(ParticipantRole role) { this.role = role; }
+    public void setEvent(Event event) {
+        this.event = event;
+    }
 
-    public LocalDateTime getJoinedAt() { return joinedAt; }
-    public void setJoinedAt(LocalDateTime joinedAt) { this.joinedAt = joinedAt; }
+    public User getUser() {
+        return user;
+    }
 
-    public ParticipationStatus getParticipationStatus() { return participationStatus; }
-    public void setParticipationStatus(ParticipationStatus participationStatus) { this.participationStatus = participationStatus; }
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-    public String getUserEmail() { return userEmail; }
-    public void setUserEmail(String userEmail) { this.userEmail = userEmail; }
+    public ParticipantRole getRole() {
+        return role;
+    }
+
+    public void setRole(ParticipantRole role) {
+        this.role = role;
+    }
+
+    public LocalDateTime getJoinedAt() {
+        return joinedAt;
+    }
+
+    public void setJoinedAt(LocalDateTime joinedAt) {
+        this.joinedAt = joinedAt;
+    }
+
+    public ParticipationStatus getParticipationStatus() {
+        return participationStatus;
+    }
+
+    public void setParticipationStatus(ParticipationStatus participationStatus) {
+        this.participationStatus = participationStatus;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
 }
