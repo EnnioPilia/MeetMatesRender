@@ -24,6 +24,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 })
 export class LoadingSpinnerComponent {
   @Input() message: string = 'Chargement des donnés...';
-  @Input() diameter: number = 70;
+ @Input() diameter: number =
+  window.innerWidth >= 1024 ? 140 : 70;
   @Input() fullHeight: boolean = true;
 }
