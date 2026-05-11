@@ -5,7 +5,7 @@
 
 .activity-page {
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100dvh - var(--header-mobile) - var(--footer-mobile));
 
   display: flex;
   flex-direction: column;
@@ -32,6 +32,26 @@
 @media (min-width: 1024px) {
 
   .activity-page {
+    min-height: calc(100dvh - var(--header-desktop));
+
+  }
+
+  .activities-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 50px;
+
+    width: fit-content;
+
+    margin: 35px auto 0 auto;
+  }
+}
+
+@media (min-width: 1800px) {
+
+  .activity-page {
+    min-height: calc(100dvh - var(--header-desktop));
+
   }
 
   .activities-grid {

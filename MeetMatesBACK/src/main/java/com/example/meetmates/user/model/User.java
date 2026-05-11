@@ -6,9 +6,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.type.SqlTypes;
 
 import com.example.meetmates.auth.model.Token;
 import com.example.meetmates.event.model.EventUser;
@@ -47,7 +45,6 @@ public class User {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @JdbcTypeCode(SqlTypes.CHAR)
     @Column(name = "user_id", length = 36, nullable = false)
     private UUID id;
 

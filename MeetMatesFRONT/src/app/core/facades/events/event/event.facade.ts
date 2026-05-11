@@ -88,11 +88,10 @@ export class EventFacade extends BaseFacade {
         this.start();
 
         return this.eventUserService.acceptParticipant(eventUserId).pipe(
-            tap(res => {
-                this.successHandler.handle(res);
+            tap(() => {
                 this.stop();
             }),
-            this.handleError()
+            this.handleError(undefined, undefined, false)
         );
     }
 
@@ -105,11 +104,10 @@ export class EventFacade extends BaseFacade {
         this.start();
 
         return this.eventUserService.rejectParticipant(eventUserId).pipe(
-            tap(res => {
-                this.successHandler.handle(res);
+            tap(() => {
                 this.stop();
             }),
-            this.handleError()
+            this.handleError(undefined, undefined, false)
         );
     }
 
@@ -163,7 +161,7 @@ export class EventFacade extends BaseFacade {
             this.handleError()
         );
     }
-    
+
     /**
     * Recherche des suggestions d'adresses.
     * 

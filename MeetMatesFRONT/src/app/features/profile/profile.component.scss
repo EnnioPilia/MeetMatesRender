@@ -5,7 +5,7 @@
 
 .profile-page {
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100dvh - var(--header-mobile) - var(--footer-mobile));
 
   display: flex;
   flex-direction: column;
@@ -34,8 +34,8 @@
 @media (min-width: 1024px) {
 
   .profile-page {
-    padding-top: 50px;
-    padding-bottom: 80px;
+    margin-top: 35px;
+    min-height: calc(100dvh - var(--header-desktop));
   }
 
   .profile-layout {

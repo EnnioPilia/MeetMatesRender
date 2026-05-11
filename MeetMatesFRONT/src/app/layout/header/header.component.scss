@@ -53,21 +53,19 @@
   .mobile-header {
     display: none;
   }
+.desktop-header {
+  height: 100px;
 
-  .desktop-header {
-    height: 100px;
+  max-width: 1400px;
 
-    max-width: 1400px;
+  margin: 0 auto;
 
-    margin: 0 auto;
+  padding: 0 24px;
 
-    padding: 50px 24px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
   .desktop-left {
     display: flex;
     align-items: center;

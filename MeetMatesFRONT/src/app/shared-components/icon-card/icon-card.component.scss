@@ -47,6 +47,25 @@
 @media (min-width: 1024px) {
 
   .icon-card {
+    width: 230px;
+    height: 230px;
+
+    gap: 20px;
+  }
+
+  .icon-image {
+    width: 130px;
+    height: 130px;
+  }
+
+  .icon-title {
+    font-size: 22px !important;
+  }
+}
+
+@media (min-width: 1800px) {
+
+  .icon-card {
     width: 260px;
     height: 260px;
 

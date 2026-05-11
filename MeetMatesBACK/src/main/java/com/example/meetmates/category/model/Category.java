@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 
 import com.example.meetmates.activity.model.Activity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -51,7 +49,6 @@ public class Category {
             name = "UUID",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
-    @JdbcTypeCode(SqlTypes.CHAR)
     @Column(name = "category_id", updatable = false, nullable = false, length = 36)
     private UUID categoryId;
 

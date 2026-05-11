@@ -50,29 +50,36 @@ export abstract class BaseFacade {
   * @param message Message d'erreur personnalisé affiché dans le signal `error`
   * @param onFinally Callback optionnel exécuté après la gestion de l'erreur
   */
-  protected handleError<T>(message?: string, onFinally?: () => void) {
-    return (source: Observable<T>) =>
-      source.pipe(
-        catchError(err => {
+protected handleError<T>(
+  message?: string,
+  onFinally?: () => void,
+  showError = true
+) {
+  return (source: Observable<T>) =>
+    source.pipe(
+      catchError(err => {
+
+        if (showError) {
           this.errorHandler.handle(err);
+        }
 
-          if (message) {
-            this.setError(message);
-          }
+        if (message) {
+          this.setError(message);
+        }
 
-          this.stopLoading();
+        this.stopLoading();
 
-          if (typeof (this as any).stop === 'function') {
-            (this as any).stop();
-          }
+        if (typeof (this as any).stop === 'function') {
+          (this as any).stop();
+        }
 
-          if (onFinally) {
-            onFinally();
-          }
+        if (onFinally) {
+          onFinally();
+        }
 
-          return of(null as T);
-        })
-      );
-  }
+        return of(null as T);
+      })
+    );
+}
 
 }

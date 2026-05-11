@@ -3,8 +3,6 @@ package com.example.meetmates.activity.model;
 import java.util.UUID;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 
 import com.example.meetmates.category.model.Category;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -48,7 +46,6 @@ public class Activity {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @JdbcTypeCode(SqlTypes.CHAR)
     @Column(name = "activity_id", length = 36, updatable = false, nullable = false)
     private UUID id;
 

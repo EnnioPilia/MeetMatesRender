@@ -7,9 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
-
 import com.example.meetmates.activity.model.Activity;
 import com.example.meetmates.address.model.Address;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -58,7 +55,6 @@ public class Event {
      */
     @Id
     @GeneratedValue
-    @JdbcTypeCode(SqlTypes.CHAR)
     @Column(name = "event_id", length = 36, updatable = false, nullable = false)
     private UUID id;
 
@@ -116,7 +112,6 @@ private Address address;
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "activity_id", nullable = false)
-    @JdbcTypeCode(SqlTypes.CHAR)
     private Activity activity;
 
     /**

@@ -5,14 +5,13 @@
 
 .edit-profile-page {
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100dvh - var(--header-mobile) - var(--footer-mobile));
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
   padding: 24px;
-  padding-top: 70px;
 
   box-sizing: border-box;
 }
@@ -32,6 +31,9 @@
 
   .edit-profile-page {
     padding-inline: 48px;
+        min-height: calc(100dvh - var(--header-desktop));
+  padding-top: 70px;
+
   }
 
   .edit-profile-content {

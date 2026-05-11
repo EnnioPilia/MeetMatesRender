@@ -5,19 +5,17 @@
 
 .search-page {
   width: 100%;
-  min-height: 100vh;
-
+  min-height: calc(100dvh - var(--header-mobile) - var(--footer-mobile));
   display: flex;
   flex-direction: column;
   align-items: center;
-
+padding: 20px;
   box-sizing: border-box;
 }
 
 .search-content {
   width: 100%;
-  max-width: 500px;
-
+  max-width: 520px;
   display: flex;
   flex-direction: column;
 }
@@ -25,19 +23,15 @@
 
 .results-list {
   width: 100%;
-
   display: flex;
   flex-direction: column;
-
   gap: 24px;
   margin-bottom: 20px;
 }
 
 .empty-results {
   margin-top: 24px;
-
   text-align: center;
-
   color: #6b7280;
 }
 
@@ -50,6 +44,8 @@
 
   .search-page {
     padding-top: 70px;
+    min-height: calc(100dvh - var(--header-desktop));
+
   }
 
   ::ng-deep app-input,
@@ -88,5 +84,5 @@
     font-size: 28px !important;
     text-align: center;
   }
-  
+
 }

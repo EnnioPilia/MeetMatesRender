@@ -81,3 +81,40 @@
     max-width: 500px;
   }
 }
+
+@media (min-width: 1800px) {
+
+  .home {
+
+    min-height: calc(100vh - 180px);
+    padding: 20px;
+  }
+
+
+  .home-logo {
+    display: none;
+  }
+
+
+  .home-title {
+    display: block;
+
+    margin-top: 16px;
+
+    font-size: clamp(32px, 7vw, 140px);
+    font-weight: 100 !important;
+  }
+
+.home-description {
+  margin-top: 20px;
+
+  max-width: 680px;
+
+  font-size: clamp(16px, 2vw, 32px);
+  line-height: 1.7;
+}
+
+  .home-actions {
+    max-width: 500px;
+  }
+}

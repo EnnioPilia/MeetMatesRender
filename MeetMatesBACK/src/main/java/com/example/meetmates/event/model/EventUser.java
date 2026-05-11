@@ -3,9 +3,6 @@ package com.example.meetmates.event.model;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
-
 import com.example.meetmates.user.model.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -54,7 +51,6 @@ public class EventUser {
      */
     @Id
     @GeneratedValue
-    @JdbcTypeCode(SqlTypes.CHAR)
     @Column(name = "event_user_id", length = 36, updatable = false, nullable = false)
     private UUID id;
 
