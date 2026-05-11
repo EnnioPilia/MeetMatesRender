@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center min-h-screen px-7 py-20">
+<div class="admin-page">
 
   <app-state-handler
     [loading]="loading"
@@ -7,65 +7,82 @@
 
   @if (users()) {
 
-    <div class="container w-full max-w-3xl space-y-4">
+    <div class="admin-content">
 
-      <h2 class="text-3xl font-semibold text-center">
+      <h2 class="admin-title">
         Liste des utilisateurs
       </h2>
 
-      @for (user of users(); track user.id) {
+      <div class="users-list">
 
-        <div class="user-card bg-white rounded-md shadow flex flex-col gap-3">
+        @for (user of users(); track user.id) {
 
-          <div class="flex flex-col gap-1 p-4">
-            <span class="font-semibold">
-              {{ user.firstName }} {{ user.lastName }}
-            </span>
+          <div class="user-card">
 
-            <span class="text-sm text-gray-500">
-              {{ user.email }}
-            </span>
+            <div class="user-infos">
 
-            <span class="text-sm">
-              Rôle : {{ user.role }}
-            </span>
+              <span class="user-name">
+                {{ user.firstName }} {{ user.lastName }}
+              </span>
 
-            <span class="text-sm">
-              Statut : {{ user.status }}
-            </span>
+              <span class="user-email">
+                {{ user.email }}
+              </span>
+
+              <span class="user-meta">
+                Rôle : {{ user.role }}
+              </span>
+
+              <span class="user-meta">
+                Statut : {{ user.status }}
+              </span>
+
+            </div>
+
+            <div class="user-actions">
+
+              @if (!user.deletedAt) {
+
+                <app-button
+                  label="SUPPRIMER"
+                  class="secondary-button"
+                  (clicked)="softDeleteUser(user.id)">
+                </app-button>
+
+              }
+
+              @if (user.deletedAt) {
+
+                <app-button
+                  label="RESTAURER"
+                  class="secondary-button"
+                  (clicked)="restoreUser(user.id)">
+                </app-button>
+
+              }
+
+              <app-button
+                label="SUPPRIMER DÉFINITIVEMENT"
+                class="secondary-button"
+                (clicked)="hardDeleteUser(user.id)">
+              </app-button>
+
+            </div>
+
           </div>
 
-        <div class="flex flex-col gap-2">
+        }
 
-            @if (!user.deletedAt) {
-              <app-button
-                label="SUPPRIMER"
-                class="secondary-button"
-                (clicked)="softDeleteUser(user.id)">
-              </app-button>
-            }
+      </div>
 
-            @if (user.deletedAt) {
-              <app-button
-                label="RESTAURER"
-                class="secondary-button"
-                (clicked)="restoreUser(user.id)">
-              </app-button>
-            }
-
-            <app-button
-              label="SUPPRIMER DÉFINITIVEMENT"
-                class="secondary-button"
-              (clicked)="hardDeleteUser(user.id)">
-            </app-button>
-
-          </div>
-        </div>
-      }
     </div>
+
   } @else {
-    <p class="text-gray-500 text-center">
+
+    <p class="empty-state">
       Aucun utilisateur trouvé.
     </p>
+
   }
+
 </div>

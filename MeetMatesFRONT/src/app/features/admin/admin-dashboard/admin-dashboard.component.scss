@@ -5,7 +5,7 @@
 
 .admin-page {
   width: 100%;
-  min-height: 100vh;
+  min-height: 80vh;
 
   display: flex;
   flex-direction: column;
@@ -51,16 +51,7 @@
   font-size: 18px;
 }
 
-@media (min-width: 600px) and (max-width: 999px) {
 
-  .admin-page {
-    padding-top: 100px;
-  }
-
-  .admin-content {
-    gap: 50px;
-  }
-}
 
 @media (min-width: 1024px) {
 
@@ -68,7 +59,7 @@
   }
 
   .admin-content {
-    max-width: 900px;
+    max-width: 510px;
     gap: 70px;
   }
 
