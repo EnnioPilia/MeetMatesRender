@@ -135,6 +135,7 @@ describe('EventFacade', () => {
                 data: mockEventDetails
             })
         );
+
         facade.createEvent(mockEventRequest).subscribe();
 
         expect(eventService.createEvent).toHaveBeenCalledWith(mockEventRequest);
@@ -144,19 +145,46 @@ describe('EventFacade', () => {
 
     it('should accept participant', () => {
         eventUserService.acceptParticipant.and.returnValue(
-            of<ApiResponse<void>>({ message: 'Accepted', data: undefined })
+            of<ApiResponse<void>>({
+                message: 'Accepted',
+                data: undefined
+            })
         );
 
         facade.acceptParticipant('eu1').subscribe();
 
         expect(eventUserService.acceptParticipant).toHaveBeenCalledWith('eu1');
-        expect(successHandler.handle).toHaveBeenCalled();
+
+        // plus de toast succès attendu
+        expect(successHandler.handle).not.toHaveBeenCalled();
+
+        expect(facade.isSubmitting).toBeFalse();
+    });
+
+    it('should reject participant', () => {
+        eventUserService.rejectParticipant.and.returnValue(
+            of<ApiResponse<void>>({
+                message: 'Rejected',
+                data: undefined
+            })
+        );
+
+        facade.rejectParticipant('eu1').subscribe();
+
+        expect(eventUserService.rejectParticipant).toHaveBeenCalledWith('eu1');
+
+        // plus de toast succès attendu
+        expect(successHandler.handle).not.toHaveBeenCalled();
+
         expect(facade.isSubmitting).toBeFalse();
     });
 
     it('should delete event', () => {
         eventService.deleteEvent.and.returnValue(
-            of<ApiResponse<void>>({ message: 'Deleted', data: undefined })
+            of<ApiResponse<void>>({
+                message: 'Deleted',
+                data: undefined
+            })
         );
 
         facade.deleteEvent('e1').subscribe();
@@ -187,11 +215,15 @@ describe('EventFacade', () => {
             }
         ];
 
-        addressService.getAddressSuggestions.and.returnValue(of(suggestions));
+        addressService.getAddressSuggestions.and.returnValue(
+            of(suggestions)
+        );
 
         facade.searchAddress('par').subscribe();
 
-        expect(addressService.getAddressSuggestions).toHaveBeenCalledWith('par');
+        expect(addressService.getAddressSuggestions)
+            .toHaveBeenCalledWith('par');
+
         expect(facade.addressSuggestions()).toEqual(suggestions);
     });
 });
