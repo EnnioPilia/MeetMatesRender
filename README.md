@@ -9,7 +9,7 @@ L’application MeetMates est actuellement déployée en ligne via Render.
 
 [Voir la démo](https://meetmates-1.onrender.com)
 
----
+
 
 ###  Important
 
