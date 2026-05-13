@@ -13,7 +13,7 @@
   background-color: white;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 18px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.08em;
   cursor: pointer;
     border-bottom: 2px solid rgba(0, 0, 0, 0.7);
@@ -22,7 +22,7 @@
       0 6px 8px -6px rgba(0, 0, 0, 0.6);
     border-bottom: 1px solid rgba(0, 0, 0, 0.7);
   transition:
-    transform 0.05s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 0.22s cubic-bezier(0.25, 0.1, 0.25, 1),
     opacity 0.2s ease,
     box-shadow 0.2s ease;
 }
@@ -32,9 +32,9 @@
 }
 
 .app-button:active {
-  transform: translateY(4px);
+  transform: translateY(3px);
   box-shadow: 0 1.5px 0 #c04d05;
-  transform: scale(1);
+  transform: scale(0.01);
 }
 
 .app-button:disabled {
@@ -56,7 +56,7 @@
     min-height: 72px;
     padding: 0 36px;
     font-size: clamp(20px, 1.4vw, 30px);
-    font-weight: 700;
+    font-weight: 600;
     box-shadow:
       0 9px 8px -6px #c04d05,
       0 6px 8px -6px rgba(0, 0, 0, 0.6);

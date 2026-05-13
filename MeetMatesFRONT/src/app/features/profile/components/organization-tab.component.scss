@@ -45,7 +45,6 @@
 }
 
 .event-date {
-  margin-top: 7px;
     font-size: 20px;
   font-weight: 700;
 }
@@ -87,6 +86,10 @@
   .event-content {
     gap: 15px;
   }
+.event-date {
+  margin-top: 7px;
+
+}
 
   ::ng-deep .mat-expansion-panel-header {
     height: 80px !important;

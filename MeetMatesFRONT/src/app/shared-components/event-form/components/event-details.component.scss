@@ -29,6 +29,7 @@
 
   color: #dc2626;
 }
+
 ::ng-deep .mat-datepicker-content {
   background: #ffffff !important;
 
@@ -37,6 +38,14 @@
 
   box-shadow:
     0 10px 20px rgba(0, 0, 0, 0.18) !important;
+}
+
+::ng-deep .mdc-radio__outer-circle {
+  border-color: black !important;
+}
+
+::ng-deep .mdc-radio__inner-circle {
+  border-color: #ff6200 !important;
 }
 
 @media (min-width: 1024px) {

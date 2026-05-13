@@ -68,9 +68,15 @@
   transform: translateY(-50%);
 }
 
-@media (min-width: 1024px) {
+input[type="time"] {
+  cursor: pointer !important;
+}
 
-  .event-date-time {}
+input[type="time"]::-webkit-calendar-picker-indicator {
+  cursor: pointer !important;
+}
+
+@media (min-width: 1024px) {
 
   .label {
     font-size: 18px;

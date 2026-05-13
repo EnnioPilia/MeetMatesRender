@@ -1,30 +1,24 @@
 .home {
   min-height: calc(100vh - 64px - 72px);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 32px 24px;
 }
 
 .home-content {
   width: 100%;
   max-width: 720px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
   text-align: center;
 }
 
 .home-logo {
   font-family: 'Poiret One', cursive;
-
   font-size: clamp(42px, 10vw, 90px);
   font-weight: 700;
-
   margin: 0;
 }
 
@@ -34,9 +28,7 @@
 
 .home-description {
   margin-top: 20px;
-
   max-width: 680px;
-
   font-size: clamp(16px, 2vw, 22px);
   line-height: 1.7;
 }
@@ -44,35 +36,27 @@
 .home-actions {
   width: 100%;
   max-width: 420px;
-
   margin-top: 40px;
-
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
 
-
 @media (min-width: 1024px) {
 
   .home {
-
     min-height: calc(100vh - 180px);
     padding: 64px;
   }
-
 
   .home-logo {
     display: none;
   }
 
-
   .home-title {
     display: block;
-
     margin-top: 16px;
-
     font-size: clamp(32px, 5vw, 100px);
     font-weight: 200;
   }
@@ -85,34 +69,27 @@
 @media (min-width: 1800px) {
 
   .home {
-
     min-height: calc(100vh - 180px);
     padding: 20px;
   }
-
 
   .home-logo {
     display: none;
   }
 
-
   .home-title {
     display: block;
-
     margin-top: 16px;
-
-    font-size: clamp(32px, 7vw, 140px);
+    font-size: clamp(32px, 5vw, 140px);
     font-weight: 100 !important;
   }
 
-.home-description {
-  margin-top: 20px;
-
-  max-width: 680px;
-
-  font-size: clamp(16px, 2vw, 32px);
-  line-height: 1.7;
-}
+  .home-description {
+    margin-top: 20px;
+    max-width: 680px;
+    font-size: clamp(16px, 2vw, 24px);
+    line-height: 1.7;
+  }
 
   .home-actions {
     max-width: 500px;
