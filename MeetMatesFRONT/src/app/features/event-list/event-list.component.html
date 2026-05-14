@@ -5,52 +5,56 @@
     [error]="error">
   </app-state-handler>
 
-  @if (events().length > 0) {
+  @if (!loading() && !error()) {
 
-    <div class="events-list">
+    @if (events().length > 0) {
 
-      @for (event of events(); track event.id) {
+      <div class="events-list">
 
-        <div
-          #eventCard
-          [attr.data-id]="event.id"
-          class="event-card">
+        @for (event of events(); track event.id) {
 
-          <app-event-header
-            class="event-title"
-            [title]="event.title"
-            [description]="event.description">
-          </app-event-header>
+          <div
+            #eventCard
+            [attr.data-id]="event.id"
+            class="event-card">
 
-          <app-event-info
-            class="event-info"
-            [event]="event"
-            [showStatus]="true">
-          </app-event-info>
+            <app-event-header
+              class="event-title"
+              [title]="event.title"
+              [description]="event.description">
+            </app-event-header>
 
-          <app-button
-            class="primary-button"
-            label="P A R T I C I P E R"
-            (clicked)="joinEvent(event.id)">
-          </app-button>
+            <app-event-info
+              class="event-info"
+              [event]="event"
+              [showStatus]="true">
+            </app-event-info>
 
-        </div>
+            <app-button
+              class="primary-button"
+              label="P A R T I C I P E R"
+              (clicked)="joinEvent(event.id)">
+            </app-button>
 
-      }
+          </div>
 
-    </div>
+        }
 
-  } @else {
+      </div>
 
-    <div class="empty-state">
+    } @else {
 
-      <p>
-        AUCUNE ACTIVITÉ DISPONIBLE
-        <br><br>
-        Soyez le premier à proposer un événement pour cette activité.
-      </p>
+      <div class="empty-state">
 
-    </div>
+        <p>
+          AUCUNE ACTIVITÉ DISPONIBLE
+          <br><br>
+          Soyez le premier à proposer un événement pour cette activité.
+        </p>
+
+      </div>
+
+    }
 
   }
 

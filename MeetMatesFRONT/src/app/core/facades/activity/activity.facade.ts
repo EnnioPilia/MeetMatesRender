@@ -31,10 +31,9 @@ export class ActivityFacade extends BaseFacade {
         this.categories.set(categories);
         this.stopLoading();
       }),
-      this.handleError()
+      this.handleError("Impossible de charger les catégories.")
     );
   }
-
   /**
    * Met à jour la liste des activités associées à une catégorie sélectionnée.
    *
@@ -48,7 +47,7 @@ export class ActivityFacade extends BaseFacade {
         this.activities.set(activities);
         this.stopLoading();
       }),
-      this.handleError()
+      this.handleError("Impossible de charger les activités.")
     );
   }
 }

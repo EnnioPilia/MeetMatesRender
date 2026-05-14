@@ -37,7 +37,7 @@ export class NotificationService {
    * @param message Contenu du message à afficher
    */
   showSuccess(message: string): void {
-   this.show(`✅ ${message}`, 'success-snackbar', 4000000);
+   this.show(`✅ ${message}`, 'success-snackbar', 4000);
   }
 
   /**
@@ -45,7 +45,7 @@ export class NotificationService {
    * @param message Contenu du message à afficher
    */
   showWarning(message: string): void {
-    this.show(`⚠️ ${message}`, 'warning-snackbar', 4000000);
+    this.show(`⚠️ ${message}`, 'warning-snackbar', 4000);
   }
 
   /**
@@ -53,6 +53,6 @@ export class NotificationService {
    * @param message Contenu du message à afficher
    */
   showError(message: string): void {
-    this.show(`❌ ${message}`, 'error-snackbar', 4000000);
+    this.show(`❌ ${message}`, 'error-snackbar', 4000);
   }
 }
