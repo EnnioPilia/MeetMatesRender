@@ -23,7 +23,7 @@ Le projet reste entièrement fonctionnel en local via la section Installation ci
 
 ## PRESENTATION
 
-**Meet Mates** est une application web permettant aux utilisateurs de découvrir, organiser et participer  
+**MeetMates** est une application web permettant aux utilisateurs de découvrir, organiser et participer  
 à des activités variées afin de rencontrer de nouvelles personnes et partager des moments de convivialité.
 
 Les utilisateurs peuvent :
