@@ -161,6 +161,7 @@ public class EventUserService {
      *
      * @throws ApiException si la participation n'existe pas
      */
+    @Transactional
     public EventUserDto acceptParticipant(UUID eventUserId) {
         EventUser eu = eventUserRepository.findById(eventUserId)
                 .orElseThrow(() -> new ApiException(ErrorCode.PARTICIPANT_NOT_FOUND));
@@ -182,6 +183,7 @@ public class EventUserService {
      *
      * @throws ApiException si la participation n'existe pas
      */
+    @Transactional
     public EventUserDto rejectParticipant(UUID eventUserId) {
         EventUser eu = eventUserRepository.findById(eventUserId)
                 .orElseThrow(() -> new ApiException(ErrorCode.PARTICIPANT_NOT_FOUND));

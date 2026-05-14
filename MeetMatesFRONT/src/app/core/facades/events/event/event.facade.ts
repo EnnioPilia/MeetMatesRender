@@ -88,10 +88,11 @@ export class EventFacade extends BaseFacade {
         this.start();
 
         return this.eventUserService.acceptParticipant(eventUserId).pipe(
-            tap(() => {
+            tap(res => {
+                this.successHandler.handle(res);
                 this.stop();
             }),
-            this.handleError(undefined, undefined, false)
+            this.handleError()
         );
     }
 
@@ -104,10 +105,11 @@ export class EventFacade extends BaseFacade {
         this.start();
 
         return this.eventUserService.rejectParticipant(eventUserId).pipe(
-            tap(() => {
+            tap(res => {
+                this.successHandler.handle(res);
                 this.stop();
             }),
-            this.handleError(undefined, undefined, false)
+            this.handleError()
         );
     }
 
