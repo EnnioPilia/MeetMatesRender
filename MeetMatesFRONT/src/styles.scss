@@ -13,7 +13,6 @@ body {
   overflow-x: hidden;
 }
 
-
 :root {
   --color-primary: #1976d2;
   --color-accent: #ff6200;
@@ -50,11 +49,8 @@ select {
 .warning-snackbar,
 .error-snackbar {
   .mdc-snackbar__surface {
-
     background: #000 !important;
     color: #fff !important;
-
-
     width: min(92vw, 600px) !important;
     max-width: 92vw !important;
     margin-top: 15px;
@@ -77,7 +73,7 @@ select {
       font-size: 16px !important;
       font-weight: 700 !important;
     }
-}
+  }
 }
 
 .mat-mdc-snack-bar-action:hover {
@@ -95,6 +91,8 @@ select {
 .mat-mdc-snack-bar-action:hover .mdc-button__label {
   color: #c04d05 !important;
 }
+
+
 
 @media (min-width: 1024px) {
 

@@ -5,23 +5,15 @@
 
 .back-button {
     width: 100%;
-
     min-height: 58px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     gap: 10px;
-
     padding: 0 18px;
-
     border: none;
-
     color: black;
-
     cursor: pointer;
-
     font-size: 16px;
     font-weight: 800;
 }
@@ -36,7 +28,6 @@
 
 .back-icon {
     font-size: 22px;
-
     width: 22px;
     height: 22px;
 }
@@ -49,15 +40,12 @@
 
     .back-button {
         min-height: 72px;
-
         border-radius: 14px;
-
         font-size: 20px;
     }
 
     .back-icon {
         font-size: 28px;
-
         width: 28px;
         height: 28px;
     }

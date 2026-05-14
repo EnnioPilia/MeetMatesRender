@@ -1,43 +1,36 @@
 .login {
   min-height: calc(100vh - 64px - 72px);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 24px;
 }
 
 .login-form {
   width: 100%;
   max-width: 460px;
-
   display: flex;
   flex-direction: column;
-
   gap: 20px;
 }
 
 .login-actions {
   margin-top: 8px;
-
   display: flex;
   flex-direction: column;
-
   gap: 14px;
 }
+
 
 @media (min-width: 1024px) {
 
   .login {
     min-height: calc(100vh - 84px);
-
     padding: 64px;
   }
 
   .login-form {
     max-width: 510px;
-
     gap: 24px;
   }
 

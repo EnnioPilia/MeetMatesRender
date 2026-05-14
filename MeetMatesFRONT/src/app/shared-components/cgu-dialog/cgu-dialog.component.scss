@@ -3,18 +3,14 @@
 }
 
 ::ng-deep .mat-mdc-dialog-surface {
-      border: 2px solid black !important;
-
+  border: 2px solid black !important;
   padding: 0 !important;
-
   overflow: hidden !important;
 }
 
 .dialog-content {
   padding: 28px 24px;
-
   max-height: 80vh;
-
   overflow-y: auto;
 }
 
@@ -26,12 +22,11 @@
 .dialog-actions {
   display: flex;
   justify-content: center;
-
   padding: 20px 24px 28px;
 }
 
 .dialog-actions app-button {
-    font-size: 14px;
+  font-size: 14px;
   font-weight: 600;
   width: 100%;
   max-width: 320px;

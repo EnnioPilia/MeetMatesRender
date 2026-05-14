@@ -1,9 +1,7 @@
 .post-event {
   width: 100%;
-
   display: flex;
   justify-content: center;
-
   padding: 15px 24px 15px;
   box-sizing: border-box;
 }
@@ -15,9 +13,7 @@ app-event-form {
 
 @media (min-width: 1024px) {
 
-.post-event {
-
-  padding: 50px 24px 50px;
-
-}
+  .post-event {
+    padding: 50px 24px 50px;
+  }
 }

@@ -6,23 +6,18 @@
 .admin-page {
   width: 100%;
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
   padding: 40px 24px;
-
   box-sizing: border-box;
 }
 
 .admin-content {
   width: 100%;
   max-width: 900px;
-
   display: flex;
   flex-direction: column;
-
   gap: 32px;
 }
 
@@ -35,7 +30,6 @@
 .events-accordion {
   display: flex;
   flex-direction: column;
-
   gap: 20px;
 }
 
@@ -45,11 +39,9 @@
 
 .event-header-content {
   width: 100%;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   gap: 16px;
 }
 
@@ -60,7 +52,6 @@
 .event-date {
   font-size: 14px;
   color: #6b7280;
-
   padding-right: 8px;
 }
 
@@ -68,9 +59,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
   gap: 24px;
-
   padding: 20px;
 }
 
@@ -81,28 +70,22 @@
 
 .participants-section {
   width: 100%;
-
   display: flex;
   flex-direction: column;
-
   gap: 12px;
 }
 
 .participants-title {
   font-size: 18px;
   font-weight: 600;
-
   padding-bottom: 8px;
-
   border-bottom: 1px solid black;
 }
 
 .participants-list {
   padding-left: 24px;
-
   display: flex;
   flex-direction: column;
-
   gap: 6px;
 }
 
@@ -112,12 +95,9 @@
 
 .event-actions {
   width: 100%;
-
   display: flex;
   flex-direction: column;
-
   gap: 16px;
-
   margin-top: 12px;
 }
 
@@ -125,7 +105,6 @@
   text-align: center;
   color: #6b7280;
 }
-
 
 
 @media (min-width: 1024px) {

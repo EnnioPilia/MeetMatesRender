@@ -43,7 +43,6 @@
         0 6px 8px -6px rgba(0, 0, 0, 0.45);
 }
 
-
 .app-input-field::placeholder {
     color: rgba(0, 0, 0, 0.45);
     font-weight: 700;
@@ -77,11 +76,8 @@
 
     .app-input-field {
         min-height: 72px;
-
         padding: 0 24px;
-
         font-size: 20px;
-
     }
 
     .app-input-error {

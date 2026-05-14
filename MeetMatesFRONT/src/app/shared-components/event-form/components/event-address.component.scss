@@ -21,8 +21,8 @@
   min-height: 58px;
   padding: 0 18px;
   border: none;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.75);
-    box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.6);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.75);
+  box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.6);
   background: white;
   font-size: 16px;
   font-weight: 700;
@@ -30,33 +30,27 @@
 }
 
 .address-input:focus {
-    border-bottom: 2px solid #ff6200;
-    box-shadow:
-        0 10px 14px -10px #c04d05,
-        0 6px 8px -6px rgba(0, 0, 0, 0.45);
+  border-bottom: 2px solid #ff6200;
+  box-shadow:
+    0 10px 14px -10px #c04d05,
+    0 6px 8px -6px rgba(0, 0, 0, 0.45);
 }
 
 .address-error {
   font-size: 14px;
   font-weight: 700;
-
   color: #dc2626;
-
   text-align: left;
-  
 }
 
 ::ng-deep .mat-mdc-autocomplete-panel {
   background: #ffffff !important;
-
-
-    border-bottom: 2px solid rgba(0, 0, 0, 0.75);
-    border-top: 2px solid rgba(0, 0, 0, 0.75);
-
-
+  border-bottom: 2px solid rgba(0, 0, 0, 0.75);
+  border-top: 2px solid rgba(0, 0, 0, 0.75);
   box-shadow:
     0 10px 20px rgba(0, 0, 0, 0.15) !important;
 }
+
 
 @media (min-width: 1024px) {
 
@@ -66,11 +60,8 @@
 
   .address-input {
     min-height: 72px;
-
     padding: 0 24px;
-
     font-size: 20px;
-
   }
 
   .address-error {

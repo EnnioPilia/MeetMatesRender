@@ -1,41 +1,39 @@
+:host {
+  width: 100%;
+  display: block;
+}
 
-    :host {
-      width: 100%;
-      display: block;
-    }
+.edit-profile-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-    .edit-profile-form {
-      width: 100%;
 
-      display: flex;
-      flex-direction: column;
+@media (min-width: 1024px) {
 
-      gap: 20px;
-    }
+  .edit-profile-form {
+    gap: 28px;
+  }
 
-    @media (min-width: 1024px) {
+  ::ng-deep app-input,
+  ::ng-deep mat-form-field {
+    width: 100% !important;
+  }
 
-      .edit-profile-form {
-        gap: 28px;
-      }
+  ::ng-deep input {
+    height: 80px !important;
+    font-size: 28px !important;
+  }
 
-      ::ng-deep app-input,
-      ::ng-deep mat-form-field {
-        width: 100% !important;
-      }
+  ::ng-deep .mdc-floating-label {
+    font-size: 24px !important;
+  }
 
-      ::ng-deep input {
-        height: 80px !important;
-        font-size: 28px !important;
-      }
+  ::ng-deep button.primary-button {
+    height: 90px !important;
+    font-size: 30px !important;
+  }
 
-      ::ng-deep .mdc-floating-label {
-        font-size: 24px !important;
-      }
-
-      ::ng-deep button.primary-button {
-        height: 90px !important;
-        font-size: 30px !important;
-      }
-
-    }
+}

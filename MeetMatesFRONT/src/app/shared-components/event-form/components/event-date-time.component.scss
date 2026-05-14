@@ -76,6 +76,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   cursor: pointer !important;
 }
 
+
 @media (min-width: 1024px) {
 
   .label {
@@ -84,11 +85,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
   .input {
     min-height: 72px;
-
     padding: 0 24px;
-
     font-size: 20px;
-
   }
 
   .error {
