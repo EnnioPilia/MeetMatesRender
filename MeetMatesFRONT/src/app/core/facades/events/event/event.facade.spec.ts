@@ -153,10 +153,10 @@ describe('EventFacade', () => {
 
         facade.acceptParticipant('eu1').subscribe();
 
-        expect(eventUserService.acceptParticipant).toHaveBeenCalledWith('eu1');
+        expect(eventUserService.acceptParticipant)
+            .toHaveBeenCalledWith('eu1');
 
-        // plus de toast succès attendu
-        expect(successHandler.handle).not.toHaveBeenCalled();
+        expect(successHandler.handle).toHaveBeenCalled();
 
         expect(facade.isSubmitting).toBeFalse();
     });
@@ -171,14 +171,14 @@ describe('EventFacade', () => {
 
         facade.rejectParticipant('eu1').subscribe();
 
-        expect(eventUserService.rejectParticipant).toHaveBeenCalledWith('eu1');
+        expect(eventUserService.rejectParticipant)
+            .toHaveBeenCalledWith('eu1');
 
-        // plus de toast succès attendu
-        expect(successHandler.handle).not.toHaveBeenCalled();
+        expect(successHandler.handle).toHaveBeenCalled();
 
         expect(facade.isSubmitting).toBeFalse();
     });
-
+    
     it('should delete event', () => {
         eventService.deleteEvent.and.returnValue(
             of<ApiResponse<void>>({
