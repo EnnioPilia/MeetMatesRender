@@ -29,16 +29,6 @@
   width: 100%;
 }
 
-.participant-status,
-.participant-info,
-.participant-list {
-  margin-top: 24px;
-}
-
-.participant-actions {
-  margin-top: 32px;
-}
-
 .primary-button {
   width: 100%;
 }
@@ -57,13 +47,12 @@
   }
 
   .participant-status,
-  .participant-info,
   .participant-list {
-    margin-top: 40px;
+    margin-bottom: 20px;
   }
-
-  .participant-actions {
-    margin-top: 40px;
+  
+  .participant-status{
+    margin-top: 20px;
   }
 
   ::ng-deep button.primary-button {

@@ -9,11 +9,22 @@
   flex-direction: column;
   align-items: center;
   border-bottom: 1px solid black;
+  margin-top: 10px;
 }
+
+.event-status-container p {
+  margin: 10px;
+}
+
 
 @media (min-width: 1024px) {
 
   .event-status-container p {
     font-size: 24px;
   }
+
+  .event-status-container p {
+    margin: 15px;
+  }
+
 }
