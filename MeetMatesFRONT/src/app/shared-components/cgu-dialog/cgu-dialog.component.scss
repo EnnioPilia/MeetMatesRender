@@ -25,11 +25,14 @@
   padding: 20px 24px 28px;
 }
 
-.dialog-actions app-button {
-  font-size: 14px;
+.text-button {
+  font-size: 20px;
   font-weight: 600;
   width: 100%;
   max-width: 320px;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
   transition:
     opacity 0.15s ease,
     transform 0.15s ease;

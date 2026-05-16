@@ -92,7 +92,47 @@ select {
   color: #c04d05 !important;
 }
 
+.status-success {
+  color: #16a34a;
+  font-weight: 600;
+}
 
+.status-warning {
+  color: #f97316;
+  font-weight: 600;
+}
+
+.status-error {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.status-neutral {
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.status-default {
+  color: #111827;
+}
+
+.legal-title {
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #000;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.legal-subtitle {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.legal-text-spacing {
+  margin-top: 16px;
+}
 
 @media (min-width: 1024px) {
 

@@ -12,9 +12,9 @@
 }
 
 .event-info-card p {
+  margin: 0;
   line-height: 1.5;
 }
-
 
 @media (min-width: 1024px) {
 
@@ -23,7 +23,8 @@
     padding: 6px;
   }
 
-  .event-info-card p {
+ .event-info-card p {
+    margin: 0;
     font-size: 22px;
     line-height: 1.7;
   }
