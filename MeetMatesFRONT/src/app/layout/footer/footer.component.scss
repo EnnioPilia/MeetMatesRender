@@ -10,6 +10,7 @@
   padding: 0 12px;
   background: white;
   border-top: 1px solid #000000;
+  // box-shadow: 0 -3px 10px #ff7017;
   box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
   z-index: 1000;
 }
@@ -39,14 +40,14 @@
 
 .mobile-footer mat-icon {
   font-size: 30px;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  // color: #000000;
   color: #ff7b29;
   -webkit-text-stroke: 0.8px #000000;
-
 }
 
 
