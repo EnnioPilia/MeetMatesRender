@@ -7,24 +7,28 @@
   width: 100%;
   min-height: 58px;
   padding: 0 24px;
+
   border: none;
-  border-radius: 10px;
-  color: black;
-  background-color: white;
-  font-family: 'Nunito Sans', sans-serif;
+  border-radius: var(--radius-sm);
+
+  background: var(--color-white);
+  color: var(--color-black);
+
+  font-family: var(--font-main);
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.08em;
+
   cursor: pointer;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.7);
-  box-shadow:
-    0 9px 8px -6px #c04d05,
-    0 6px 8px -6px rgba(0, 0, 0, 0.6);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+
+  border-bottom: 1px solid var(--color-black);
+
+  box-shadow: var(--shadow-button);
+
   transition:
-    transform 0.22s cubic-bezier(0.25, 0.1, 0.25, 1),
-    opacity 0.2s ease,
-    box-shadow 0.2s ease;
+    transform var(--transition-bounce),
+    opacity var(--transition-fast),
+    box-shadow var(--transition-fast);
 }
 
 .app-button:hover {
@@ -32,9 +36,8 @@
 }
 
 .app-button:active {
-  transform: translateY(3px);
-  box-shadow: 0 1.5px 0 #c04d05;
-  transform: scale(0.8);
+  transform: scale(0.8) translateY(3px);
+  box-shadow: var(--shadow-button-active);
 }
 
 .app-button:disabled {
@@ -51,16 +54,10 @@
 }
 
 @media (min-width: 1024px) {
-
   .app-button {
     min-height: 72px;
     padding: 0 36px;
-    font-size: clamp(20px, 1.4vw, 30px);
-    font-weight: 600;
-    box-shadow:
-      0 9px 8px -6px #c04d05,
-      0 6px 8px -6px rgba(0, 0, 0, 0.6);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
-  }
 
+    font-size: clamp(20px, 1.4vw, 30px);
+  }
 }

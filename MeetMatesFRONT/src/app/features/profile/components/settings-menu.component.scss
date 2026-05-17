@@ -14,21 +14,21 @@
 }
 
 ::ng-deep .settings-menu {
-  border-left: 2px solid rgba(0, 0, 0, 0.75) !important;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.75) !important;
-  background-color: white;
+  border-left: 2px solid var(--color-black) !important;
+  border-bottom: 2px solid var(--color-black) !important;
+  background-color: var(--color-white);
   box-shadow:
-    -6px 0 10px -6px #c04d05,
-    0 10px 14px -10px #c04d05,
-    0 6px 8px -6px rgba(0, 0, 0, 0.45) !important;
+    -6px 0 10px -6px var(--color-orange-dark),
+    0 10px 14px -10px var(--color-orange-dark),
+    0 6px 8px -6px var(--color-black) !important;
 }
 
 ::ng-deep .settings-menu .mat-mdc-menu-content {
-  background: #ffffff !important;
+  background: var(--color-blackwhite) !important;
 }
 
 button:hover {
-  color: #c04d05,
+ color: var(--color-orange-dark);
 }
 
 

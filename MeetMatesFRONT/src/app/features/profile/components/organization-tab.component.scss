@@ -11,7 +11,7 @@
 .empty-state {
   margin-top: 16px;
   text-align: center;
-  color: #6b7280;
+  color: var(--color-neutral);
 }
 
 .events-accordion {
@@ -51,10 +51,8 @@
 
 .event-panel {
   width: 100% !important;
-  border-bottom: 1px solid black !important;
-  box-shadow:
-    0 7px 8px -6px #c04d05,
-    0 6px 8px -6px rgba(0, 0, 0, 0.6) !important;
+  border-bottom: 1px solid var(--color-black);
+  box-shadow: var(--shadow-card) !important;
   overflow: hidden !important;
   border-radius: 0 !important;
   margin-bottom: 10px;
@@ -63,7 +61,7 @@
 .primary-button {
   cursor: pointer;
   border: none;
-  background-color: transparent;
+  background-color: var(--color-transparent);
 }
 
 
@@ -99,7 +97,7 @@
   }
 
   .primary-button:hover {
-    color: #c04d05;
+     color: var(--color-orange-dark);
   }
 
 }

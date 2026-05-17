@@ -4,7 +4,7 @@
 
 .confirm-dialog {
   width: 100%;
-  border: 2px solid black !important;
+  border: 2px solid var(--color-black) !important;
 }
 
 .dialog-title {
@@ -36,7 +36,7 @@
 
 .text-button {
   border: none;
-  background: transparent;
+  background: var(--color-transparent);
   padding: 0;
   width: auto;
   min-width: auto;
@@ -51,7 +51,7 @@
 }
 
 .text-button:hover {
-  color: #c04d05;
+  color: var(--color-orange-dark);
 }
 
 .text-button:active {

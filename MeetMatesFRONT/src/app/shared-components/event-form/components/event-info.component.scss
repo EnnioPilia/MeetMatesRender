@@ -29,24 +29,21 @@
   -webkit-appearance: none;
   border: none;
   border-radius: 0;
-  background: #ffffff;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.75);
-  box-shadow:
-    0 6px 8px -6px rgba(0, 0, 0, 0.6);
+  background: var(--color-white);
+  border-bottom: 2px solid var(--color-black);
+  box-shadow: var(--shadow-input);
   outline: none;
 }
 
 .description-textarea:focus {
-  border-bottom: 2px solid #ff6200;
-  box-shadow:
-    0 10px 14px -10px #c04d05,
-    0 6px 8px -6px rgba(0, 0, 0, 0.45);
+  border-bottom: 2px solid var(--color-orange);
+  box-shadow: var(--shadow-input-focus);
 }
 
 .description-error {
   font-size: 14px;
   font-weight: 700;
-  color: #dc2626;
+  color: var(--color-error);
 }
 
 

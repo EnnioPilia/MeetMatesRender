@@ -28,11 +28,11 @@
 .empty-state {
   margin-top: 16px;
   text-align: center;
-  color: #6b7280;
+  color: var(--color-neutral);
 }
 
 button:hover {
-  color: #c04d05;
+   color: var(--color-orange-dark);
 }
 
 

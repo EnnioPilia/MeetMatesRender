@@ -32,11 +32,11 @@
 .empty-results {
   margin-top: 24px;
   text-align: center;
-  color: #6b7280;
+  color: var(--color-neutral);
 }
 
 .empty-results span {
-  color: #111827;
+  color: var(--color-black);
 }
 
 

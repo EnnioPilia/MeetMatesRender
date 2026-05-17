@@ -51,7 +51,7 @@
 
 .event-date {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--color-neutral);
   padding-right: 8px;
 }
 
@@ -79,7 +79,7 @@
   font-size: 18px;
   font-weight: 600;
   padding-bottom: 8px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--color-black);
 }
 
 .participants-list {
@@ -90,7 +90,7 @@
 }
 
 .empty-participants {
-  color: #6b7280;
+  color: var(--color-neutral);
 }
 
 .event-actions {
@@ -103,7 +103,7 @@
 
 .empty-state {
   text-align: center;
-  color: #6b7280;
+  color: var(--color-neutral);
 }
 
 

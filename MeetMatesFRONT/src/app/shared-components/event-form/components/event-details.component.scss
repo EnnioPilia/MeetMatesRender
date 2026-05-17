@@ -24,23 +24,22 @@
 .error {
   font-size: 14px;
   font-weight: 700;
-  color: #dc2626;
+  color: var(--color-error);
 }
 
 ::ng-deep .mat-datepicker-content {
-  background: #ffffff !important;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.75);
-  border-top: 2px solid rgba(0, 0, 0, 0.75);
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.18) !important;
+  background: var(--color-white)!important;
+  border-bottom: 2px solid var(--color-black);
+  border-top: 2px solid var(--color-black);
+  box-shadow: 0 10px 20px var(--shadow-input) !important;
 }
 
 ::ng-deep .mdc-radio__outer-circle {
-  border-color: black !important;
+  border-color: ar(--color-black) !important;
 }
 
 ::ng-deep .mdc-radio__inner-circle {
-  border-color: #ff6200 !important;
+  border-color: var(--color-orange) !important;
 }
 
 

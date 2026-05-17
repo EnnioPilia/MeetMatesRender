@@ -21,34 +21,32 @@
   min-height: 58px;
   padding: 0 18px;
   border: none;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.75);
-  box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.6);
-  background: white;
+  border-bottom: 2px solid var(--color-black);
+  box-shadow: var(--shadow-input);
+  background: var(--color-white);
   font-size: 16px;
   font-weight: 700;
   outline: none;
 }
 
 .address-input:focus {
-  border-bottom: 2px solid #ff6200;
-  box-shadow:
-    0 10px 14px -10px #c04d05,
-    0 6px 8px -6px rgba(0, 0, 0, 0.45);
+  border-bottom: 2px solid var(--color-orange);
+  box-shadow: var(--shadow-input-focus);
 }
 
 .address-error {
   font-size: 14px;
   font-weight: 700;
-  color: #dc2626;
+  color: var(--color-error);
   text-align: left;
 }
 
 ::ng-deep .mat-mdc-autocomplete-panel {
-  background: #ffffff !important;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.75);
-  border-top: 2px solid rgba(0, 0, 0, 0.75);
+  background: var(--color-white) !important;
+  border-bottom: 2px solid var(--color-black);
+  border-top: 2px solid var(--color-black);
   box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.15) !important;
+    0 10px 20px var(--color-black) !important;
 }
 
 

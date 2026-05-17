@@ -1,86 +1,83 @@
 :host {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .app-input {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .app-input-label {
-    font-size: 15px;
-    font-weight: 800;
-    text-align: left;
-    color: #000000;
+  font-size: 15px;
+  font-weight: 800;
+  text-align: left;
+  color: var(--color-black);
 }
 
 .app-input-field {
-    width: 100%;
-    min-height: 58px;
-    padding: 0 18px;
-    border: none;
-    background: #ffffff;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.75);
-    box-shadow: 0 6px 8px -6px rgba(0, 0, 0, 0.6);
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: #000000;
-    outline: none;
-    transition:
-        transform 0.05s cubic-bezier(0.25, 0.1, 0.25, 1),
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
+  width: 100%;
+  min-height: 58px;
+  padding: 0 18px;
+  border: none;
+  border-bottom: 2px solid var(--color-black);
+  background: var(--color-white);
+  box-shadow: var(--shadow-input);
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-black);
+  outline: none;
+  transition:
+    transform var(--transition-bounce),
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
 }
 
 .app-input-field:focus {
-    border-bottom: 2px solid #ff6200;
-    box-shadow:
-        0 10px 14px -10px #c04d05,
-        0 6px 8px -6px rgba(0, 0, 0, 0.45);
+  border-bottom: 2px solid var(--color-orange);
+  box-shadow: var(--shadow-input-focus);
 }
 
 .app-input-field::placeholder {
-    color: rgba(0, 0, 0, 0.45);
-    font-weight: 700;
+  color: var(--color-black);
+  font-weight: 700;
 }
 
 .app-input-field:active {
-    transform: translateY(2px);
+  transform: translateY(2px);
 }
 
 .app-input-error {
-    font-size: 14px;
-    font-weight: 700;
-    color: #dc2626;
-    text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-error);
+  text-align: left;
 }
 
 .app-input-field:-webkit-autofill,
 .app-input-field:-webkit-autofill:hover,
 .app-input-field:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-    -webkit-text-fill-color: black;
-
-    transition: background-color 5000s ease-in-out 0s;
+  -webkit-box-shadow: 0 0 0px 1000px var(--color-white) inset;
+  -webkit-text-fill-color: var(--color-black);
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 @media (min-width: 1024px) {
 
-    .app-input-label {
-        font-size: 18px;
-    }
+  .app-input-label {
+    font-size: 18px;
+  }
 
-    .app-input-field {
-        min-height: 72px;
-        padding: 0 24px;
-        font-size: 20px;
-    }
+  .app-input-field {
+    min-height: 72px;
+    padding: 0 24px;
+    font-size: 20px;
+  }
 
-    .app-input-error {
-        font-size: 16px;
-    }
+  .app-input-error {
+    font-size: 16px;
+  }
 }

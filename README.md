@@ -144,6 +144,8 @@ Et reposant sur une structuration sémantique adaptée.
 
 Le responsive et la mise en page sont principalement gérés via des composants Angular standalone, du SCSS modulaire et des **media queries** personnalisées. 
 
+Une partie du design system repose sur des **variables CSS** globales (:root) permettant de centraliser les couleurs, ombres, espacements et transitions.
+
 ---
 
 ## INSTALLATION
