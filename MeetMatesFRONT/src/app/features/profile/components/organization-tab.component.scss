@@ -9,7 +9,7 @@
 }
 
 .empty-state {
-  margin-top: 16px;
+  margin-top: 25px;
   text-align: center;
   color: var(--color-neutral);
 }
@@ -72,7 +72,7 @@
   }
 
   .event-title {
-    font-size: 28px;
+    font-size: 25px;
   }
 
   .event-content {
@@ -81,10 +81,16 @@
 
   .event-date {
     margin-top: 7px;
+    font-size: 20px;
+    font-weight: var(--font-bold);
+  }
+
+  .empty-state {
+    margin-top: 35px;
   }
 
   ::ng-deep .mat-expansion-panel-header {
-    height: 80px !important;
+    height: 65px !important;
   }
 
   ::ng-deep .mat-expansion-panel-body {
@@ -92,12 +98,29 @@
   }
 
   .primary-button {
-    font-size: 25px;
+    font-size: 20px;
     transition: color 0.2s ease;
   }
 
   .primary-button:hover {
-     color: var(--color-orange-dark);
+    color: var(--color-orange-dark);
+  }
+
+}
+
+@media (min-width: 1800px) {
+
+  .event-title {
+    font-size: 28px;
+  }
+
+  ::ng-deep .mat-expansion-panel-header {
+    height: 80px !important;
+  }
+
+  .primary-button {
+    font-size: 25px;
+    transition: color 0.2s ease;
   }
 
 }

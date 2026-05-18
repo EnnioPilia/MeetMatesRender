@@ -23,7 +23,7 @@
 
 .profile-tabs {
   width: 100%;
-  margin-top: 24px;
+  margin-top: 10px;
 }
 
 
@@ -35,11 +35,30 @@
   }
 
   .profile-layout {
-    max-width: 600px;
+    max-width: 510px;
+  }
+
+  ::ng-deep .mdc-tab {
+    height: 60px !important;
+
+  }
+
+  ::ng-deep .mdc-tab__text-label {
+    font-size: 20px !important;
+    font-weight: var(--font-bold) !important;
+  }
+
+}
+
+@media (min-width: 1800px) {
+
+  .profile-layout {
+    max-width: 650px;
+    margin-top: 25px;
   }
 
   .profile-tabs {
-    margin-top: 32px;
+      margin-top: 20px;
   }
 
   ::ng-deep .mdc-tab {

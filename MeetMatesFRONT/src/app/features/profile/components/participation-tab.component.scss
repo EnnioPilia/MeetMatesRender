@@ -9,7 +9,7 @@
 }
 
 .empty-state {
-  margin-top: 16px;
+  margin-top: 25px;
   text-align: center;
   color: var(--color-neutral);
 }
@@ -67,6 +67,45 @@
 
 @media (min-width: 1024px) {
 
+  .event-title {
+    font-size: 25px;
+  }
+
+  .event-content {
+    gap: 15px;
+  }
+  
+  .event-date {
+    margin-top: 7px;
+    font-size: 20px;
+    font-weight: var(--font-bold);
+  }
+
+  .empty-state {
+    margin-top: 35px;
+  }
+
+  ::ng-deep .mat-expansion-panel-header {
+    height: 65px !important;
+  }
+
+  ::ng-deep .mat-expansion-panel-body {
+    padding-bottom: 20px !important;
+  }
+
+  .primary-button {
+    font-size: 20px;
+    transition: color 0.2s ease;
+  }
+
+  .primary-button:hover {
+    color: var(--color-orange-dark);
+  }
+
+}
+
+@media (min-width: 1800px) {
+
   .participation-list {
     margin-top: 16px;
   }
@@ -83,23 +122,8 @@
     height: 80px !important;
   }
 
-  ::ng-deep .mat-expansion-panel-body {
-    padding-bottom: 20px !important;
-  }
-
-  .event-date {
-    margin-top: 7px;
-    font-size: 20px;
-    font-weight: var(--font-bold);
-  }
-
   .primary-button {
     font-size: 25px;
     transition: color 0.2s ease;
   }
-
-  .primary-button:hover {
-    color: var(--color-orange-dark);
-  }
-
 }
