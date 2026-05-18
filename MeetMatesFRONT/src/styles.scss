@@ -181,7 +181,7 @@ select {
   .error-snackbar {
 
     .mdc-snackbar__surface {
-      max-width: 777px !important;
+      min-width: 777px !important;
       padding: 24px 36px !important;
     }
 

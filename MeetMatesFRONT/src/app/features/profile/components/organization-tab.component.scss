@@ -79,6 +79,10 @@
     gap: 15px;
   }
 
+  .events-accordion {
+    gap: 10px;
+  }
+
   .event-date {
     margin-top: 7px;
     font-size: 20px;
@@ -112,6 +116,10 @@
 
   .event-title {
     font-size: 28px;
+  }
+
+  .events-accordion {
+    gap: 16px;
   }
 
   ::ng-deep .mat-expansion-panel-header {
