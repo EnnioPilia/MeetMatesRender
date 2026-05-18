@@ -12,7 +12,7 @@
 
 .app-select-label {
   font-size: 15px;
-  font-weight: 800;
+  font-weight: var(--font-extrabold);
   text-align: left;
   color: var(--color-black);
 }
@@ -25,9 +25,8 @@
   background: var(--color-white);
   border-bottom: 2px solid var(--color-black);
   box-shadow: var(--shadow-input);
-  font-family: 'Nunito Sans', sans-serif;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: var(--font-bold);
   color: var(--color-black);
   outline: none;
   appearance: none;
@@ -58,12 +57,12 @@
 }
 
 .app-select-field option {
-  font-weight: 700;
+  font-weight: var(--font-bold);
 }
 
 .app-select-error {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: var(--font-bold);
   color: var(--color-error);
   text-align: left;
 }

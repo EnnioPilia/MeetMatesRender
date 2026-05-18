@@ -12,7 +12,7 @@
 
 .app-input-label {
   font-size: 15px;
-  font-weight: 800;
+  font-weight: var(--font-extrabold);
   text-align: left;
   color: var(--color-black);
 }
@@ -27,7 +27,7 @@
   box-shadow: var(--shadow-input);
   font-family: var(--font-main);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: var(--font-bold);
   color: var(--color-black);
   outline: none;
   transition:
@@ -43,7 +43,7 @@
 
 .app-input-field::placeholder {
   color: var(--color-black);
-  font-weight: 700;
+  font-weight: var(--font-bold);
 }
 
 .app-input-field:active {
@@ -52,7 +52,7 @@
 
 .app-input-error {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: var(--font-bold);
   color: var(--color-error);
   text-align: left;
 }

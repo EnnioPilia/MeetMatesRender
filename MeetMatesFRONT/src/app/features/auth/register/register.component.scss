@@ -27,7 +27,7 @@
   background: var(--color-transparent);
   padding: 0;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: var(--font-extrabold);
   text-decoration: underline;
   cursor: pointer;
   color: var(--color-black);
@@ -39,7 +39,7 @@
 
 .register-error {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: var(--font-bold);
   color: var(--color-error);
 }
 
@@ -48,12 +48,12 @@
 }
 
 ::ng-deep .mdc-form-field {
-  font-weight: 700;
+  font-weight: var(--font-bold);
 }
 
 ::ng-deep .mdc-form-field .mdc-label {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: var(--font-bold);
 }
 
 ::ng-deep .mdc-checkbox .mdc-checkbox__checkmark {

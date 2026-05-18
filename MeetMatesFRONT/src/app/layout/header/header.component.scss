@@ -24,7 +24,7 @@
 
 .page-title {
   font-size: 20px;
-  font-weight: 800;
+  font-weight: var(--font-extrabold);
   color: var(--color-orange);
   -webkit-text-stroke: 0.6px var(--color-black);
 }
@@ -40,7 +40,7 @@
   border-radius: var(--radius-md);
   background: var(--color-transparent);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: var(--font-bold);
   cursor: pointer;
   transition: background var(--transition-fast);
   display: flex;
@@ -75,7 +75,7 @@
   .logo {
     font-family: 'Poiret One', cursive;
     font-size: 50px;
-    font-weight: 800;
+    font-weight: var(--font-extrabold);
     cursor: pointer;
   }
 
@@ -93,7 +93,7 @@
     background: var(--color-orange);
     color:  var(--color-white);
     font-size: 16px;
-    font-weight: 700;
+    font-weight: var(--font-bold);
     cursor: pointer;
     transition:
       background var(--transition-fast),
@@ -112,7 +112,7 @@
     border: none;
     background: var(--color-transparent);
     font-size: 18px;
-    font-weight: 700;
+    font-weight: var(--font-bold);
     cursor: pointer;
     color: var(--color-black);
     display: flex;
@@ -142,7 +142,7 @@
     background: var(--color-orange);
     transform: scaleX(0);
     transform-origin: center;
-    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .nav-btn:hover::after {

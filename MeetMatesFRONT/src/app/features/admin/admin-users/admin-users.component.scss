@@ -24,7 +24,7 @@
 .admin-title {
   text-align: center;
   font-size: 32px;
-  font-weight: 600;
+  font-weight: var(--font-semibold);
 }
 
 .users-list {
@@ -52,7 +52,7 @@
 
 .user-name {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: var(--font-semibold);
 }
 
 .user-email {

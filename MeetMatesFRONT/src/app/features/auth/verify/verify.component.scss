@@ -5,24 +5,32 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 24px;
   text-align: center;
-  background: linear-gradient(to bottom, #3b82f6, #4338ca);
-  color: white;
+  background: linear-gradient(to bottom, var(--color-orange), #b49300);
+  color: var(--color-black);
   z-index: 9999;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .activation-title {
-  margin-bottom: 16px;
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 700;
-  text-align: center;
+  font-size: clamp(1.8rem, 5vw, 5rem);
+  margin: auto 0;
+  font-weight: var(--font-extrabold);
+  color: var(--color-white);
+  -webkit-text-stroke: 0.6px var(--color-black);
 }
 
 .activation-content {
-  max-width: 500px;
-  padding: 16px;
-  margin: 16px 0;
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  line-height: 1.6;
+  max-width: 600px;
+  padding: 25px;
+  font-size: clamp(1rem, 2vw, 1.9rem);
+  color: var(--color-white);
+  -webkit-text-stroke: 0.6px var(--color-black);
+  font-weight: var(--font-bold);
 }

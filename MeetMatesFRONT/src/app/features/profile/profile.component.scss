@@ -50,7 +50,7 @@
 
   ::ng-deep .mdc-tab__text-label {
     font-size: 22px !important;
-    font-weight: 700 !important;
+    font-weight: var(--font-bold) !important;
   }
 
 }

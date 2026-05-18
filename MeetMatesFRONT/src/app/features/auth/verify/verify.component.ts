@@ -22,6 +22,7 @@ import { AuthFacade } from '../../../core/facades/auth/auth.facade';
   standalone: true,
   imports: [MatCardModule],
   templateUrl: './verify.component.html',
+  styleUrls: ['./verify.component.scss'],
 })
 export class VerifyComponent implements OnInit {
   

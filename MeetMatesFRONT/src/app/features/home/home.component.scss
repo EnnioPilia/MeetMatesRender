@@ -18,7 +18,7 @@
 .home-logo {
   font-family: 'Poiret One', cursive;
   font-size: clamp(42px, 10vw, 90px);
-  font-weight: 700;
+  font-weight: var(--font-bold);
   margin: 0;
 }
 
@@ -58,7 +58,7 @@
     display: block;
     margin:  auto;
     font-size: 90px;
-    font-weight: 100;
+    font-weight: var(--font-thin);
   }
 
   .home-actions {
@@ -81,7 +81,7 @@
     display: block;
     margin-top: 16px;
     font-size: 100px;
-    font-weight: 100;
+    font-weight: var(--font-thin);
     margin: auto;
   }
 

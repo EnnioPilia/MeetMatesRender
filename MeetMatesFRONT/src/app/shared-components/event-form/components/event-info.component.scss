@@ -18,7 +18,7 @@
 
 .description-label {
   font-size: 15px;
-  font-weight: 800;
+  font-weight: var(--font-extrabold);
 }
 
 .description-textarea {
@@ -42,7 +42,7 @@
 
 .description-error {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: var(--font-bold);
   color: var(--color-error);
 }
 

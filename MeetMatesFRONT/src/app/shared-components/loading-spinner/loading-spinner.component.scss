@@ -20,7 +20,7 @@ mat-progress-spinner {
 .loading-message {
   text-align: center;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: var(--font-bold);
   color: var(--color-neutral);
 }
 

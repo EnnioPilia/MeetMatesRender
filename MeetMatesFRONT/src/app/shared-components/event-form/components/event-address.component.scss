@@ -12,7 +12,7 @@
 
 .address-label {
   font-size: 15px;
-  font-weight: 800;
+  font-weight: var(--font-extrabold);
   text-align: left;
 }
 
@@ -25,7 +25,7 @@
   box-shadow: var(--shadow-input);
   background: var(--color-white);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: var(--font-bold);
   outline: none;
 }
 
@@ -36,7 +36,7 @@
 
 .address-error {
   font-size: 14px;
-  font-weight: 700;
+  font-weight: var(--font-bold);
   color: var(--color-error);
   text-align: left;
 }

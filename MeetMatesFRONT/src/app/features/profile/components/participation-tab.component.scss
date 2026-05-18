@@ -35,12 +35,12 @@
 
 .event-title {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: var(--font-bold);
 }
 
 .event-date {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: var(--font-bold);
 }
 
 .event-content {
@@ -90,7 +90,7 @@
   .event-date {
     margin-top: 7px;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: var(--font-bold);
   }
 
   .primary-button {
