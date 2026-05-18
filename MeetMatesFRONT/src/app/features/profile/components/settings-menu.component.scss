@@ -16,7 +16,7 @@
 ::ng-deep .settings-menu {
   border-left: 2px solid var(--color-black) !important;
   border-bottom: 2px solid var(--color-black) !important;
-  background-color: var(--color-white);
+  background-color: var(--color-white) !important;
   box-shadow:
     -6px 0 10px -6px var(--color-orange-dark),
     0 10px 14px -10px var(--color-orange-dark),

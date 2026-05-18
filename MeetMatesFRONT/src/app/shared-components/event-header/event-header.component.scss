@@ -33,6 +33,18 @@
 @media (min-width: 1024px) {
 
   .event-title {
+    font-size: 35px;
+  }
+
+  .event-description {
+    font-size: 15px;
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1800px) {
+
+  .event-title {
     font-size: 42px;
   }
 

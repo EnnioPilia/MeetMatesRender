@@ -35,6 +35,19 @@
 @media (min-width: 1024px) {
 
   .participant-list-title {
+    font-size: 22px;
+  }
+
+  .participant-item,
+  .empty-state {
+    font-size: 20px;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 1800px) {
+
+  .participant-list-title {
     font-size: 26px;
   }
 

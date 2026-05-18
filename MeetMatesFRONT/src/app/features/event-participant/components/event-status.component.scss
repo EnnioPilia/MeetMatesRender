@@ -20,11 +20,13 @@
 @media (min-width: 1024px) {
 
   .event-status-container p {
-    font-size: 24px;
+    font-size: 20px;
   }
+}
+
+@media (min-width: 1800px) {
 
   .event-status-container p {
-    margin: 15px;
+    font-size: 24px;
   }
-
 }

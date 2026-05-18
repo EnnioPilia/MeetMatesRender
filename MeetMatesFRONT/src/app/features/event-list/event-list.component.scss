@@ -60,6 +60,35 @@
   .events-page {
     padding-top: 50px;
     padding-inline: 48px;
+     font-size: 32px;
+  }
+
+  .events-list {
+    max-width: 410px;
+    gap: 110px;
+  }
+
+  .event-card {
+    gap: 10px;
+  }
+
+  .empty-state {
+    max-width: 700px;
+  }
+
+  .empty-state p {
+    font-size: 32px;
+    font-weight: var(--font-light);
+    line-height: 1.8;
+  }
+
+}
+
+@media (min-width: 1800px) {
+
+  .events-page {
+    padding-top: 50px;
+    padding-inline: 48px;
   }
 
   .events-list {
@@ -68,52 +97,7 @@
   }
 
   .event-card {
-    gap: 28px;
-  }
-
-  ::ng-deep app-event-header h1,
-  ::ng-deep app-event-header h2 {
-    font-size: 42px !important;
-    text-align: center;
-  }
-
-  ::ng-deep app-event-header p {
-    font-size: 24px !important;
-    line-height: 1.7;
-    text-align: center;
-  }
-
-  ::ng-deep app-event-info {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  ::ng-deep app-event-info .flex,
-  ::ng-deep app-event-info .flex-col {
-    width: fit-content;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
-    margin: 0 auto;
-  }
-
-  ::ng-deep app-event-info p,
-  ::ng-deep app-event-info span,
-  ::ng-deep app-event-info div {
-    font-size: 24px !important;
-    line-height: 1.7;
-    text-align: left !important;
-  }
-
-  ::ng-deep button.primary-button {
-    height: 80px !important;
-    font-size: 28px !important;
-
-    transition: transform 0.25s ease;
-  }
-
-  ::ng-deep button.primary-button:hover {
-    transform: scale(0.95);
+    gap: 25px;
   }
 
   .empty-state {

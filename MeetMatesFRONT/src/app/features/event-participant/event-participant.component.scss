@@ -43,7 +43,7 @@
   }
 
   .participant-content {
-    max-width: 500px;
+    max-width: 440px;
   }
 
   .participant-status,
@@ -55,50 +55,26 @@
     margin-top: 20px;
   }
 
-  ::ng-deep button.primary-button {
-    height: 80px !important;
-    font-size: 28px !important;
+}
+@media (min-width: 1800px) {
+
+  .participant-page {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-inline: 48px;
   }
 
-  ::ng-deep app-event-header h1 {
-    font-size: 48px !important;
-    text-align: center;
+  .participant-content {
+    max-width: 520px;
   }
 
-  ::ng-deep app-event-header p {
-    font-size: 24px !important;
-    text-align: center;
+  .participant-status,
+  .participant-list {
+    margin-bottom: 20px;
+  }
+  
+  .participant-status{
+    margin-top: 20px;
   }
 
-  ::ng-deep app-event-status {
-    display: flex;
-    justify-content: center;
-  }
-
-  ::ng-deep app-event-status p {
-    font-size: 24px !important;
-  }
-
-  ::ng-deep app-event-info {
-    display: flex;
-    justify-content: center;
-  }
-
-  ::ng-deep app-event-info p,
-  ::ng-deep app-event-info span,
-  ::ng-deep app-event-info div {
-    font-size: 24px !important;
-    line-height: 1.6;
-  }
-
-  ::ng-deep app-participant-list {
-    display: flex;
-    justify-content: center;
-  }
-
-  ::ng-deep app-participant-list p,
-  ::ng-deep app-participant-list li {
-    font-size: 24px !important;
-    line-height: 1.7;
-  }
 }

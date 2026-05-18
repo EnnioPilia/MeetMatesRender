@@ -29,3 +29,17 @@
     line-height: 1.7;
   }
 }
+
+@media (min-width: 1800px) {
+
+  .event-info-card {
+    gap: 14px;
+    padding: 6px;
+  }
+
+ .event-info-card p {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.7;
+  }
+}
