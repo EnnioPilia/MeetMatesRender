@@ -10,7 +10,6 @@ import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 // Core (services)
 import { LegalService } from '../../core/services/legal.service/legal.service';
 
-import { AppButtonComponent } from '../../shared-components/button/button.component';
 /**
  * Boîte de dialogue affichant les contenus légaux de l’application.
  *
@@ -28,7 +27,6 @@ import { AppButtonComponent } from '../../shared-components/button/button.compon
     CommonModule,
     MatButtonModule,
     MatDialogModule,
-    AppButtonComponent
   ],
   templateUrl: './cgu-dialog.component.html',
   styleUrls: ['./cgu-dialog.component.scss'],

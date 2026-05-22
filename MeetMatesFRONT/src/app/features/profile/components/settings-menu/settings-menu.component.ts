@@ -31,76 +31,10 @@ import { MatIconModule } from '@angular/material/icon';
     RouterModule
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-
-    <div class="settings-menu-wrapper">
-
-      <button
-        mat-icon-button
-        [matMenuTriggerFor]="settingsMenu">
-
-        <mat-icon class="settings-icon">
-          settings
-        </mat-icon>
-
-      </button>
-
-      <mat-menu
-        #settingsMenu="matMenu"
-        class="settings-menu">
-
-        <button
-          mat-menu-item
-          (click)="editProfile.emit()">
-
-          <span>Modifier le profil</span>
-          <mat-icon>edit</mat-icon>
-
-        </button>
-
-        <button
-          mat-menu-item
-          (click)="showMentions.emit()">
-
-          <span>Mentions légales</span>
-          <mat-icon>gavel</mat-icon>
-
-        </button>
-
-        <button
-          mat-menu-item
-          (click)="showCgu.emit()">
-
-          <span>Conditions d’utilisation</span>
-          <mat-icon>description</mat-icon>
-
-        </button>
-
-        <button
-          mat-menu-item
-          (click)="logout.emit()">
-
-          <span>Déconnexion</span>
-          <mat-icon>logout</mat-icon>
-
-        </button>
-
-        <button
-          mat-menu-item
-          (click)="deleteAccount.emit()">
-
-          <span>Supprimer le compte</span>
-          <mat-icon>delete_forever</mat-icon>
-
-        </button>
-
-      </mat-menu>
-
-    </div>
-
-  `,
+  templateUrl: './settings-menu.component.html',
   styleUrls: ['./settings-menu.component.scss']
 })
+
 export class SettingsMenuComponent {
   @Output() editProfile = new EventEmitter<void>();
   @Output() showMentions = new EventEmitter<void>();

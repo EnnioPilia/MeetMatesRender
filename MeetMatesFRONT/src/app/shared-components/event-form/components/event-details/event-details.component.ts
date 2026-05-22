@@ -9,8 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 
 // Shared components
-import { AppSelectComponent } from '../../../shared-components/select/select.component';
-import { MATERIAL_OPTIONS, LEVEL_OPTIONS } from '../../../shared-components/constants/event-option';
+import { AppSelectComponent } from '../../../../shared-components/select/select.component';
+import { MATERIAL_OPTIONS, LEVEL_OPTIONS } from '../../../../shared-components/constants/event-option';
 
 /**
  * Sous-composant de présentation dédié aux détails complémentaires

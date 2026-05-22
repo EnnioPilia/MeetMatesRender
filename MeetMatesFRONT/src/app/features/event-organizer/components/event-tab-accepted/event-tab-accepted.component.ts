@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 // Core (models)
-import { Participant } from '../../../core/models/participant.model';
+import { Participant } from '../../../../core/models/participant.model';
 
 /**
  * Sous-composant de présentation dédié à l’affichage

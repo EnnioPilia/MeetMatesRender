@@ -18,12 +18,25 @@
 
     <div class="home-actions">
 
-      <app-button label="CONNEXION" routerLink="/login" [fullWidth]="true" />
+      <app-button
+         label="CONNEXION" 
+         routerLink="/login" 
+         [fullWidth]="true" 
+       />
 
-      <app-button label="INSCRIPTION" routerLink="/register" [fullWidth]="true" />
+      <app-button 
+        label="INSCRIPTION" 
+        routerLink="/register" 
+        [fullWidth]="true" 
+      />
 
       @if (isAdmin()) {
-      <app-button label="ADMIN" routerLink="/admin/dashboard" [fullWidth]="true" />
+      <app-button 
+        label="ADMIN"
+        routerLink="/admin/dashboard" 
+        [fullWidth]="true" 
+       />
+       
       }
 
     </div>

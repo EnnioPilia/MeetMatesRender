@@ -7,7 +7,7 @@ import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 // Core
-import { AddressSuggestion } from '../../../core/services/address/address.service';
+import { AddressSuggestion } from '../../../../core/services/address/address.service';
 
 @Component({
   selector: 'app-event-address',

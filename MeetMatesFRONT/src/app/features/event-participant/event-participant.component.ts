@@ -13,8 +13,8 @@ import { EventFacade } from '../../core/facades/events/event/event.facade';
 import { getStatusLabel, getLevelLabel, getMaterialLabel, getParticipationLabel } from '../../core/utils/labels.utils';
 
 // Feature components
-import { EventStatusComponent } from './components/event-status.component';
-import { ParticipantListComponent } from './components/participant-list.component';
+import { EventStatusComponent } from './components/event-status/event-status.component';
+import { ParticipantListComponent } from './components/participant-list/participant-list.component';
 
 // Shared components
 import { EventHeaderComponent } from '../../shared-components/event-header/event-header.component';

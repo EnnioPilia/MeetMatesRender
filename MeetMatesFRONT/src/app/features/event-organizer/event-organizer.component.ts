@@ -15,8 +15,8 @@ import { DialogService } from '../../core/services/dialog.service/dialog.service
 import { ProfileFacade } from '../../core/facades/profile/profile.facade';
 
 // Feature components
-import { EventTabAcceptedComponent } from './components/event-tab-accepted.component';
-import { EventTabPendingComponent } from './components/event-tab-pending.component';
+import { EventTabAcceptedComponent } from './components/event-tab-accepted/event-tab-accepted.component';
+import { EventTabPendingComponent } from './components/event-tab-pending/event-tab-pending.component';
 
 // Shared components
 import { EventHeaderComponent } from '../../shared-components/event-header/event-header.component';

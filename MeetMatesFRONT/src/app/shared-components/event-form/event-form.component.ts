@@ -9,11 +9,11 @@ import { EventFormMode, EventFormValue } from '../../core/models/event-form.mode
 import { Activity } from '../../core/models/activity.model';
 
 // Feature components
-import { EventInfoComponent } from './components/event-info.component';
-import { EventDateTimeComponent } from './components/event-date-time.component';
-import { EventAddressComponent } from './components/event-address.component';
-import { EventDetailsComponent } from './components/event-details.component';
-import { EventActivityComponent } from './components/event-activity.component';
+import { EventInfoComponent } from './components/event-info/event-info.component';
+import { EventDateTimeComponent } from './components/event-date-time/event-date-time.component';
+import { EventAddressComponent } from './components/event-address/event-address.component';
+import { EventDetailsComponent } from './components/event-details/event-details.component';
+import { EventActivityComponent } from './components/event-activity/event-activity.component';
 import { NotificationService } from '../../core/services/notification/notification.service';
 
 // Shared components

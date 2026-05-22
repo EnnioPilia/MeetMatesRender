@@ -3,9 +3,9 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Shared components
-import { StatusColorPipe } from '../../../shared-components/pipes/statusColor.pipe';
+import { StatusColorPipe } from '../../../../shared-components/pipes/statusColor.pipe';
 // Utils
-import { getStatusLabel, getParticipationLabel } from '../../../core/utils/labels.utils';
+import { getStatusLabel, getParticipationLabel } from '../../../../core/utils/labels.utils';
 
 /**
  * Sous-composant de présentation dédié à l’affichage

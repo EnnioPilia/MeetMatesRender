@@ -6,10 +6,10 @@ import { CommonModule } from '@angular/common';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 // Core (models)
-import { EventListItem } from '../../../core/models/event-list-item.model';
+import { EventListItem } from '../../../../core/models/event-list-item.model';
 
 // Shared components
-import { EventInfoCardComponent } from '../../../shared-components/event-info-card/event-info-card';
+import { EventInfoCardComponent } from '../../../../shared-components/event-info-card/event-info-card';
 
 /**
  * Sous-composant de présentation dédié à l’affichage

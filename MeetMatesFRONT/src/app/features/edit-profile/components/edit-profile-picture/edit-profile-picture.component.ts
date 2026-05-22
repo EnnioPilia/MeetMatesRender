@@ -7,10 +7,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 // Core
-import { User } from '../../../core/models/user.model';
+import { User } from '../../../../core/models/user.model';
 
 // Shared
-import { AppButtonComponent } from '../../../shared-components/button/button.component';
+import { AppButtonComponent } from '../../../../shared-components/button/button.component';
 
 /**
  * Sous-composant de présentation dédié à la gestion

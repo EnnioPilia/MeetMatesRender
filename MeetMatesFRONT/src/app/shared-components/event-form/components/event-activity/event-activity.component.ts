@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule, FormControl} from '@angular/forms';
 
 // Core (models)
-import { Activity } from '../../../core/models/activity.model';
+import { Activity } from '../../../../core/models/activity.model';
 
 // Shared components
-import { AppInputComponent } from '../../../shared-components/input/input.component';
-import { AppSelectComponent } from '../../../shared-components/select/select.component';
+import { AppInputComponent } from '../../../../shared-components/input/input.component';
+import { AppSelectComponent } from '../../../../shared-components/select/select.component';
 
 /**
  * Sous-composant de présentation dédié à la sélection

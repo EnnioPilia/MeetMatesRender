@@ -7,7 +7,7 @@ import { FormGroup, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 // Shared
-import { AppInputComponent } from '../../../shared-components/input/input.component';
+import { AppInputComponent } from '../../../../shared-components/input/input.component';
 
 @Component({
   selector: 'app-event-info',

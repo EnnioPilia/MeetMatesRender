@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 // Core
-import { User } from '../../../core/models/user.model';
+import { User } from '../../../../core/models/user.model';
 
 // Shared components
-import { AppInputComponent } from '../../../shared-components/input/input.component';
-import { AppButtonComponent } from '../../../shared-components/button/button.component';
+import { AppInputComponent } from '../../../../shared-components/input/input.component';
+import { AppButtonComponent } from '../../../../shared-components/button/button.component';
 
 
 /**

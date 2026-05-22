@@ -9,11 +9,11 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 
 // Core
-import { EventMapperService } from '../../../core/mappers/event-mapper';
-import { EventResponse } from '../../../core/models/event-response.model';
+import { EventMapperService } from '../../../../core/mappers/event-mapper';
+import { EventResponse } from '../../../../core/models/event-response.model';
 
 // Shared components
-import { EventInfoCardComponent } from '../../../shared-components/event-info-card/event-info-card';
+import { EventInfoCardComponent } from '../../../../shared-components/event-info-card/event-info-card';
 
 /**
  * Sous-composant dédié à l’affichage des événements
