@@ -3,11 +3,6 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 
-// Angular Material
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
-
 /**
  * Composant de champ de formulaire générique basé sur Angular Material.
  *
@@ -21,16 +16,16 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-input',
   standalone: true,
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
-    CommonModule, 
+    CommonModule,
     ReactiveFormsModule
   ],
+  templateUrl: './input.component.html',
+  styleUrls: ['./input.component.scss'],
 })
-export class AppInputComponent<T = any> {
 
+export class AppInputComponent<T = any> {
   @Input({ required: true }) label!: string;
   @Input() type: 'text' | 'number' | 'email' | 'password' | 'date' | 'time' = 'text';
   @Input() required = false;

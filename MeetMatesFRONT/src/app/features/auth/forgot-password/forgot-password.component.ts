@@ -30,8 +30,6 @@ import { AppInputComponent } from '../../../shared-components/input/input.compon
 @Component({
   selector: 'app-forgot-password',
   standalone: true,
-  templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
@@ -40,9 +38,11 @@ import { AppInputComponent } from '../../../shared-components/input/input.compon
     AppButtonComponent,
     AppInputComponent,
   ],
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.scss'],
 })
+
 export class ForgotPasswordComponent {
-  
   private fb = inject(NonNullableFormBuilder);
   private authFacade = inject(AuthFacade);
   private notification = inject(NotificationService);

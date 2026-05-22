@@ -35,8 +35,6 @@ import { AppInputComponent } from '../../../shared-components/input/input.compon
 @Component({
   selector: 'app-login',
   standalone: true,
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
@@ -45,9 +43,11 @@ import { AppInputComponent } from '../../../shared-components/input/input.compon
     AppButtonComponent,
     AppInputComponent,
   ],
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
 
+export class LoginComponent {
   private router = inject(Router);
   private fb = inject(NonNullableFormBuilder);
   private authFacade = inject(AuthFacade);

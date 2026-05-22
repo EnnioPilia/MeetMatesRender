@@ -38,8 +38,8 @@ import { StateHandlerComponent } from '../../shared-components/state-handler/sta
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.scss']
 })
+
 export class EditProfileComponent implements OnInit {
-  
   private userFacade = inject(UserFacade);
 
   /** États exposés par la facade */

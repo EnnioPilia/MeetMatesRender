@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject, DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
 // Angular Material
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
@@ -35,8 +36,9 @@ import { StateHandlerComponent } from '../../../shared-components/state-handler/
   templateUrl: './activity.component.html',
   styleUrls: ['./activity.component.scss']
 })
+
 export class ActivityComponent implements OnInit {
-  
+
   private activityFacade = inject(ActivityFacade);
   private router = inject(Router);
   private route = inject(ActivatedRoute);

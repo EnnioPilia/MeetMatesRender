@@ -21,52 +21,16 @@ import { EventInfoCardComponent } from '../../../shared-components/event-info-ca
  */
 @Component({
   selector: 'app-event-card',
-   styleUrls: ['./event-card-component.scss'],
   standalone: true,
   imports: [
     CommonModule,
     MatExpansionModule,
     EventInfoCardComponent
   ],
-  template: `
-
-<mat-expansion-panel class="event-panel">
-
-  <mat-expansion-panel-header class="event-header">
-
-    <div class="event-header-content">
-
-      <span class="event-title">
-        {{ event.title }}
-      </span>
-
-      <span class="event-date">
-        {{ event.date | date: 'dd/MM/yy' }}
-      </span>
-
-    </div>
-
-  </mat-expansion-panel-header>
-
-  <div class="event-content">
-
-    <app-event-info-card 
-      [event]="event">
-    </app-event-info-card>
-
-    <button 
-      class="primary-button"
-      (click)="emitDetails()">
-
-      VOIR DÉTAILS
-
-    </button>
-
-  </div>
-
-</mat-expansion-panel>
-  `,
+  templateUrl: './event-card.component.html',
+  styleUrls: ['./event-card.component.scss'],
 })
+
 export class EventCardComponent {
   @Input() event!: EventListItem;
   @Output() viewDetails = new EventEmitter<EventListItem>();

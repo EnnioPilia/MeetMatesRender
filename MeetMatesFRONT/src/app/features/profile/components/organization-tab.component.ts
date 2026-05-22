@@ -1,11 +1,5 @@
 // Angular
-import {
-  Component,
-  Input,
-  ChangeDetectionStrategy,
-  inject,
-  Signal
-} from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, inject, Signal } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -40,73 +34,11 @@ import { EventInfoCardComponent } from '../../../shared-components/event-info-ca
     EventInfoCardComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './organization-tab.component.html',
   styleUrls: ['./organization-tab.component.scss'],
-  template: `
-
-    <div class="organization-list">
-
-      @if (mappedEvents.length === 0) {
-
-        <p class="empty-state">
-          Vous n'organisez aucun événement actuellement.
-        </p>
-
-      } @else {
-
-        <mat-accordion
-          multi
-          class="events-accordion">
-
-          @for (event of mappedEvents; track event.eventId) {
-
-            <mat-expansion-panel class="event-panel">
-
-              <mat-expansion-panel-header>
-
-                <div class="event-header">
-
-                  <span class="event-title">
-                    {{ event.title }}
-                  </span>
-
-                  <span class="event-date">
-                    {{ event.date | date: 'dd/MM/yy' }}
-                  </span>
-
-                </div>
-
-              </mat-expansion-panel-header>
-
-              <div class="event-content">
-
-                <app-event-info-card
-                  [event]="event">
-                </app-event-info-card>
-
-                <button
-                  class="primary-button"
-                  [routerLink]="['/event-organizer', event.eventId]">
-
-                  VOIR DÉTAILS
-
-                </button>
-
-              </div>
-
-            </mat-expansion-panel>
-
-          }
-
-        </mat-accordion>
-
-      }
-
-    </div>
-
-  `
 })
-export class OrganizationTabComponent {
 
+export class OrganizationTabComponent {
   private mapper = inject(EventMapperService);
 
   @Input({ required: true })

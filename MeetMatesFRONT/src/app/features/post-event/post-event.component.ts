@@ -39,8 +39,8 @@ import { EventFormComponent } from '../../shared-components/event-form/event-for
   templateUrl: './post-event.component.html',
   styleUrls: ['./post-event.component.scss']
 })
-export class PostEventPage {
 
+export class PostEventPage {
   private eventFacade = inject(EventFacade);
 
   /** États exposés par la facade */

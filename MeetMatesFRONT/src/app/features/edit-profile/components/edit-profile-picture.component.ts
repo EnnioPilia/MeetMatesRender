@@ -1,12 +1,5 @@
 // Angular
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  ChangeDetectionStrategy
-} from '@angular/core';
-
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Angular Material
@@ -25,7 +18,6 @@ import { AppButtonComponent } from '../../../shared-components/button/button.com
  */
 @Component({
   selector: 'app-edit-profile-picture',
-       styleUrls: ['./edit-profile-picture.component.scss'],
   standalone: true,
   imports: [
     CommonModule,
@@ -34,55 +26,10 @@ import { AppButtonComponent } from '../../../shared-components/button/button.com
     AppButtonComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-
-    <div class="profile-picture-section">
-
-      <div class="picture-wrapper">
-
-        <img
-          [src]="previewUrl || user.profilePictureUrl || 'assets/images/default-avatar.png'"
-          alt="photo profil"
-          class="profile-picture"
-        />
-
-        @if (user.profilePictureUrl) {
-
-          <button
-            mat-icon-button
-            type="button"
-            class="delete-button"
-            aria-label="Supprimer la photo"
-            (click)="onDelete()">
-
-            <mat-icon>delete</mat-icon>
-
-          </button>
-
-        }
-
-      </div>
-
-      <app-button
-        label="AJOUTER UNE PHOTO"
-        class="primary-button"
-        type="button"
-        [fullWidth]="true"
-        (click)="fileInput.click()">
-      </app-button>
-
-      <input
-        #fileInput
-        type="file"
-        accept="image/*"
-        hidden
-        (change)="onFileSelected($event)"
-      />
-
-    </div>
-
-  `,
+  templateUrl: './edit-profile-picture.component.html',
+  styleUrls: ['./edit-profile-picture.component.scss'],
 })
+
 export class EditProfilePictureComponent {
 
   @Input({ required: true })

@@ -37,8 +37,6 @@ import { AppInputComponent } from '../../../shared-components/input/input.compon
 @Component({
   selector: 'app-register',
   standalone: true,
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
@@ -48,9 +46,11 @@ import { AppInputComponent } from '../../../shared-components/input/input.compon
     AppButtonComponent,
     AppInputComponent,
   ],
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss'],
 })
+
 export class RegisterComponent {
-  
   private router = inject(Router);
   private fb = inject(NonNullableFormBuilder);
   private authFacade = inject(AuthFacade);

@@ -61,8 +61,8 @@ import { AppButtonComponent } from '../../shared-components/button/button.compon
   templateUrl: './event-form.component.html',
   styleUrls: ['./event-form.component.scss']
 })
-export class EventFormComponent implements OnInit {
 
+export class EventFormComponent implements OnInit {
   private fb = inject(FormBuilder);
   private notification = inject(NotificationService);
 

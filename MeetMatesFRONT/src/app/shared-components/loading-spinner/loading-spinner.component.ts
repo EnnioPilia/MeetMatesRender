@@ -17,15 +17,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   selector: 'app-loading-spinner',
   standalone: true,
   imports: [
-    CommonModule, 
+    CommonModule,
     MatProgressSpinnerModule
   ],
   templateUrl: './loading-spinner.component.html',
   styleUrls: ['./loading-spinner.component.scss']
 })
+
 export class LoadingSpinnerComponent {
   @Input() message: string = 'Chargement des donnés...';
- @Input() diameter: number =
-  window.innerWidth >= 1024 ? 140 : 70;
+  @Input() diameter: number = window.innerWidth >= 1024 ? 140 : 70;
   @Input() fullHeight: boolean = true;
 }

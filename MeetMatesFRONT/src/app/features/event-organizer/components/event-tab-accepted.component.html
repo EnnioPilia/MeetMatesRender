@@ -1,0 +1,38 @@
+<div class="participants-list">
+
+  @if (filteredAcceptedParticipants.length > 0) {
+
+    <div class="participants-content">
+
+      @for (p of filteredAcceptedParticipants; track p.id) {
+
+        <div class="participant-row">
+
+          <span class="participant-name">
+            {{ p.firstName }} {{ p.lastName }}
+          </span>
+
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="onReject(p.id)">
+
+            <mat-icon>highlight_off</mat-icon>
+
+          </button>
+
+        </div>
+
+      }
+
+    </div>
+
+  } @else {
+
+    <p class="empty-state">
+      Aucun participant accepté.
+    </p>
+
+  }
+
+</div>

@@ -26,6 +26,7 @@ import { AppButtonComponent } from '../../shared-components/button/button.compon
   templateUrl: './confirm-dialog.component.html',
   styleUrls: ['./confirm-dialog.component.scss'],
 })
+
 export class ConfirmDialogComponent {
   private dialogRef = inject(MatDialogRef<ConfirmDialogComponent>);
   public data = inject<{ title: string; message: string }>(MAT_DIALOG_DATA);

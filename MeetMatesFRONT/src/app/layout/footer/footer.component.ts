@@ -1,5 +1,5 @@
 // Angular
-import { Component, inject  } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 // Angular Material
@@ -19,13 +19,14 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-footer',
   standalone: true,
   imports: [
-    MatToolbarModule, 
-    MatIconModule, 
+    MatToolbarModule,
+    MatIconModule,
     MatButtonModule
   ],
   templateUrl: './footer.component.html',
-    styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss']
 })
+
 export class FooterComponent {
   private router = inject(Router);
 

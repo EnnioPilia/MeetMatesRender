@@ -1,0 +1,29 @@
+<div class="event-status-container">
+
+  <p>
+
+    <strong>VOTRE PARTICIPATION :</strong>
+
+    <span
+      [ngClass]="getParticipationLabel(participationStatus || '') | statusColor">
+
+      {{ getParticipationLabel(participationStatus || '') }}
+
+    </span>
+
+  </p>
+
+  <p>
+
+    <strong>STATUT DE L'ACTIVITÉ :</strong>
+
+    <span
+      [ngClass]="getStatusLabel(eventStatus || '') | statusColor">
+
+      {{ getStatusLabel(eventStatus || '') }}
+
+    </span>
+
+  </p>
+
+</div>

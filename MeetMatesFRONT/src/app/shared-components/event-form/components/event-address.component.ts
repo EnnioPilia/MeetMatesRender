@@ -1,18 +1,7 @@
 // Angular
-import {
-  Component,
-  Input,
-  Output,
-  EventEmitter,
-  OnInit
-} from '@angular/core';
-
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  FormGroup,
-  FormControl,
-  ReactiveFormsModule
-} from '@angular/forms';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -28,49 +17,11 @@ import { AddressSuggestion } from '../../../core/services/address/address.servic
     ReactiveFormsModule,
     MatAutocompleteModule
   ],
-  template: `
-
-<div [formGroup]="addressGroup" class="event-address">
-
-  <label class="address-label">
-    Adresse
-  </label>
-
-  <input
-    class="address-input"
-    type="text"
-    [formControl]="addressLabelControl"
-    [matAutocomplete]="auto"
-    (input)="onInput()" />
-
-  <mat-autocomplete
-    #auto="matAutocomplete"
-    (optionSelected)="onSelect($event.option.value)">
-
-    @for (s of suggestions; track s.label) {
-      <mat-option [value]="s">
-        {{ s.street }}, {{ s.postalCode }} {{ s.city }}
-      </mat-option>
-    }
-
-  </mat-autocomplete>
-
-  @if (
-    addressLabelControl.hasError('required') &&
-    addressLabelControl.touched
-  ) {
-    <span class="address-error">
-      L’adresse est requise.
-    </span>
-  }
-
-</div>
-
-  `,
-  styleUrls: ['./event-address.component.scss']
+  templateUrl: './event-address.component.html',
+  styleUrls: ['./event-address.component.scss'],
 })
-export class EventAddressComponent implements OnInit {
 
+export class EventAddressComponent implements OnInit {
   @Input({ required: true }) form!: FormGroup;
   @Input() suggestions: AddressSuggestion[] = [];
 

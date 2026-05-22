@@ -36,8 +36,8 @@ import { AppButtonComponent } from '../../../shared-components/button/button.com
   styleUrls: ['./admin-users.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AdminUsersComponent implements OnInit {
 
+export class AdminUsersComponent implements OnInit {
   private facade = inject(AdminFacade);
   private dialogService = inject(DialogService);
   private destroyRef = inject(DestroyRef);

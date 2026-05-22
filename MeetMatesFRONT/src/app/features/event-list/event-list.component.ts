@@ -44,8 +44,6 @@ import { getStatusLabel, getLevelLabel, getMaterialLabel } from '../../core/util
 @Component({
   selector: 'app-event-list',
   standalone: true,
-  templateUrl: './event-list.component.html',
-  styleUrls: ['./event-list.component.scss'],
   imports: [
     CommonModule,
     MatCardModule,
@@ -55,10 +53,12 @@ import { getStatusLabel, getLevelLabel, getMaterialLabel } from '../../core/util
     EventInfoComponent,
     AppButtonComponent,
     StateHandlerComponent
-  ]
+  ],
+  templateUrl: './event-list.component.html',
+  styleUrls: ['./event-list.component.scss'],
 })
-export class EventListComponent implements OnInit {
 
+export class EventListComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private eventListFacade = inject(EventListFacade);
   private destroyRef = inject(DestroyRef);

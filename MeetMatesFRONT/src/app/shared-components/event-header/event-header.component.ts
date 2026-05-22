@@ -25,6 +25,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrls: ['./event-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class EventHeaderComponent {
   @Input() title = '';
   @Input() description = '';

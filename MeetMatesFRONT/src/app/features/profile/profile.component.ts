@@ -60,8 +60,8 @@ import { StateHandlerComponent } from '../../shared-components/state-handler/sta
   styleUrls: ['./profile.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProfileComponent {
 
+export class ProfileComponent {
   private router = inject(Router);
   private destroyRef = inject(DestroyRef);
   private profileFacade = inject(ProfileFacade);

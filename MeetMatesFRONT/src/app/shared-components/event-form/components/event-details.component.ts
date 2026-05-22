@@ -10,7 +10,7 @@ import { MatSelectModule } from '@angular/material/select';
 
 // Shared components
 import { AppSelectComponent } from '../../../shared-components/select/select.component';
-import { MATERIAL_OPTIONS, LEVEL_OPTIONS} from '../../../shared-components/constants/event-option';
+import { MATERIAL_OPTIONS, LEVEL_OPTIONS } from '../../../shared-components/constants/event-option';
 
 /**
  * Sous-composant de présentation dédié aux détails complémentaires
@@ -23,7 +23,6 @@ import { MATERIAL_OPTIONS, LEVEL_OPTIONS} from '../../../shared-components/const
  */
 @Component({
   selector: 'app-event-details',
-  styleUrls: ['./event-details.component.scss'],
   standalone: true,
   imports: [
     CommonModule,
@@ -33,51 +32,11 @@ import { MATERIAL_OPTIONS, LEVEL_OPTIONS} from '../../../shared-components/const
     MatSelectModule,
     AppSelectComponent
   ],
-  template: `
-  
-<div [formGroup]="form" class="event-details">
-
-  <app-select
-    label="Niveau"
-    [control]="levelControl"
-    [options]="levelOptions"
-    error="Niveau requis">
-  </app-select>
-
-  <div>
-
-    <label class="material-title">
-      Matériel
-    </label>
-
-    <mat-radio-group
-      formControlName="material"
-      class="material-group">
-
-      @for (option of materialOptions; track option.value) {
-        <mat-radio-button [value]="option.value">
-          {{ option.label }}
-        </mat-radio-button>
-      }
-
-    </mat-radio-group>
-
-    @if (
-      form.get('material')?.hasError('required') &&
-      (form.get('material')?.touched || form.get('material')?.dirty)
-    ) {
-      <span class="error">
-        Veuillez choisir une option.
-      </span>
-    }
-
-  </div>
-
-</div>
-  `
+  styleUrls: ['./event-details.component.scss'],
+  templateUrl: './event-details.component.html',
 })
-export class EventDetailsComponent {
 
+export class EventDetailsComponent {
   @Input({ required: true }) form!: FormGroup;
 
   materialOptions = MATERIAL_OPTIONS;

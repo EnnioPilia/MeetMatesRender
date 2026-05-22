@@ -20,53 +20,18 @@ import { Participant } from '../../../core/models/participant.model';
  */
 @Component({
   selector: 'app-event-tab-accepted',
-  styleUrls: ['./event-tab-accepted.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatButtonModule],
-  
-  template: `
-<div class="participants-list">
-
-  @if (filteredAcceptedParticipants.length > 0) {
-
-    <div class="participants-content">
-
-      @for (p of filteredAcceptedParticipants; track p.id) {
-
-        <div class="participant-row">
-
-          <span class="participant-name">
-            {{ p.firstName }} {{ p.lastName }}
-          </span>
-
-          <button
-            mat-icon-button
-            color="warn"
-            (click)="onReject(p.id)">
-
-            <mat-icon>highlight_off</mat-icon>
-
-          </button>
-
-        </div>
-
-      }
-
-    </div>
-
-  } @else {
-
-    <p class="empty-state">
-      Aucun participant accepté.
-    </p>
-
-  }
-
-</div>
-  `,
+  imports: [
+    CommonModule,
+    MatIconModule,
+    MatButtonModule
+  ],
+  templateUrl: './event-tab-accepted.component.html',
+  styleUrls: ['./event-tab-accepted.component.scss'],
 })
+
 export class EventTabAcceptedComponent {
-  @Input() acceptedParticipants:  Participant[] = [];
+  @Input() acceptedParticipants: Participant[] = [];
   @Input() organizerName = '';
   @Output() reject = new EventEmitter<string>();
 
@@ -79,7 +44,7 @@ export class EventTabAcceptedComponent {
   onReject(id: string) {
     this.reject.emit(id);
   }
-  
+
   trackById(_: number, item: Participant) {
     return item.id;
   }

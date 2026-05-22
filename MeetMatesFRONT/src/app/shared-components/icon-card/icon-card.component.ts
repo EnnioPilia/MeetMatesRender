@@ -8,10 +8,9 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './icon-card.component.html',
   styleUrls: ['./icon-card.component.scss']
 })
+
 export class IconCardComponent {
-
   @Input() title!: string;
-
   @Input() iconPath?: string;
 
   @Output() cardClick = new EventEmitter<void>();

@@ -1,0 +1,35 @@
+<div [formGroup]="addressGroup" class="event-address">
+
+  <label class="address-label">
+    Adresse
+  </label>
+
+  <input
+    class="address-input"
+    type="text"
+    [formControl]="addressLabelControl"
+    [matAutocomplete]="auto"
+    (input)="onInput()" />
+
+  <mat-autocomplete
+    #auto="matAutocomplete"
+    (optionSelected)="onSelect($event.option.value)">
+
+    @for (s of suggestions; track s.label) {
+      <mat-option [value]="s">
+        {{ s.street }}, {{ s.postalCode }} {{ s.city }}
+      </mat-option>
+    }
+
+  </mat-autocomplete>
+
+  @if (
+    addressLabelControl.hasError('required') &&
+    addressLabelControl.touched
+  ) {
+    <span class="address-error">
+      L’adresse est requise.
+    </span>
+  }
+
+</div>

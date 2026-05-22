@@ -39,8 +39,8 @@ import { EventFormComponent } from '../../shared-components/event-form/event-for
   templateUrl: './edit-event.component.html',
   styleUrls: ['./edit-event.component.scss']
 })
-export class EditEventPage implements OnInit {
 
+export class EditEventPage implements OnInit {
   private facade = inject(EditEventFacade);
   private route = inject(ActivatedRoute);
   private router = inject(Router);

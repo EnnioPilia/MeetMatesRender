@@ -6,13 +6,14 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-button',
   standalone: true,
-  templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss'],
   imports: [
     CommonModule,
     RouterModule
   ],
+    templateUrl: './button.component.html',
+  styleUrls: ['./button.component.scss'],
 })
+
 export class AppButtonComponent {
   @Input() label!: string;
   @Input() type: 'button' | 'submit' = 'button';

@@ -1,0 +1,44 @@
+<div [formGroup]="form" class="event-info">
+
+  @if (showStatus) {
+
+    <mat-button-toggle-group formControlName="status">
+      <mat-button-toggle value="OPEN">Ouvert</mat-button-toggle>
+      <mat-button-toggle value="FULL">Complet</mat-button-toggle>
+      <mat-button-toggle value="CANCELLED">Annulé</mat-button-toggle>
+      <mat-button-toggle value="FINISHED">Terminé</mat-button-toggle>
+    </mat-button-toggle-group>
+
+  }
+
+  <app-input
+    label="Titre"
+    [control]="titleControl"
+    type="text"
+    [required]="true">
+  </app-input>
+
+  <div class="description-wrapper">
+
+    <label class="description-label">
+      Description
+    </label>
+
+    <textarea
+      class="description-textarea"
+      formControlName="description">
+    </textarea>
+
+    @if (
+      form.get('description')?.hasError('required') &&
+      (form.get('description')?.touched ||
+       form.get('description')?.dirty)
+    ) {
+      <span class="description-error">
+        Description requise.
+      </span>
+    }
+
+  </div>
+
+</div>

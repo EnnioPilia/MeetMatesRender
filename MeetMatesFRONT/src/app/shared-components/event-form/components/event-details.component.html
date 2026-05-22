@@ -1,0 +1,39 @@
+<div [formGroup]="form" class="event-details">
+
+  <app-select
+    label="Niveau"
+    [control]="levelControl"
+    [options]="levelOptions"
+    error="Niveau requis">
+  </app-select>
+
+  <div>
+
+    <label class="material-title">
+      Matériel
+    </label>
+
+    <mat-radio-group
+      formControlName="material"
+      class="material-group">
+
+      @for (option of materialOptions; track option.value) {
+        <mat-radio-button [value]="option.value">
+          {{ option.label }}
+        </mat-radio-button>
+      }
+
+    </mat-radio-group>
+
+    @if (
+      form.get('material')?.hasError('required') &&
+      (form.get('material')?.touched || form.get('material')?.dirty)
+    ) {
+      <span class="error">
+        Veuillez choisir une option.
+      </span>
+    }
+
+  </div>
+
+</div>

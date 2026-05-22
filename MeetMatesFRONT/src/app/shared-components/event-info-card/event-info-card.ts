@@ -1,10 +1,5 @@
 // Angular
-import {
-  Component,
-  Input,
-  ChangeDetectionStrategy
-} from '@angular/core';
-
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Core
@@ -14,10 +9,7 @@ import { EventDetails } from '../../core/models/event-details.model';
 import { StatusColorPipe } from '../../shared-components/pipes/statusColor.pipe';
 
 // Utils
-import {
-  getStatusLabel as mapStatusLabel,
-  getParticipationLabel
-} from '../../core/utils/labels.utils';
+import { getStatusLabel as mapStatusLabel, getParticipationLabel } from '../../core/utils/labels.utils';
 
 /**
  * Carte compacte affichant les informations clés d’un événement.
@@ -48,8 +40,8 @@ import {
   styleUrls: ['./event-info-card.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EventInfoCardComponent {
 
+export class EventInfoCardComponent {
   @Input({ required: true })
   event!: Partial<EventDetails>;
 

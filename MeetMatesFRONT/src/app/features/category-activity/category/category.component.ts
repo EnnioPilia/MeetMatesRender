@@ -34,8 +34,9 @@ import { StateHandlerComponent } from '../../../shared-components/state-handler/
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss']
 })
+
 export class CategoryComponent implements OnInit {
-  
+
   private activityFacade = inject(ActivityFacade);
   private router = inject(Router);
   private destroyRef = inject(DestroyRef);

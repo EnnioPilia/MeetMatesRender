@@ -1,0 +1,16 @@
+    <div [formGroup]="form" class="event-activity">
+
+      <app-select
+        label="Activité"
+        [control]="activityControl"
+        [options]="activityOptions"
+        error="Activité requise">
+      </app-select>
+
+      <app-input
+        label="Nombre de participants"
+        [control]="maxParticipantsControl"
+        type="number">
+      </app-input>
+
+    </div>

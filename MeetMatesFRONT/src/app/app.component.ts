@@ -13,8 +13,6 @@ import { HeaderComponent } from './layout/header/header.component';
 import { SignalsService } from './core/services/signals/signals.service';
 import { AuthFacade } from './core/facades/auth/auth.facade';
 
-
-
 /**
  * Composant racine de l’application.
  *
@@ -30,16 +28,15 @@ import { AuthFacade } from './core/facades/auth/auth.facade';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet, 
-    HeaderComponent, 
+    RouterOutlet,
+    HeaderComponent,
     FooterComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
-
 })
-export class AppComponent {
 
+export class AppComponent {
   private signals = inject(SignalsService);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
@@ -51,17 +48,18 @@ export class AppComponent {
       // console.log('Current user:', this.signals.currentUser());
     });
   }
-ngOnInit() {
 
-  this.authFacade.loadCurrentUser().subscribe();
+  ngOnInit() {
 
-  this.router.events
-    .pipe(
-      filter(event => event instanceof NavigationEnd),
-      takeUntilDestroyed(this.destroyRef)
-    )
-    .subscribe(() => this.updatePageTitle());
-}
+    this.authFacade.loadCurrentUser().subscribe();
+
+    this.router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        takeUntilDestroyed(this.destroyRef)
+      )
+      .subscribe(() => this.updatePageTitle());
+  }
 
   /**
    * Met à jour le titre de la page courante

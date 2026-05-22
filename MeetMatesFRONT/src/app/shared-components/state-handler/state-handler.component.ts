@@ -17,7 +17,7 @@ import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.comp
 @Component({
   selector: 'app-state-handler',
   standalone: true,
-  imports: [ LoadingSpinnerComponent],
+  imports: [ LoadingSpinnerComponent ],
   styleUrls: ['./state-handler.component.scss'],
   templateUrl: './state-handler.component.html'
 })

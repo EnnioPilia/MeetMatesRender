@@ -1,29 +1,15 @@
 // Angular
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  inject,
-  ChangeDetectionStrategy
-} from '@angular/core';
-
+import { Component, EventEmitter, Input, OnInit, Output, inject, ChangeDetectionStrategy} from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import {
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators
-} from '@angular/forms';
-
-// Shared
-import { AppInputComponent } from '../../../shared-components/input/input.component';
-import { AppButtonComponent } from '../../../shared-components/button/button.component';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 // Core
 import { User } from '../../../core/models/user.model';
+
+// Shared components
+import { AppInputComponent } from '../../../shared-components/input/input.component';
+import { AppButtonComponent } from '../../../shared-components/button/button.component';
+
 
 /**
  * Sous-composant de formulaire dédié à l’édition
@@ -31,7 +17,6 @@ import { User } from '../../../core/models/user.model';
  */
 @Component({
   selector: 'app-edit-profile-form',
-  styleUrls: ['./edit-profile-form.component.scss'],
   standalone: true,
   imports: [
     CommonModule,
@@ -40,37 +25,10 @@ import { User } from '../../../core/models/user.model';
     AppButtonComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-
-    <form
-      class="edit-profile-form"
-      [formGroup]="form"
-      (ngSubmit)="onSubmit()">
-
-      <app-input
-        label="Prénom"
-        [control]="form.get('firstName')!"
-        type="text">
-      </app-input>
-
-      <app-input
-        label="Nom"
-        [control]="form.get('lastName')!"
-        type="text">
-      </app-input>
-
-      <app-button
-        label="ENREGISTRER"
-        class="primary-button"
-        type="submit"
-        [fullWidth]="true"
-        [disabled]="form.invalid || loading">
-      </app-button>
-
-    </form>
-
-  `,
+  templateUrl: './edit-profile-form.component.html',
+  styleUrls: ['./edit-profile-form.component.scss'],
 })
+
 export class EditProfileFormComponent implements OnInit {
 
   @Input({ required: true })

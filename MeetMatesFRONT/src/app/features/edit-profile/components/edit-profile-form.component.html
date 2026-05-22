@@ -1,0 +1,26 @@
+    <form
+      class="edit-profile-form"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()">
+
+      <app-input
+        label="Prénom"
+        [control]="form.get('firstName')!"
+        type="text">
+      </app-input>
+
+      <app-input
+        label="Nom"
+        [control]="form.get('lastName')!"
+        type="text">
+      </app-input>
+
+      <app-button
+        label="ENREGISTRER"
+        class="primary-button"
+        type="submit"
+        [fullWidth]="true"
+        [disabled]="form.invalid || loading">
+      </app-button>
+
+    </form>

@@ -18,7 +18,7 @@ import { EventResponse } from '../../core/models/event-response.model';
 import { EventListItem } from '../../core/models/event-list-item.model';
 
 // Feature components
-import { EventCardComponent } from '../../features/search-event/components/event-card-component';
+import { EventCardComponent } from './components/event-card.component';
 import { StateHandlerComponent } from '../../shared-components/state-handler/state-handler.component';
 
 // Shared components
@@ -61,8 +61,8 @@ import { AppInputComponent } from '../../shared-components/input/input.component
   templateUrl: './search-events.component.html',
   styleUrls: ['./search-events.component.scss'],
 })
-export class SearchEventsComponent implements OnInit {
 
+export class SearchEventsComponent implements OnInit {
   private fb = inject(FormBuilder);
   private eventService = inject(EventService);
   private router = inject(Router);

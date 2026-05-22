@@ -14,6 +14,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'statusColor',
   standalone: true
 })
+
 export class StatusColorPipe implements PipeTransform {
 
   transform(label?: string | null): string {

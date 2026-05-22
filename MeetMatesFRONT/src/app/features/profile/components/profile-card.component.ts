@@ -28,28 +28,10 @@ import { User } from '../../../core/models/user.model';
     MatButtonModule
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `
-
-    <div class="profile-card">
-
-      <img
-        [src]="user?.profilePictureUrl || 'assets/images/default-avatar.png'"
-        alt="photo"
-        class="profile-image" />
-
-      <p class="profile-name">
-        {{ user?.lastName }} {{ user?.firstName }}
-      </p>
-
-      <p class="profile-email">
-        {{ user?.email }}
-      </p>
-
-    </div>
-
-  `,
+  templateUrl: './profile-card.component.html',
   styleUrls: ['./profile-card.component.scss']
 })
+
 export class ProfileCardComponent {
   @Input() user: User | null = null;
 }

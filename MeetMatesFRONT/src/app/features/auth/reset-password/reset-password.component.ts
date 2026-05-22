@@ -31,8 +31,6 @@ import { AppButtonComponent } from '../../../shared-components/button/button.com
 @Component({
   selector: 'app-reset-password',
   standalone: true,
-  templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
@@ -41,9 +39,11 @@ import { AppButtonComponent } from '../../../shared-components/button/button.com
     AppInputComponent,
     AppButtonComponent,
   ],
+  templateUrl: './reset-password.component.html',
+  styleUrls: ['./reset-password.component.scss'],
 })
+
 export class ResetPasswordComponent {
-  
   private route = inject(ActivatedRoute);
   private fb = inject(FormBuilder);
   private authFacade = inject(AuthFacade);

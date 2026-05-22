@@ -20,7 +20,6 @@ import { MatNativeDateModule } from '@angular/material/core';
  */
 @Component({
   selector: 'app-event-date-time',
-  styleUrls: ['./event-date-time.component.scss'],
   standalone: true,
   imports: [
     CommonModule,
@@ -30,92 +29,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  template: `
-<div [formGroup]="form" class="event-date-time">
-
-  <div class="field">
-
-    <label class="label">
-      Date
-    </label>
-
-<div class="date-wrapper">
-
-  <input
-    matInput
-    class="input"
-    [matDatepicker]="picker"
-    formControlName="eventDate" />
-
-  <mat-datepicker-toggle
-    matSuffix
-    [for]="picker">
-  </mat-datepicker-toggle>
-
-</div>
-
-<mat-datepicker #picker></mat-datepicker>
-    @if (
-      form.get('eventDate')?.hasError('required') &&
-      (form.get('eventDate')?.touched || form.get('eventDate')?.dirty)
-    ) {
-      <span class="error">
-        La date est requise.
-      </span>
-    }
-
-  </div>
-
-  <div class="time-row">
-
-    <div class="field">
-
-      <label class="label">
-        Heure de début
-      </label>
-
-      <input
-        class="input"
-        type="time"
-        formControlName="startTime" />
-          @if (
-            form.get('startTime')?.hasError('required') &&
-            (form.get('startTime')?.touched || form.get('startTime')?.dirty)
-          ) {
-            <span class="error">
-              L'heure de début est requise.
-            </span>
-          }
-    </div>
-
-    <div class="field">
-
-      <label class="label">
-        Heure de fin
-      </label>
-
-      <input
-        class="input"
-        type="time"
-        formControlName="endTime" />
-          @if (
-            form.get('endTime')?.hasError('required') &&
-            (form.get('endTime')?.touched || form.get('endTime')?.dirty)
-          ) {
-            <span class="error">
-              L'heure de fin est requise.
-            </span>
-          }
-    </div>
-
-  </div>
-
-</div>
-
-  `
+  styleUrls: ['./event-date-time.component.scss'],
+  templateUrl: './event-date-time.component.html',
 })
+
 export class EventDateTimeComponent {
-
   @Input({ required: true }) form!: FormGroup;
-
 }

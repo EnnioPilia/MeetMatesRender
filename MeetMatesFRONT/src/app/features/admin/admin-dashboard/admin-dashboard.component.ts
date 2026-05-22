@@ -33,8 +33,8 @@ import { StateHandlerComponent } from '../../../shared-components/state-handler/
   styleUrls: ['./admin-dashboard.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AdminDashboardComponent {
 
+export class AdminDashboardComponent {
   private facade = inject(AdminFacade);
   private router = inject(Router);
 

@@ -1,5 +1,5 @@
 // Angular
-import { Component, ChangeDetectionStrategy, inject, computed  } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, computed } from '@angular/core';
 import { Router } from '@angular/router';
 
 // Angular Material
@@ -21,14 +21,19 @@ import { SignalsService } from '../../core/services/signals/signals.service';
 @Component({
   selector: 'app-home',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    MatButtonModule,
+    MatCardModule,
+    AppButtonComponent
+  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [MatButtonModule, MatCardModule, AppButtonComponent],
 })
+
 export class HomeComponent {
   private router = inject(Router);
-readonly signals = inject(SignalsService);
+  readonly signals = inject(SignalsService);
 
   navigateTo(path: string): void {
     this.router.navigate([path]);

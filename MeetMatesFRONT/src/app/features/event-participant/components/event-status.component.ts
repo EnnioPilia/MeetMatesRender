@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Shared components
-import { StatusColorPipe } from '../../../shared-components/pipes/statusColor.pipe'; 
+import { StatusColorPipe } from '../../../shared-components/pipes/statusColor.pipe';
 // Utils
 import { getStatusLabel, getParticipationLabel } from '../../../core/utils/labels.utils';
 
@@ -18,42 +18,12 @@ import { getStatusLabel, getParticipationLabel } from '../../../core/utils/label
  */
 @Component({
   selector: 'app-event-status',
-    styleUrls: ['./event-status.component.scss'],
   standalone: true,
   imports: [CommonModule, StatusColorPipe],
-  template: `
-  
-<div class="event-status-container">
-
-  <p>
-
-    <strong>VOTRE PARTICIPATION :</strong>
-
-    <span
-      [ngClass]="getParticipationLabel(participationStatus || '') | statusColor">
-
-      {{ getParticipationLabel(participationStatus || '') }}
-
-    </span>
-
-  </p>
-
-  <p>
-
-    <strong>STATUT DE L'ACTIVITÉ :</strong>
-
-    <span
-      [ngClass]="getStatusLabel(eventStatus || '') | statusColor">
-
-      {{ getStatusLabel(eventStatus || '') }}
-
-    </span>
-
-  </p>
-
-</div>
-  `
+  templateUrl: './event-status.component.html',
+  styleUrls: ['./event-status.component.scss'],
 })
+
 export class EventStatusComponent {
   @Input() eventStatus!: string | null;
   @Input() participationStatus!: string | null;

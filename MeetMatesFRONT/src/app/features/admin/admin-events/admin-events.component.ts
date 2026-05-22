@@ -44,8 +44,8 @@ import { EventInfoComponent } from '../../../shared-components/event-info/event-
   styleUrls: ['./admin-events.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AdminEventsComponent implements OnInit {
 
+export class AdminEventsComponent implements OnInit {
   private adminFacade = inject(AdminFacade);
   private dialogService = inject(DialogService);
   private destroyRef = inject(DestroyRef);

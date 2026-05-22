@@ -1,10 +1,5 @@
 // Angular
-import {
-  Component,
-  Input,
-  ChangeDetectionStrategy,
-  inject
-} from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, inject } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -42,77 +37,11 @@ import { EventInfoCardComponent } from '../../../shared-components/event-info-ca
     EventInfoCardComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  templateUrl: './participation-tab.component.html',
   styleUrls: ['./participation-tab.component.scss'],
-  template: `
-
-    <div class="participation-list">
-
-      @if (mappedEvents.length === 0) {
-
-        <p class="empty-state">
-          Vous ne participez à aucun événement actuellement.
-        </p>
-
-      } @else {
-
-        <mat-accordion
-          multi
-          class="events-accordion">
-
-          @for (event of mappedEvents; track event.id) {
-
-            <mat-expansion-panel class="event-panel">
-
-              <mat-expansion-panel-header>
-
-                <div class="event-header">
-
-                  <span class="event-title">
-                    {{ event.title }}
-                  </span>
-
-                  <span class="event-date">
-                    {{ event.date | date:'dd/MM/yy' }}
-                  </span>
-
-                </div>
-
-              </mat-expansion-panel-header>
-
-              <div class="event-content">
-
-                <app-event-info-card
-                  [event]="event"
-                  [showActivity]="false"
-                  [showStatus]="true"
-                  [showParticipationStatus]="true"
-                  [showAddress]="true">
-                </app-event-info-card>
-
-                <button
-                  class="primary-button"
-                  [routerLink]="['/event-participant', event.eventId]">
-
-                  VOIR DÉTAILS
-
-                </button>
-
-              </div>
-
-            </mat-expansion-panel>
-
-          }
-
-        </mat-accordion>
-
-      }
-
-    </div>
-
-  `
 })
-export class ParticipationTabComponent {
 
+export class ParticipationTabComponent {
   private mapper = inject(EventMapperService);
 
   @Input()

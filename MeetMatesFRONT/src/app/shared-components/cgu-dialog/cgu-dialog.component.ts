@@ -24,15 +24,16 @@ import { AppButtonComponent } from '../../shared-components/button/button.compon
 @Component({
   selector: 'app-cgu-dialog',
   standalone: true,
-  templateUrl: './cgu-dialog.component.html',
-  styleUrls: ['./cgu-dialog.component.scss'],
-    imports: [
+  imports: [
     CommonModule,
     MatButtonModule,
     MatDialogModule,
     AppButtonComponent
   ],
+  templateUrl: './cgu-dialog.component.html',
+  styleUrls: ['./cgu-dialog.component.scss'],
 })
+
 export class CguDialogComponent {
   safeContent!: SafeHtml;
 

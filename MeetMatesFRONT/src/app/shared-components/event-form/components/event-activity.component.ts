@@ -1,11 +1,7 @@
 // Angular
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  FormGroup,
-  ReactiveFormsModule,
-  FormControl
-} from '@angular/forms';
+import { FormGroup, ReactiveFormsModule, FormControl} from '@angular/forms';
 
 // Core (models)
 import { Activity } from '../../../core/models/activity.model';
@@ -25,7 +21,6 @@ import { AppSelectComponent } from '../../../shared-components/select/select.com
  */
 @Component({
   selector: 'app-event-activity',
-    styleUrls: ['./event-activity.component.scss'],
   standalone: true,
   imports: [
     CommonModule,
@@ -33,29 +28,11 @@ import { AppSelectComponent } from '../../../shared-components/select/select.com
     AppInputComponent,
     AppSelectComponent
   ],
-  template: `
-
-    <div [formGroup]="form" class="event-activity">
-
-      <app-select
-        label="Activité"
-        [control]="activityControl"
-        [options]="activityOptions"
-        error="Activité requise">
-      </app-select>
-
-      <app-input
-        label="Nombre de participants"
-        [control]="maxParticipantsControl"
-        type="number">
-      </app-input>
-
-    </div>
-
-  `
+  templateUrl: './event-activity.component.html',
+  styleUrls: ['./event-activity.component.scss'],
 })
-export class EventActivityComponent {
 
+export class EventActivityComponent {
   @Input({ required: true }) form!: FormGroup;
   @Input() activities: Activity[] = [];
 

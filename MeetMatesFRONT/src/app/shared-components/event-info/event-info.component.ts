@@ -25,11 +25,15 @@ import { getStatusLabel, getLevelLabel, getMaterialLabel } from '../../core/util
 @Component({
   selector: 'app-event-info',
   standalone: true,
-  imports: [CommonModule, StatusColorPipe],
+  imports: [
+    CommonModule,
+    StatusColorPipe
+  ],
   templateUrl: './event-info.component.html',
   styleUrls: ['./event-info.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class EventInfoComponent {
   @Input() event!: EventResponse | EventDetails;
   @Input() showStatus = false;

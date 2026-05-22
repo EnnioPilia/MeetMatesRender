@@ -62,8 +62,8 @@ import { StateHandlerComponent } from '../../shared-components/state-handler/sta
   templateUrl: './event-organizer.component.html',
   styleUrls: ['./event-organizer.component.scss'],
 })
-export class EventOrganizerComponent implements OnInit {
 
+export class EventOrganizerComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private dialogService = inject(DialogService);

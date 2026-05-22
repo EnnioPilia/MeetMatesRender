@@ -21,64 +21,16 @@ import { Participant } from '../../../core/models/participant.model';
  */
 @Component({
   selector: 'app-event-tab-pending',
-  styleUrls: ['./event-tab-pending.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatButtonModule],
-  template: `
-
-    <div class="participants-list">
-
-  @if (pendingParticipants.length > 0) {
-
-    <div class="participants-content">
-
-      @for (p of pendingParticipants; track p.id) {
-
-        <div class="participant-row">
-
-          <span class="participant-name">
-            {{ p.firstName }} {{ p.lastName }}
-          </span>
-
-          <div class="participant-actions">
-
-            <button
-              mat-icon-button
-              color="primary"
-              (click)="accept.emit(p.id)">
-
-              <mat-icon>check</mat-icon>
-
-            </button>
-
-            <button
-              mat-icon-button
-              color="warn"
-              (click)="reject.emit(p.id)">
-
-              <mat-icon>highlight_off</mat-icon>
-
-            </button>
-
-          </div>
-
-        </div>
-
-      }
-
-    </div>
-
-  } @else {
-
-    <p class="empty-state">
-      Aucun participant en attente.
-    </p>
-
-  }
-
-</div>
-  `,
+  imports: [
+    CommonModule,
+    MatIconModule,
+    MatButtonModule
+  ],
+  templateUrl: './event-tab-pending.component.html',
+  styleUrls: ['./event-tab-pending.component.scss'],
 })
+
 export class EventTabPendingComponent {
   @Input() pendingParticipants: Participant[] = [];
   @Output() accept = new EventEmitter<string>();

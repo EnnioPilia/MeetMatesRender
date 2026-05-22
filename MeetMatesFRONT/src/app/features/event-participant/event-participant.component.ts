@@ -1,3 +1,4 @@
+// Angular
 import { Component, OnInit, inject, DestroyRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
@@ -6,16 +7,21 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
+// Core (facades, service, utils)
 import { DialogService } from '../../core/services/dialog.service/dialog.service';
+import { EventFacade } from '../../core/facades/events/event/event.facade';
+import { getStatusLabel, getLevelLabel, getMaterialLabel, getParticipationLabel } from '../../core/utils/labels.utils';
+
+// Feature components
 import { EventStatusComponent } from './components/event-status.component';
 import { ParticipantListComponent } from './components/participant-list.component';
+
+// Shared components
 import { EventHeaderComponent } from '../../shared-components/event-header/event-header.component';
 import { EventInfoComponent } from '../../shared-components/event-info/event-info.component';
 import { AppButtonComponent } from '../../shared-components/button/button.component';
 import { StateHandlerComponent } from '../../shared-components/state-handler/state-handler.component';
 
-import { getStatusLabel, getLevelLabel, getMaterialLabel, getParticipationLabel } from '../../core/utils/labels.utils';
-import { EventFacade } from '../../core/facades/events/event/event.facade';
 
 /**
  * Composant parent chargé de l’affichage d’un événement
@@ -51,8 +57,8 @@ import { EventFacade } from '../../core/facades/events/event/event.facade';
   templateUrl: './event-participant.component.html',
   styleUrls: ['./event-participant.component.scss']
 })
-export class EventParticipantComponent implements OnInit {
 
+export class EventParticipantComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private dialogService = inject(DialogService);
